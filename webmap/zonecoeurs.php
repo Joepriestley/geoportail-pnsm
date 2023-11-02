@@ -1,7 +1,7 @@
 <?php
     require_once ("./config/dbConnect.php");
 
-    $result = $pdo->query("SELECT * ,ST_AsGeoJSON(geom,5) AS geojson FROM zonecoeurs");
+    $result = $pdo->query("SELECT * , ST_AsGeoJSON(geom,5) AS geojson FROM zcoeur")->fetchAll(PDO::FETCH_ASSOC);
     $features =[];
     foreach($result AS $row){
         unset($row['geom']);
@@ -12,5 +12,4 @@
     }
     $featureCollection=["type"=>"FeatureCollection","features"=>$features];
     echo json_encode($featureCollection);
-//clusters
 ?>

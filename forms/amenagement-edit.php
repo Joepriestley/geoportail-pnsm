@@ -35,8 +35,12 @@ if (isset($_GET['id'])) {
                                 <input type="text" name="codeamenagement" value="<?= $result->codeamenagement; ?>" class="form-control" id="codeamenagement" placeholder="codeamenagement" disabled="disabled">
                             </div>
                             <div class="form-group col-md-6">
-                                <label for="coutamenagement">Cout_Amenagement</label>
-                                <input type="number" value="<?= $result->coutamenagement; ?>" class="form-control" id="coutamenagement" name="coutamenagement" placeholder="coutamenagement">
+                                <label for="type">Type_Amenagement</label>
+                                <input type="text" value="<?= $result->type; ?>" class="form-control" id="type" name="type" placeholder="type">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="element_amenage">Element_Amenagement</label>
+                                <input type="text" class="form-control" id="element_amenage" name="element_amenage" placeholder="element amenage">
                             </div>
                             <div class="input-group col-md-12">
                                 <div class="input-group-prepend">
@@ -60,44 +64,10 @@ if (isset($_GET['id'])) {
             </div>
         </div>
         <div class="col-md-7>
-            <table class="table table-striped">
-                <thead class="table-primary">
-                    <tr>
-                        <th>Code_Amenagement</th>
-                        <th>Cout_Amenagement</th>
-                        <th>Commentaire</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody id="circuitTable">
-                    <!-- Table rows will be dynamically added here -->
-                    <?php
-                            // Assuming you already have the database connection established ($pdo)
-                            $query = "SELECT * FROM amenagement";
-                            $stmt = $pdo->prepare($query);
-                            $stmt->execute();
-                            $results = $stmt->fetchall(PDO::FETCH_ASSOC);
-                            ?>
-
-                            <!-- Add this inside the table body -->
-                            <?php foreach ($results as $row) : ?>
-                                <tr>
-                                    <td><?= $row['codeamenagement'] ?></td>
-                                    <td><?= $row['coutamenagement'] ?></td>
-                                    <td><?= $row['commentaire'] ?></td>                                    
-                                    <td>
-                                        <a href="amenagement-edit.php?id=<?= $row['codeamenagement'] ?>"><button name="edit_amenagement" class="edit-btn btn btn-warning">Editer</button></a>
-                                       
-                                    </td>
-                                    <td>
-                                        <button name="delete_amenagement" class="delete-btn btn btn-danger" data-id="<?= $row['codeamenagement'] ?>" onclick="return confirm('Etes vous d\'effacer cette ligne?');">Effacer</button>
-                                    </td>
-                                </tr>
-                        <?php endforeach; ?>
-
-
-                </tbody>
-            </table>
+          <table class="">
+            
+              
+            </table
         </div>
     </div>
 </div>

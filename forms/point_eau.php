@@ -15,46 +15,37 @@ include_once 'header.php';
                         <?php if (isset($_GET['message']))  { ?>
                                  <p class="message"><?php echo $_GET['message']; ?></p> <?php }?>
                             <div class="form-row">
-                                <span class="form-control text-center bg-dark text-white"><b>Point  Eau</b></span>
+                                <span class="form-control text-center bg-dark text-white"><b> Point Eau</b></span>
                                 <div class="form-group col-md-6">
-                                    <label for="id_amenagement">Id_Amenagement</label>
-                                    <input name="id_amenagement" type="number" class="form-control" id="id_amenagement" name="id_amenagement" placeholder="Id_Amenagement">
+                                    <label for="id_ref_point_eau">ID Point Eau </label>
+                                    <input name="id_point_eau" type="text" class="form-control" id="id_point_eau" placeholder="saissir l'identifiant du point eau">
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label for="etatelement">Etat_Element</label>
-                                    <input name="etatelement" type="text" class="form-control" id="etatelement" placeholder="etatelement">
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <label for="detailamenagement">Identifiant_Amenagement</label>
-                                    <input name="detailamenagement" type="text" class="form-control" id="detailamenagement" placeholder="detailamenagement">
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <label for="nompointeau">Nom_Point_Eau </label>
-                                    <input name="nompointeau" type="text" class="form-control" id="nompointeau" placeholder="nompointeau">
+                                    <label for="profondeur">Profondeur</label>
+                                    <input name="profondeur" type="number" class="form-control" id="profondeur" placeholder="profondeur">
                                 </div>
                                 <div class="form-group col-md-12">
-                                    <label for="nature">nature</label>
-                                    <input name="nature" type="text" class="form-control" id="nature" placeholder="nature">
+                                    <label for="nature">Nature</label>
+                                    <input name="nature" type="text" class="form-control" id="nature" placeholder="la nature d'eau">
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <label for="cout_creaction">Cout Installation</label>
+                                    <input name="cout_creaction" type="number" class="form-control" id="cout_creaction" placeholder="le cout de l'action">
                                 </div>
                                 <div class="form-group col-md-12">
                                     <label for="localisation">Localisation</label>
                                     <input name="localisation" type="text" class="form-control" id="localisation" placeholder="localisation">
-                                </div>
+                             </div>
+                            </div>
                                 <div class="form-group col-md-12">
-                                    <label for="profondeur">Profondeur</label>
-                                    <input name="profondeur" type="number" class="form-control" id="profondeur" placeholder="profondeur">
+                                    <label for="importance">Importance</label>
+                                    <input name="importance" type="text" class="form-control" id="importance" placeholder="les importance du point d'eau">
                                 </div>
-                            </div>
-                            <div class="form-group col-md-12">
-                                <label for="importance">importance</label>
-                                <input name="importance" type="date" class="form-control" id="importance" placeholder="importance">
-                            </div>
-                            <div class="input-group col-md-12">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text">Commentaire</span>
-                                </div>
-                                <textarea name="commentaire" class="form-control" id="commentaire" aria-label="commentaire" placeholder="Entrer un commentaire /description de l'especes"></textarea>
-                            </div>
+                                <!-- <div class="form-group col-md-12">
+                                    <label for="id_amengt">ID Amenagement</label>
+                                    <input name="id_amengt" type="number" class="form-control" id="id_amengt" placeholder="mettre l'identifiant de type d'amenagement">
+                                </div> -->
+                           
                             <button type="submit" name="submit" class="btn btn-primary">Inserer</button>
                         </form>
                         <br>
@@ -67,15 +58,12 @@ include_once 'header.php';
                     <table class="table table-striped">
                         <thead class="table-success">
                             <tr >
-                                <th>Nom Point_Eau</th>
-                                <th>Det.Amengt</th>
-                                <th>Etat Element</th>
-                                <th>Id Amengt</th>
+                                <th>ID Point Eau</th>
                                 <th>Profondeur</th>
-                                <th>nature</th>
-                                <th>local.</th>
-                                <th>import.</th>
-                                <th>com</th>
+                                <th>Nature</th>
+                                <th>Cout Installation</th>
+                                <th>Localisation</th>
+                                <th>Importance</th>
                                 <th>Editer</th>
                                 <th>Effacer</th>
                             </tr>
@@ -92,25 +80,22 @@ include_once 'header.php';
                             <!-- Add this inside the table body -->
                             <?php foreach ($results as $row) : ?>
                                 <tr>
-                                    <td><?= $row['nompointeau'] ?></td>
-                                    <td><?= $row['detailamenagement'] ?></td>
-                                    <td><?= $row['etatelement'] ?></td>
-                                    <td><?= $row['id_amenagement'] ?></td>
+                                    <td><?= $row['id_point_eau'] ?></td>
                                     <td><?= $row['profondeur'] ?></td>
                                     <td><?= $row['nature'] ?></td>
+                                    <td><?= $row['cout_creaction'] ?></td>
                                     <td><?= $row['localisation'] ?></td>
                                     <td><?= $row['importance'] ?></td>
-                                    <td><?= $row['commentaire'] ?></td>
                                     <td>
-                                        <a href="point_eau-edit.php?id=<?= $row['nompointeau'] ?>"><button name="edit_point_eau" class="edit-btn btn btn-warning" data-id="<?= $row['nompointeau'] ?>">Editer</button></a>
+                                        <a href="point_eau-edit.php?id=<?= $row['id_point_eau'] ?>"><button name="edit_point_eau" class="edit-btn btn btn-warning" data-id="<?= $row['id_point_eau'] ?>">Editer</button></a>
                                     </td>
                                     <td>
                                         <!-- Delete form -->
                                         <form style="border:0px; padding:0px;" action="./deletion/point_eau-delete.php" method="POST">
-                                            <!-- Hidden input field to include nompointeau  -->
-                                            <input type="hidden" name="nompointeau" value="<?= $row['nompointeau'] ?>">
+                                            <!-- Hidden input field to include id_point_eau  -->
+                                            <input type="hidden" name="id_point_eau" value="<?= $row['id_point_eau'] ?>">
                                             <!-- Delete button -->
-                                            <button name="delete_point_eau" class="delete-btn btn btn-danger" data-id="<?= $row['nompointeau'] ?>" onclick="return confirm('Etes vous d\'effacer cette ligne?');">Effacer</button>
+                                            <button name="delete_point_eau" class="delete-btn btn btn-danger" data-id="<?= $row['id_point_eau'] ?>" onclick="return confirm('Etes vous d\'effacer cette ligne?');">Effacer</button>
                                         </form>
                                     </td>
                                 </tr>

@@ -20,6 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $fonction = validate($_POST['fonction']);
     $telephone = validate($_POST['telephone']);
     $adresse = validate($_POST['adresse']);
+    $date_visite = validate($_POST['date_visite']);
     $prenom = validate($_POST['prenom']);
     // Perform server-side validation
     if (empty($numerocin_passport) || empty($nomtouriste) || empty($nationalite) || empty($motivation) || empty($age) || empty($sexe) || empty($fonction)|| empty($telephone) || empty($adresse) || empty($prenom)){
@@ -35,7 +36,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 fonction = :fonction,
                 telephone = :telephone,
                 adresse = :adresse,
-                prenom = :prenom
+                date_visite = :date_visite,
+                prenom = :prenom               
             WHERE numerocin_passport = :idToUpdate"; // Change 'id' to the actual primary key field name of your table
             
             $stmt = $pdo->prepare($query);
@@ -51,6 +53,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     ':fonction' => $fonction,
                     ':telephone' => $telephone,
                     ':adresse' => $adresse,
+                    ':date_visite' => $date_visite,
                     ':prenom' => $prenom,
                     ':idToUpdate' => $numerocin_passport // Replace with the actual ID you want to update
                 ];

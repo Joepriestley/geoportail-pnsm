@@ -31,25 +31,17 @@ if (isset($_GET['id'])) {
                         <?php } ?>
                         <div class="form-row">
                             <span class="form-control text-center bg-dark text-white"><b>Piste</b></span>
-                            <div class="form-group col-md-6">
-                                <label for="id_amenagement">Id_Amenagement</label>
-                                <input type="number" class="form-control" id="id_amenagement" name="id_amenagement" placeholder="Id_Amenagement" value="<?= $result->id_amenagement; ?>">
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label for="etatelement">Etat_Element</label>
-                                <input type="text" class="form-control" id="etatelement" name="etatelement" placeholder="etatelement" value="<?= $result->etatelement; ?>">
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label for="detailamenagement">Identifiant_Amenagement</label>
-                                <input type="text" class="form-control" id="detailamenagement" name="detailamenagement" placeholder="detailamenagement" value="<?= $result->detailamenagement; ?>">
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label for="id_piste">Id_Pistes</label>
+                            <div class="form-group col-md-12">
+                                <label for="id_piste">Id_Piste</label>
                                 <input type="text" class="form-control" id="id_piste" name="id_piste" placeholder="id_piste" value="<?= $result->id_piste; ?>" disabled="disabled">
                             </div>
                             <div class="form-group col-md-12">
                                 <label for="longueur">longueur</label>
                                 <input type="number" class="form-control" id="longueur" name="longueur" placeholder="longueur" value="<?= $result->longueur; ?>">
+                            </div>
+                            <div class="form-group col-md-12">
+                                <label for="cout_amengt">cout_amengt</label>
+                                <input type="number" class="form-control" id="cout_amengt" name="cout_amengt" placeholder="cout_amengt" value="<?= $result->cout_amengt; ?>">
                             </div>
                             <div class="form-group col-md-12">
                                 <label for="accessibilite">accessibilite</label>
@@ -59,6 +51,10 @@ if (isset($_GET['id'])) {
                         <div class="form-group col-md-12">
                             <label for="dateouverture">dateouverture</label>
                             <input type="date" class="form-control" id="dateouverture" name="dateouverture" placeholder="dateouverture" value="<?= $result->dateouverture; ?>">
+                        </div>
+                        <div class="form-group col-md-12">
+                            <label for="id_amengt">Id_Amenagement</label>
+                            <input type="number" class="form-control" id="id_amengt" name="id_amengt" placeholder="id_amengt" value="<?= $result->id_amengt; ?>">
                         </div>
                         <input type="hidden" name="id_piste" value="<?= $result->id_piste; ?>">
                         <button type="submit" name="submit" class="btn btn-primary">UPDATE</button>

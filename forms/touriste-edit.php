@@ -42,6 +42,10 @@ include_once 'header.php';
 
               </div>
               <div class="form-group col-md-6">
+                <label for="prenom">Prenom</label>
+                <input name="prenom" type="text" value="<?=$result->prenom; ?>"  class="form-control" id="prenom" placeholder="Prenom">
+              </div>
+              <div class="form-group col-md-6">
                 <label for="age">Age Touriste</label>
                 <input name="age" type="number" value="<?=$result->age; ?>"  class="form-control" id="age" placeholder="Age du Touriste">
               </div>
@@ -49,7 +53,7 @@ include_once 'header.php';
                 <label for="sexe">Sexe</label>
                 <input name="sexe" type="text" value="<?=$result->sexe; ?>"  class="form-control" id="sexe" placeholder="sexe">
               </div>
-              <div class="form-group col-md-6">
+              <div class="form-group col-md-12">
                 <label for="numerocin_passport">Numero CIN/Passport</label>
                 <input name="numerocin_passport" type="text" value="<?=$result->numerocin_passport; ?>"  class="form-control" id="numerocin_passport" placeholder="numerocin_passport" disabled="disabled">
               </div>
@@ -72,13 +76,14 @@ include_once 'header.php';
                 <label for="telephone">telephone</label>
                 <input name="telephone" type="tel" value="<?=$result->telephone; ?>"  class="form-control" id="telephone" value="451-189-0809" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="123-456-7890">
               </div>
-              <div class="form-group col-md-6">
+              <div class="form-group col-md-12">
                 <label for="adresse">Adresse</label>
                 <input name="adresse" type="text" value="<?=$result->adresse; ?>"  class="form-control" id="adresse" placeholder="fonction/occupation">
               </div>
-              <div class="form-group col-md-6">
-                <label for="prenom">Prenom</label>
-                <input name="prenom" type="text" value="<?=$result->prenom; ?>"  class="form-control" id="prenom" placeholder="Prenom">
+             
+              <div class="form-group col-md-12">
+                <label for="date_visite">Date_visite</label>
+                <input name="date_visite" type="text" value="<?=$result->date_visite; ?>"  class="form-control" id="date_visite" placeholder="date_visite">
               </div>
               <input type="hidden" value="<?=$result->numerocin_passport; ?>"  name="numerocin_passport" >
             </div>

@@ -3,6 +3,30 @@ $pdo = require_once './includes/dbConnect.php';
 include_once 'header.php';
 
 ?>
+<style>
+    .card-body .toggle-content.collapsed {
+        max-height: 100px; /* Set the collapsed height as needed */
+        overflow: hidden;
+    }
+</style>
+
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('.toggle-btn').on('click', function() {
+            // Find the closest .card-body
+            var cardBody = $(this).closest('.card-body');
+
+            // Toggle the .collapsed class on .toggle-content
+            cardBody.find('.toggle-content').toggleClass('collapsed');
+
+            // Change the text of the button based on the current state
+            var buttonText = cardBody.find('.toggle-content').hasClass('collapsed') ? 'Expand' : 'Collapse';
+            $(this).text(buttonText);
+        });
+    });
+</script>
+
 <div class="container-fluid mt-4">
   <div class="row">
     <div class="col-5 ">
@@ -119,17 +143,17 @@ include_once 'header.php';
     ?>
 
     <div class="col-7 bg-gray px-2">
-      <h3 class="mb-3">Liste des especes animal</h3>
+      <h3 class="mb-3">Liste des especes animales</h3>
 
       <div class="row ">
 
         <?php foreach ($results as $row) : ?>
-          <div class="col-md-4 mb-4">
+          <div class="col-md-3 mb-4">
             <div class="card  mb-3">
               <img   src="<?= $row['photo'] ?>" class="card-img-top" alt="Image">
               <div class="card-body">
                 <h5 class="card-title"><?= $row['nomscientifique'] ?></h5>
-                <p class="card-text">
+                <p class="card-text card-text toggle-content collapsed">
                   <strong>Nom Francais:</strong> <?= $row['nomfrancais'] ?><br>
                   <strong>Famille:</strong> <?= $row['famille'] ?><br>
                   <strong>Statut Social:</strong> <?= $row['statutsocial'] ?><br>
@@ -139,15 +163,17 @@ include_once 'header.php';
                   <strong>Taille Portee:</strong> <?= $row['tailleportee'] ?><br>
                   <strong>Nombre Portee/an:</strong> <?= $row['nombreportee_an'] ?><br>
                   <strong>Commentaire :</strong> <?= $row['commentaire'] ?>
-                </p>
+                  </p>
                 <a href="esp_animal-edit.php?id=<?= $row['nomscientifique'] ?>" class="btn btn-info">Editer</a><br><br>
                 <form style="border:0px; padding:0px;" action="./deletion/esp_animal-delete.php" method="POST">
                   <!-- Hidden input field to include id_action -->
                   <input type="hidden" name="nomscientifique" value="<?= $row['nomscientifique'] ?>">
                   <!-- Delete button -->
                   <button name="delete_animal" class="delete-btn btn btn-danger" data-id="<?= $row['nomscientifique'] ?>" onclick="return confirm('Etes vous d\'effacer cette ligne?');">Effacer</button>
+                 
                 </form>
               </div>
+              <button class="toggle-btn btn btn-secondary">Hide/show</button>
             </div>
           </div>
         <?php endforeach; ?>

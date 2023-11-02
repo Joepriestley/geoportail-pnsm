@@ -86,7 +86,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $result = $stmt->execute($params);
 
                 if ($result) {
-                    header("Location: ./esp_vegetal.php?message=Data inserted successfully!");
+                    header("Location: ../esp_vegetal.php?message=Data inserted successfully!");
                     exit();
                 } else {
                     echo "Error: " . $stmt->errorInfo()[2];

@@ -123,7 +123,7 @@ include_once 'header.php';
         ?>
         <!-- dynamically generates a table  -->
         <div class="col-10 bg-gray px-2">
-          <h3 class="mb-3">Liste des especes animal</h3>
+          <h3 class="mb-3">Liste des especes Vegetales</h3>
 
           <!-- <div class="container"> -->
           <div class="row">

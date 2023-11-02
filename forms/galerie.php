@@ -230,6 +230,59 @@ echo '</style>';
             </div>
           </div>
           
+          <div class="col-md-4 ">
+            <div class="card">
+                <a href="../img/alpculturepnsm.jpg" data-lightbox="models" data-title="Chevalier gambette"><img src="../img/alpculturepnsm.jpg"  width="350" height="350" ></a>
+              <div class="card-body">
+                <p class="card-text"> Activit Alpculture du PNSM</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-md-4 ">
+            <div class="card">
+                <a href="../img/ory_gpr1.jpg" data-lightbox="models" data-title="Echasse blanche"><img src="../img/ory_gpr1.jpg"  width="350" height="350" ></a>
+              <div class="card-body">
+                <p class="card-text">Oryx Gazzelle</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 ">
+           
+            <div class="card">
+                <a href="../img/faucon_crecerelle.jpg" data-lightbox="models" data-title="Phoenicopterus roseus"><img src="../img/faucon_crecerelle.jpg"  width="350" height="350" ></a>
+              <div class="card-body">
+                <p class="card-text">Faucon Crecerelle</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 ">
+            <div class="card">
+                <a href="../img/flamant.jpg" data-lightbox="models" data-title="Chevalier gambette"><img src="../img/flamant.jpg"  width="350" height="350" ></a>
+              <div class="card-body">
+                <p class="card-text">Flamant</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-md-4 ">
+            <div class="card">
+                <a href="../img/chat_gante.jpg" data-lightbox="models" data-title="Echasse blanche"><img src="../img/chat_gante.jpg"  width="350" height="350" ></a>
+              <div class="card-body">
+                <p class="card-text">Chat Gante</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 ">
+           
+            <div class="card">
+                <a href="../img/gazelle_.jpg" data-lightbox="models" data-title="Phoenicopterus roseus"><img src="../img/gazelle_.jpg"  width="350" height="350" ></a>
+              <div class="card-body">
+                <p class="card-text">Dorcas Gazelle_</p>
+              </div>
+            </div>
+          </div>
+          
         </div> 
 
 </div>

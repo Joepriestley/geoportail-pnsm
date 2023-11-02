@@ -17,34 +17,31 @@ include_once 'header.php';
                                  <p class="message"><?php echo $_GET['message']; ?></p> <?php }?>
                             <div class="form-row">
                                 <span class="form-control text-center bg-dark text-white"><b>Piste</b></span>
+                               
                                 <div class="form-group col-md-6">
-                                    <label for="id_amenagement">Id_Amenagement</label>
-                                    <input  type="number" class="form-control" id="id_amenagement" name="id_amenagement" placeholder="Id_Amenagement">
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <label for="etatelement">Etat_Element</label>
-                                    <input name="etatelement" type="text" class="form-control" id="etatelement" placeholder="etatelement">
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <label for="detailamenagement">Identifiant_Amenagement</label>
-                                    <input name="detailamenagement" type="text" class="form-control" id="detailamenagement" placeholder="detailamenagement">
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <label for="id_piste">Id_Pistes </label>
+                                    <label for="id_piste">Id_Piste</label>
                                     <input name="id_piste" type="text" class="form-control" id="id_piste" placeholder="id_piste">
                                 </div>
-                                <div class="form-group col-md-12">
-                                    <label for="longueur">longueur</label>
+                                <div class="form-group col-md-6">
+                                    <label for="longueur">Longueur (km)</label>
                                     <input name="longueur" type="number" class="form-control" id="longueur" placeholder="longueur">
                                 </div>
-                                <div class="form-group col-md-12">
-                                    <label for="accessibilite">accessibilite</label>
+                                <div class="form-group col-md-6">
+                                    <label for="cout_amengt">Cout_Amenagement (dhs)</label>
+                                    <input name="cout_amengt" type="number" class="form-control" id="cout_amengt" placeholder="cout_amengt">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="accessibilite">Accessibilite</label>
                                     <input name="accessibilite" type="text" class="form-control" id="accessibilite" placeholder="accessibilite">
                                 </div>
                             </div>
                             <div class="form-group col-md-12">
-                                <label for="dateouverture">dateouverture</label>
+                                <label for="dateouverture">Date ouverture</label>
                                 <input name="dateouverture" type="date" class="form-control" id="dateouverture" placeholder="dateouverture">
+                            </div>
+                            <div class="form-group col-md-12">
+                                <label for="id_amengt">Id_Amenagement</label>
+                                <input name="id_amengt" type="number" class="form-control" id="id_amengt" placeholder="id_amengt">
                             </div>
                             <button type="submit"name="submit" class="btn btn-primary">Inserer</button>
                         </form>
@@ -57,13 +54,12 @@ include_once 'header.php';
                 <table class="table table-striped">
                     <thead class="table-success">
                         <tr >
-                            <th>Detaile Amenagement</th>
-                            <th>Etat Element</th>
-                            <th>Id Amenagement</th>
-                            <th>Id Amgt.Touristique </th>
-                            <th>longueur</th>
-                            <th>accessibilite</th>
+                            <th>Id_Piste</th>
+                            <th>Longueur (km)</th>
+                            <th>Cout Amenagement (dhs)</th>
+                            <th>Accessibilite</th>
                             <th>Date ouverture</th>
+                            <th>Id_Amenagement</th>
                             <th>Editer</th>
                             <th>Effacer</th>
                         </tr>
@@ -81,20 +77,19 @@ include_once 'header.php';
                         <!-- Add this inside the table body -->
                         <?php foreach ($results as $row) : ?>
                             <tr>
-                                <td><?= $row['detailamenagement'] ?></td>
-                                <td><?= $row['etatelement'] ?></td>
-                                <td><?= $row['id_amenagement'] ?></td>
                                 <td><?= $row['id_piste'] ?></td>
                                 <td><?= $row['longueur'] ?></td>
+                                <td><?= $row['cout_amengt'] ?></td>
                                 <td><?= $row['accessibilite'] ?></td>
                                 <td><?= $row['dateouverture'] ?></td>
+                                <td><?= $row['id_amengt'] ?></td>   
                                 <td>
                                     <a href="pistes-edit.php?id=<?= $row['id_piste'] ?>"><button name="edit_pistes" class="edit-btn btn btn-warning" data-id="<?= $row['id_piste'] ?>">Editer</button></a>
                                 </td>
                                 <td>
 
                                     <!-- Delete form -->
-                                    <form style="border:0px; padding:0px;" action="./deletion/sol-delete.php" method="POST">
+                                    <form style="border:0px; padding:0px;" action="./deletion/pistes-delete.php" method="POST">
                                         <!-- Hidden input field to include id_piste -->
                                         <input type="hidden" name="id_piste" value="<?= $row['id_piste'] ?>">
                                         <!-- Delete button -->

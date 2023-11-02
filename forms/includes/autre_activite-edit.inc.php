@@ -15,11 +15,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $annee = validate($_POST['annee']);
     $nombrepratiquant = validate($_POST['nombrepratiquant']);
     $commentaire = validate($_POST['commentaire']);
-    $id_douar = validate($_POST['id_douar']);
+    $douar = validate($_POST['douar']);
     $nomactivite = validate($_POST['nomactivite']);
     $caracteristiques = validate($_POST['caracteristiques']);
     // Perform server-side validation
-    if (empty($codeactivite) || empty($annee) || empty($nombrepratiquant) || empty($commentaire) || empty($id_douar) || empty($nomactivite)|| empty($caracteristiques)) {
+    if (empty($codeactivite) || empty($annee) || empty($nombrepratiquant) || empty($commentaire) || empty($douar) || empty($nomactivite)|| empty($caracteristiques)) {
         echo "Please fill in all fields.";
     } else {
         try {
@@ -27,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             SET annee = :annee,
                 nombrepratiquant = :nombrepratiquant,
                 commentaire = :commentaire,
-                id_douar = :id_douar,
+                douar = :douar,
                 nomactivite = :nomactivite,
                 caracteristiques = :caracteristiques
             WHERE codeactivite = :idToUpdate"; // Change 'id' to the actual primary key field name of your table
@@ -40,7 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     ':annee' => $annee,
                     ':nombrepratiquant' => $nombrepratiquant,
                     ':commentaire' => $commentaire,
-                    ':id_douar' => $id_douar,
+                    ':douar' => $douar,
                     ':nomactivite' => $nomactivite,
                     ':caracteristiques' => $caracteristiques,
                     ':idToUpdate' => $codeactivite // Replace with the actual ID you want to update

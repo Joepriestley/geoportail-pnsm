@@ -17,15 +17,15 @@ $pdo = require_once './includes/dbConnect.php';
                                  <p class="message"><?php echo $_GET['message']; ?></p> <?php }?>
                             <div class="form-row">
                                 <span class="form-control text-center bg-dark text-white"><b>Perche Artisanal</b></span>
-                                <div class="form-group col-md-6">
+                                <!-- <div class="form-group col-md-6">
                                     <label for="codeactivite">code Activite</label>
                                     <input name="codeactivite" type="text" class="form-control" id="codeactivite" placeholder="code Activite">
-                                </div>
-                                <div class="form-group col-md-6">
+                                </div> -->
+                                <div class="form-group col-md-12">
                                     <label for="annee">Annee Activite </label>
                                     <input  type="month" class="form-control" id="annee"  name="annee" min="2019-07" value="2018-07" placeholder="annee d'activite">
                                 </div>
-    
+                               
                                 <div class="form-group col-md-6">
                                     <label for="nombrepratiquant">Nombre pratiquant</label>
                                     <input name="nombrepratiquant" type="number" class="form-control" id="nombrepratiquant" placeholder="nombrepratiquant">
@@ -34,27 +34,35 @@ $pdo = require_once './includes/dbConnect.php';
                                     <label for="rendement">Rendement </label>
                                     <input name="rendement" type="number" class="form-control" id="rendement" placeholder="Rendement">
                                 </div>
+
                                 <div class="form-group col-md-12">
-                                    <label for="nomperche_art">Nom perche</label>
-                                    <input name="nomperche_art" type="text" class="form-control" id="nomperche_art" placeholder="nomperche_art">
+                                    <label for="nomperche_art">Nom Perche Artisanal</label>
+                                    <select name="nomperche_art" id="nomperche_art" class="form-control">
+                                        <option value="">--Choissisez le genre de perche--</option>
+                                        <option value="pêche à la barque par les hommes">pêche à la barque par les hommes</option>
+                                        <option value="ramassage de moules par les femmes">ramassage de moules par les femmes</option>
+                                        <option value="Pêche à la barque mixte">Pêche à la barque mixte</option>
+                                        <option value="Pêche artisanale en mer">Pêche artisanale en mer</option>
+                                    </select>
                                 </div>
+                                
                             </div>
                             <div class="form-row">
                         
-                                <div class="form-group col-md-6">
-                                    <label for="id_douar">Id_Douar</label>
-                                    <select name="id_douar" id="id_douar" class="form-control">
+                                <div class="form-group col-md-12">
+                                    <label for="douar">douar</label>
+                                    <select name="douar" id="douar" class="form-control">
                                         <option value="">--Choissisez l'identifiant de douar--</option>
-                                        <option value="1">Larjam(1)</option>
-                                        <option value="2">Sdi Boulafdail(2)</option>
-                                        <option value="3">Aghrimaz(3)</option>
-                                        <option value="4">Sidi Binzaren(4)</option>
-                                        <option value="5">Sidi Oussay(5)</option>
-                                        <option value="6">Sidi Rbat(6)</option>
-                                        <option value="7">Ifaryane(7)</option>
-                                        <option value="8">Douira(8)</option>
-                                        <option value="9">Tifnit(9)</option>
-                                        <option value="10">Sidi Toualnon(10)</option>
+                                        <option value="Larjam">Larjam(1)</option>
+                                        <option value="Sidi Boulafdail">Sidi Boulafdail(2)</option>
+                                        <option value="Aghrimaz">Aghrimaz(3)</option>
+                                        <option value="Sidi Binzaren">Sidi Binzaren(4)</option>
+                                        <option value="Sidi Oussay">Sidi Oussay(5)</option>
+                                        <option value="Sidi Rba">Sidi Rbat(6)</option>
+                                        <option value="Ifaryane">Ifaryane(7)</option>
+                                        <option value="Douira">Douira(8)</option>
+                                        <option value="Tifnit">Tifnit(9)</option>
+                                        <option value="Sidi Toualnon">Sidi Toualnon(10)</option>
                                     </select>
                                 </div>
                                
@@ -80,7 +88,7 @@ $pdo = require_once './includes/dbConnect.php';
                             <th>Annee Activite</th>
                             <th>Nombre pratiquant</th>
                             <th>Commentaire</th>
-                            <th>Id_Douar</th>
+                            <th>douar</th>
                             <th>nomperche_art</th>
                             <th>Rendement</th>
                             <th>Editer</th>
@@ -105,7 +113,7 @@ $pdo = require_once './includes/dbConnect.php';
                                 <td><?= $row['annee'] ?></td>
                                 <td><?= $row['nombrepratiquant'] ?></td>
                                 <td><?= $row['commentaire'] ?></td>
-                                <td><?= $row['id_douar'] ?></td>
+                                <td><?= $row['douar'] ?></td>
                                 <td><?= $row['nomperche_art'] ?></td>
                                 <td><?= $row['rendement'] ?></td>
                                 <td>

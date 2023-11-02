@@ -11,43 +11,39 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         return $data;
     }
 
-    $detailamenagement = validate($_POST['detailamenagement']);
-    $etatelement = validate($_POST['etatelement']);
-    $id_amenagement = validate($_POST['id_amenagement']);
-    $nompointeau = validate($_POST['nompointeau']);
+    $id_point_eau = validate($_POST['id_point_eau']);
     $profondeur = validate($_POST['profondeur']);
     $nature = validate($_POST['nature']);
+    $cout_creation = validate($_POST['cout_creation']);
     $localisation = validate($_POST['localisation']);
     $importance = validate($_POST['importance']);
-    $commentaire = validate($_POST['commentaire']);
+    $date_creation = validate($_POST['date_creation']);
     
     
 
     // Perform server-side validation
-    if (empty($detailamenagement) || empty($etatelement) || empty($id_amenagement) || empty($nompointeau) || empty($nature) || empty($localisation)|| empty($importance)|| empty($commentaire)) {
+    if (empty($id_point_eau) || empty($profondeur) || empty($nature) || empty($cout_creation) ||  empty($localisation)|| empty($importance)) {
             header("Location: ../point_eau.php?message=Veuillez saisir des donnees dans tous les champs!");
             exit();
         // echo "Please fill in all fields.";
     } else {
         try {
             // Prepare the SQL query using named placeholders
-            $query = "INSERT INTO point_eau (detailamenagement, etatelement, id_amenagement, nompointeau,profondeur, nature,localisation,importance,commentaire)
-                     VALUES (:detailamenagement, :etatelement, :id_amenagement, :nompointeau,:profondeur, :nature,:localisation,:importance,:commentaire)";
+            $query = "INSERT INTO point_eau (id_point_eau, profondeur, nature, cout_creation,localisation,importance,date_creation)
+                     VALUES (:id_point_eau, :profondeur, :nature, :cout_creation,:localisation,:importance,:date_creation)";
             
             $stmt = $pdo->prepare($query);
 
             if ($stmt) {
                 // Bind parameters and execute the statement using an associative array
                 $params = [
-                    ':detailamenagement' => $detailamenagement,
-                    ':etatelement' => $etatelement,
-                    ':id_amenagement' => $id_amenagement,
-                    ':nompointeau' => $nompointeau,
+                    ':id_point_eau' => $id_point_eau,
                     ':profondeur' => $profondeur,
-                    ':nature' =>$nature,
+                    ':nature' => $nature,
+                    ':cout_creation' => $cout_creation,
                     ':localisation' => $localisation,
                     ':importance' => $importance,
-                    ':commentaire' => $commentaire
+                    ':date_creation' => $date_creation
                     
                 ];
 

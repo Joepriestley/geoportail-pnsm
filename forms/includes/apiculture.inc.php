@@ -11,36 +11,36 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         return $data;
     }
 
-    $codeactivite = validate($_POST['codeactivite']);
+    // $codeactivite ='';
     $annee = validate($_POST['annee']);
     $nombrepratiquant = validate($_POST['nombrepratiquant']);
     $commentaire = validate($_POST['commentaire']);
-    $id_douar = validate($_POST['id_douar']);
+    $douar = validate($_POST['douar']);
     $rendement = validate($_POST['rendement']);
     $nombreruches = validate($_POST['nombreruches']);
     
-    
 
     // Perform server-side validation
-    if (empty($codeactivite) || empty($annee) || empty($nombrepratiquant) || empty($commentaire) || empty($rendement) || empty($nombreruches)) {
+    if (empty($annee) || empty($nombrepratiquant) || empty($commentaire) || empty($rendement) || empty($nombreruches)) {
             header("Location: ../apiculture.php?message=Veuillez saisir des donnees dans tous les champs!");
             exit();
-        // echo "Please fill in all fields.";
+        // echo "Please fill in all fields."    
     } else {
         try {
             // Prepare the SQL query using named placeholders
-            $query = "INSERT INTO apiculture(codeactivite, annee, nombrepratiquant, commentaire, rendement,nombreruches)
-                     VALUES (:codeactivite, :annee, :nombrepratiquant, :commentaire, :rendement,:nombreruches)";
+            $query = "INSERT INTO apiculture(codeactivite, annee, nombrepratiquant, commentaire, douar, rendement,nombreruches)
+                     VALUES (uuid_generate_v4(), :annee, :nombrepratiquant, :commentaire, :douar, :rendement,:nombreruches)";
             
             $stmt = $pdo->prepare($query);
 
             if ($stmt) {
                 // Bind parameters and execute the statement using an associative array
                 $params = [
-                    ':codeactivite' => $codeactivite,
+                    // ':codeactivite' => $codeactivite,
                     ':annee' => $annee,
                     ':nombrepratiquant' => $nombrepratiquant,
                     ':commentaire' => $commentaire,
+                    ':douar' => $douar,
                     ':rendement' => $rendement,
                     ':nombreruches' => $nombreruches
                     

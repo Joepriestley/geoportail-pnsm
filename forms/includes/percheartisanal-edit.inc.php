@@ -15,7 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['update_perche'])) {
     $annee = validate($_POST['annee']);
     $nombrepratiquant = validate($_POST['nombrepratiquant']);
     $commentaire = validate($_POST['commentaire']);
-    $id_douar = validate($_POST['id_douar']);
+    $douar = validate($_POST['douar']);
     $nomperche_art = validate($_POST['nomperche_art']);
     $rendement = validate($_POST['rendement']);
 
@@ -25,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['update_perche'])) {
                     annee = :annee,
                     nombrepratiquant = :nombrepratiquant,
                     commentaire = :commentaire,
-                    id_douar = :id_douar,
+                    douar = :douar,
                     nomperche_art = :nomperche_art,
                     rendement = :rendement
                   WHERE codeactivite = :codeactivite";
@@ -37,7 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['update_perche'])) {
             $stmt->bindParam(':annee', $annee);
             $stmt->bindParam(':nombrepratiquant', $nombrepratiquant);
             $stmt->bindParam(':commentaire', $commentaire);
-            $stmt->bindParam(':id_douar', $id_douar);
+            $stmt->bindParam(':douar', $douar);
             $stmt->bindParam(':nomperche_art', $nomperche_art);
             $stmt->bindParam(':rendement', $rendement);
             $stmt->bindParam(':codeactivite', $codeactivite);
@@ -45,7 +45,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['update_perche'])) {
             $result = $stmt->execute();
 
             if ($result) {
-                header("Location: percheartisanal.php?message=Record updated successfully!");
+                header("Location: ../percheartisanal.php?message=Record updated successfully!");
                 exit();
             } else {
                 echo "Error: " . $stmt->errorInfo()[2];

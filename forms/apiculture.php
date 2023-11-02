@@ -16,11 +16,11 @@ $pdo = require_once './includes/dbConnect.php';
                                  <p class="message"><?php echo $_GET['message']; ?></p> <?php }?>
                             <div class="form-row">
                                 <span class="form-control text-center bg-dark text-white"><b>Apiculture</b></span>
-                                <div class="form-group col-md-6">
+                                <!-- <div class="form-group col-md-6">
                                     <label for="codeactivite">code Activite</label>
                                     <input name="codeactivite" type="text" class="form-control" id="codeactivite" placeholder="code Activite">
-                                </div>
-                                <div class="form-group col-md-6">
+                                </div> -->
+                                <div class="form-group col-md-12">
                                     <label for="annee">Annee Activite </label>
                                     <input type="month" class="form-control" id="annee"  name="annee" min="2019-07" value="2018-07" placeholder="annee d'activite">
                                 </div>
@@ -29,7 +29,7 @@ $pdo = require_once './includes/dbConnect.php';
                                     <input name="nombrepratiquant" type="number" class="form-control" id="nombrepratiquant" placeholder="nombrepratiquant">
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label for="rendement">Rendement </label>
+                                    <label for="rendement">Rendement (Kg)</label>
                                     <input name="rendement" type="number" class="form-control" id="rendement" placeholder="Rendement">
                                 </div>
                                 <div class="form-group col-md-12">
@@ -38,21 +38,20 @@ $pdo = require_once './includes/dbConnect.php';
                                 </div>
                             </div>
                             <div class="form-row">
-                        
                                 <div class="form-group col-md-6">
-                                    <label for="id_douar">Id_Douar</label>
-                                    <select name="id_douar" id="id_douar" class="form-control">
+                                    <label for="douar">douar</label>
+                                    <select name="douar" id="douar" class="form-control">
                                         <option value="">--Choissisez l'identifiant de douar--</option>
-                                        <option value="1">Larjam(1)</option>
-                                        <option value="2">Sdi Boulafdail(2)</option>
-                                        <option value="3">Aghrimaz(3)</option>
-                                        <option value="4">Sidi Binzaren(4)</option>
-                                        <option value="5">Sidi Oussay(5)</option>
-                                        <option value="6">Sidi Rbat(6)</option>
-                                        <option value="7">Ifaryane(7)</option>
-                                        <option value="8">Douira(8)</option>
-                                        <option value="9">Tifnit(9)</option>
-                                        <option value="10">Sidi Toualnon(10)</option>
+                                        <option value="Larjam">Larjam(1)</option>
+                                        <option value="Sidi Boulafdail">Sidi Boulafdail(2)</option>
+                                        <option value="Aghrimaz">Aghrimaz(3)</option>
+                                        <option value="Sidi Binzaren">Sidi Binzaren(4)</option>
+                                        <option value="Sidi Oussay">Sidi Oussay(5)</option>
+                                        <option value="Sidi Rba">Sidi Rbat(6)</option>
+                                        <option value="Ifaryane">Ifaryane(7)</option>
+                                        <option value="Douira">Douira(8)</option>
+                                        <option value="Tifnit">Tifnit(9)</option>
+                                        <option value="Sidi Toualnon">Sidi Toualnon(10)</option>
                                     </select>
                                 </div>
                                
@@ -71,15 +70,15 @@ $pdo = require_once './includes/dbConnect.php';
                 </div>
             </div>
             <div class="col-md-7">
-                <table class="table table-striped">
-                    <thead class="table-success">
-                        <tr >
+                <table class="table table-striped bg-info">
+                    <thead class="table-primary">
+                        <tr class="">
                             <th>code Activite</th>
                             <th>Annee Activite</th>
                             <th>Nombre pratiquant</th>
                             <th>Rendement</th>
                             <th>nombreruches</th>
-                            <th>Id Douar</th>
+                            <th>Douar</th>
                             <th>Commentaire</th>
                             <th>Editer</th>
                             <th>Effacer</th>
@@ -101,10 +100,10 @@ $pdo = require_once './includes/dbConnect.php';
                                     <td><?= $row['codeactivite'] ?></td>
                                     <td><?= $row['annee'] ?></td>
                                     <td><?= $row['nombrepratiquant'] ?></td>
-                                    <td><?= $row['commentaire'] ?></td>
-                                    <td><?= $row['id_douar'] ?></td>
                                     <td><?= $row['rendement'] ?></td>
                                     <td><?= $row['nombreruches'] ?></td>
+                                    <td><?= $row['douar'] ?></td>
+                                    <td><?= $row['commentaire'] ?></td>
                                     <td>
                                         <a href="apiculture-edit.php?id=<?= $row['codeactivite'] ?>"><button name="edit_apiculture" class="edit-btn btn btn-warning" data-id="<?= $row['codeactivite'] ?>">Editer</button></a>
                                     </td>

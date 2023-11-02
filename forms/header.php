@@ -23,7 +23,7 @@
 <body>
     <div>
     <nav class="navbar navbar-expand-sm navbar-light navbar-dark bg-dark">
-        <a href="./index.php" class="navbar-brand"> <img src="../img/logo.png" alt="" width="35" height="35">Geoportail-PNSM</a>
+        <a href="/geoportail-pnsm/forms/index.php" class="navbar-brand"> <img src="../img/logo.png" alt="" width="35" height="35">Geoportail-PNSM</a>
         <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarMenu">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -35,10 +35,10 @@
                     <a href="#" class="nav-link mr-3">Accueil</a>
                 </li>
                 <li class="nav-item mr-3"> 
-                    <a href="./apropos.php" class="nav-link mr-3">A propos </a>
+                    <a href="/geoportail-pnsm/forms/apropos.php" class="nav-link mr-3">A propos </a>
                 </li>
                 <li class="nav-item mr-3">
-                    <a href="./galerie.php" class="nav-link mr-3">Galerie</a>
+                    <a href="/geoportail-pnsm/forms/galerie.php" class="nav-link mr-3">Galerie</a>
                 </li>
                 <li class="nav-item dropdown mr-3">
                     <a href="#" class="nav-link dropdown-toggle mr-3" data-toggle="dropdown">Gestion</a>
@@ -58,16 +58,29 @@
                         <li>
                             <a href="" class="dropdown-item mr-3 ">Element Amenagement&raquo;</a>
                             <ul class="dropdown-menu submenu">
-                                <li>
+                                <!-- <li>
                                     <a href="pistes.php" class="dropdown-item">Pistes</a>
+                                </li> -->
+                                <li>
+                                    <a href="/geoportail-pnsm/forms/refection_pistes.php" class="dropdown-item">Refection Pistes</a>
+                                </li>
+                                <div class="dropdown-divider"></div>
+                                <!-- <li>
+                                    <a href="/geoportail-pnsm/forms/point_eau.php" class="dropdown-item">Point Eau</a>
+                                </li> -->
+                                <li>
+                                    <a href="/geoportail-pnsm/forms/ref_point_eau.php" class="dropdown-item"> Refection Point Eau</a>
+                                </li>
+                                <div class="dropdown-divider"></div>
+                                <!-- <li>
+                                    <a href="/geoportail-pnsm/forms/amenagementtouristique.php" class="dropdown-item">Amenagement Touristiques</a>
+                                </li> -->
+                                <li>
+                                    <a href="/geoportail-pnsm/forms/ref_amenagementtouristique.php" class="dropdown-item"> Ref Amenagement Touristiques</a>
                                 </li>
                                 <div class="dropdown-divider"></div>
                                 <li>
-                                    <a href="./point_eau.php" class="dropdown-item">Point_Eau</a>
-                                </li>
-                                <div class="dropdown-divider"></div>
-                                <li>
-                                    <a href="./amenagementtouristique.php" class="dropdown-item">Amenagement Touristiques</a>
+                                    <a href="/geoportail-pnsm/forms/refection_cloture.php" class="dropdown-item">Refection Cloture</a>
                                 </li>
                             </ul>
                         </li>
@@ -92,19 +105,19 @@
                             <a href="#" class="dropdown-item">Touristes et Activites &raquo;</a>
                             <ul class="dropdown-menu submenu">
                                 <li>
-                                    <a href="./touriste.php" class="dropdown-item">Touristes</a>
+                                    <a href="/geoportail-pnsm/forms/touriste.php" class="dropdown-item">Touristes</a>
                                 </li>
                                 <div class="dropdown-divider"></div>
                                 <li>
-                                    <a href="./circuittourist.php" class="dropdown-item">Circuit</a>
+                                    <a href="/geoportail-pnsm/forms/circuittourist.php" class="dropdown-item">Circuit</a>
                                 </li>
                                 <div class="dropdown-divider"></div>
                                 <li>
-                                    <a href="./passage.php" class="dropdown-item">Circuit Passage</a>
+                                    <a href="/geoportail-pnsm/forms/passage.php" class="dropdown-item">Circuit Passage</a>
                                 </li>
                                 <div class="dropdown-divider"></div>
                                 <li>
-                                    <a href="./visitesite.php" class="dropdown-item">Site Visite</a>
+                                    <a href="/geoportail-pnsm/forms/visitesite.php" class="dropdown-item">Site Visite</a>
                                 </li>
                             </ul>
                         </li>
@@ -113,15 +126,23 @@
                             <a href="#" class="dropdown-item">Activites Socioeconomiques&raquo;</a>
                             <ul class="dropdown-menu submenu">
                                 <li>
-                                    <a href="./apiculture.php" class="dropdown-item">Alpiculture</a>
+                                    <a href="/geoportail-pnsm/forms/apiculture.php" class="dropdown-item">Alpiculture</a>
                                 </li>
                                 <div class="dropdown-divider"></div>
                                 <li>
-                                    <a href="./percheartisanal.php" class="dropdown-item">Perche Artisanal</a>
+                                    <a href="/geoportail-pnsm/forms/percheartisanal.php" class="dropdown-item">Perche Artisanal</a>
                                 </li>
                                 <div class="dropdown-divider"></div>
                                 <li>
-                                    <a href="./autreactivite.php" class="dropdown-item">Autres Activites</a>
+                                    <a href="/geoportail-pnsm/forms/agriculture.php" class="dropdown-item">Agriculture</a>
+                                </li>
+                                <div class="dropdown-divider"></div>
+                                <li>
+                                    <a href="/geoportail-pnsm/forms/elevage.php" class="dropdown-item">Elevage</a>
+                                </li>
+                                <div class="dropdown-divider"></div>
+                                <li>
+                                    <a href="/geoportail-pnsm/forms/autreactivite.php" class="dropdown-item">Autres Activites</a>
                                 </li>
                             </ul>
                         </li>
@@ -130,18 +151,18 @@
                             <a href="#" class="dropdown-item">Infrastructure &raquo;</a>
                             <ul class="dropdown-menu submenu">
                                 <li>
-                                    <a href="./infrastruturetouristiq.php" class="dropdown-item">Infrastructure Touristiques</a>
+                                    <a href="/geoportail-pnsm/forms/infrastruturetouristiq.php" class="dropdown-item">Infrastructure Touristiques</a>
                                 </li>
                                 <div class="dropdown-divider"></div>
                                 <li>
-                                    <a href="./utilise.php" class="dropdown-item">Utilisation</a>
+                                    <a href="/geoportail-pnsm/forms/utilise.php" class="dropdown-item">Utilisation</a>
                                 </li>
                             </ul>
                         </li>
                         <div class="dropdown-divider"></div>
 
                         <li>
-                            <a href="./association.php" class="dropdown-item">Associations &raquo;</a>
+                            <a href="/geoportail-pnsm/forms/association.php" class="dropdown-item">Associations &raquo;</a>
                         </li>
                     </ul>
                 </li>
@@ -166,17 +187,17 @@
                             <a href="#" class="dropdown-item"> Flore &nbsp; &nbsp; &raquo;</a>
                             <ul class="dropdown-menu submenu">
                                 <li>
-                                    <a href="./esp_vegetal.php" class="dropdown-item">Espece Vegetal </a>
+                                    <a href="/geoportail-pnsm/forms/esp_vegetal.php" class="dropdown-item">Espece Vegetal </a>
                                 </li>
                                 <div class="dropdown-divider"></div>
                                 <!-- <li>
                                     <a href="#" class="dropdown-item">Zonage du Parc</a>
                                 </li> -->
                                 <li>
-                                    <a href="./sol.php" class="dropdown-item">Sol</a>
+                                    <a href="/geoportail-pnsm/forms/sol.php" class="dropdown-item">Sol</a>
                                 </li>
                                 <li>
-                                    <a href="./utilise.php" class="dropdown-item">Utilise</a>
+                                    <a href="/geoportail-pnsm/forms/utilise.php" class="dropdown-item">Utilise</a>
                                 </li>
                             </ul>
                         </li>
@@ -199,15 +220,15 @@
                             <a href="" class="dropdown-item"> Faune </a>
                             <ul class="dropdown-menu submenu">
                                 <li>
-                                    <a href="./esp_animal.php" class="dropdown-item">Espece Animale</a>
+                                    <a href="/geoportail-pnsm/forms/esp_animal.php" class="dropdown-item">Espece Animale</a>
                                 </li>
                                 <div class="dropdown-divider"></div>
                                 <li>
-                                    <a href="./recensement.php" class="dropdown-item">Recensement</a>
+                                    <a href="/geoportail-pnsm/forms/recensement.php" class="dropdown-item">Recensement</a>
                                 </li>
                                 <div class="dropdown-divider"></div>
                                 <li>
-                                    <a href="./suivi_faune.php" class="dropdown-item">Suivi Faune</a>
+                                    <a href="/geoportail-pnsm/forms/suivi_faune.php" class="dropdown-item">Suivi Faune</a>
                                 </li>
                             </ul>
                         </li>
@@ -223,13 +244,13 @@
                             <a href="#" class="dropdown-item">Organisme d'aide  &raquo;</a>
                             <ul class="dropdown-menu submenu">
                                 <li>
-                                    <a href="./projet.php" class="dropdown-item">Projet</a>
+                                    <a href="/geoportail-pnsm/forms/projet.php" class="dropdown-item">Projet</a>
                                 </li>
                                 <li>
-                                    <a href="./partenaire.php" class="dropdown-item">Partenaire</a>
+                                    <a href="/geoportail-pnsm/forms/partenaire.php" class="dropdown-item">Partenaire</a>
                                 </li>
                                 <li>
-                                    <a href="./association.php" class="dropdown-item">Associations</a>
+                                    <a href="/geoportail-pnsm/forms/association.php" class="dropdown-item">Associations</a>
                                 </li>
                             </ul>
                         </li>
@@ -238,14 +259,14 @@
                             <a href="#" class="dropdown-item">Execution des Actions &raquo;</a>
                             <ul class="dropdown-menu submenu">
                                 <li>
-                                    <a href="./executeur.PHP" class="dropdown-item">Executeur</a>
+                                    <a href="/geoportail-pnsm/forms/executeur.PHP" class="dropdown-item">Executeur</a>
                                 </li>
-                                <div class="dropdown-divider"></div>
+                                <!-- <div class="dropdown-divider"></div>
                                 <li>
-                                    <a href="./execution.php" class="dropdown-item">Execution</a>
-                                </li>
+                                    <a href="/geoportail-pnsm/forms/execution.php" class="dropdown-item">Execution</a>
+                                </li> -->
                                 <div class="dropdown-divider"></div>
-                                <li><a href="./action.php" class="dropdown-item dropdown">Actions &nbsp;</a>
+                                <li><a href="/geoportail-pnsm/forms/action.php" class="dropdown-item dropdown">Actions &nbsp;</a>
                            
                                 </li>
                                 
@@ -284,9 +305,9 @@
                     </ul>
                 </li> -->
                 <li class="nav-item mr-3">
-                    <a href="../webmap/index.html" class="nav-link mr-3">Cartographie</a>
+                    <a href="/geoportail-pnsm/webmap/map.php" class="nav-link mr-3">Cartographie</a>
                 </li>
-                <li class="nav-item mr-3">
+                <li class="nav-item mr-3"> 
                     <a href="sign-up.php" class="nav-link  mr-3">Inscrivez-vous</a>
                 </li>
             </ul>

@@ -11,42 +11,42 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         return $data;
     }
 
-    $codeactivite = validate($_POST['codeactivite']);
+    // $codeactivite = '';
     $annee = validate($_POST['annee']);
     $nombrepratiquant = validate($_POST['nombrepratiquant']);
     $commentaire = validate($_POST['commentaire']);
-    $id_douar = validate($_POST['id_douar']);
+    $douar = validate($_POST['douar']);
     $nomactivite = validate($_POST['nomactivite']);
     $caracteristiques = validate($_POST['caracteristiques']);
+    $rendement = validate($_POST['rendement']);
     
     
     
 
     // Perform server-side validation
-    if (empty($codeactivite) || empty($annee) || empty($nombrepratiquant) || empty($commentaire) || empty($id_douar) || empty($nomactivite) || empty($caracteristiques)) {
+    if (empty($annee) || empty($nombrepratiquant) || empty($commentaire) || empty($douar) || empty($nomactivite) || empty($caracteristiques)) {
             header("Location: ../autreactivite.php?message=Veuillez saisir des donnees dans tous les champs!");
             exit();
         // echo "Please fill in all fields.";
     } else {
         try {
             // Prepare the SQL query using named placeholders
-            $query = "INSERT INTO autre_activites (codeactivite, annee, nombrepratiquant, commentaire,id_douar, nomactivite,caracteristiques)
-                     VALUES (:codeactivite, :annee, :nombrepratiquant, :commentaire,:id_douar, :nomactivite,:caracteristiques)";
+            $query = "INSERT INTO autre_activites (codeactivite, annee, nombrepratiquant, commentaire,douar, nomactivite,caracteristiques,rendement)
+                     VALUES (uuid_generate_v4(), :annee, :nombrepratiquant, :commentaire,:douar, :nomactivite,:caracteristiques,:rendement)";
             
             $stmt = $pdo->prepare($query);
 
             if ($stmt) {
-                // Bind parameters and execute the statement using an associative array
+                // Bind paramet ers and execute the statement using an associative array
                 $params = [
-                    ':codeactivite' => $codeactivite,
+                    // ':codeactivite' => $codeactivite,
                     ':annee' => $annee,
                     ':nombrepratiquant' => $nombrepratiquant,
                     ':commentaire' => $commentaire,
-                    ':id_douar' => $id_douar,
+                    ':douar' => $douar,
                     ':nomactivite' =>$nomactivite,
-                    ':caracteristiques' => $caracteristiques
-                    
-                    
+                    ':caracteristiques' => $caracteristiques,
+                    ':rendement' => $rendement
                 ];
 
                 $result = $stmt->execute($params);

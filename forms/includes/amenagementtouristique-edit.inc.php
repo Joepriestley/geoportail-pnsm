@@ -11,40 +11,37 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         return $data;
     }
 
-    $detailamenagement = validate($_POST['detailamenagement']);
-    $etatelement = validate($_POST['etatelement']);
-    $id_amenagement = validate($_POST['id_amenagement']);
-    $id_amenagementtour = validate($_POST['id_amenagementtour']);
+   
+    
+    $id_amengttour = validate($_POST['id_amengttour']);
     $responsable = validate($_POST['responsable']);
     $periode  = validate($_POST['periode']);
-    $commentaire  = validate($_POST['commentaire']);
+    $cout_creaction = validate($_POST['cout_creaction']);
+    $date_cree  = validate($_POST['date_cree']);
     
     // Perform server-side validation
-    if (empty($detailamenagement) || empty($etatelement) || empty($id_amenagement) || empty($id_amenagementtour) || empty($responsable) || empty($periode) || empty($commentaire)) {
+    if (  empty($id_amengttour) || empty($responsable) || empty($periode) || empty($commentaire)) {
         echo "Please fill in all fields.";
     } else {
         try {
             $query = "UPDATE amenagement_touristique 
-            SET detailamenagement =:detailamenagement,
-                etatelement = :etatelement,
-                id_amenagement = :id_amenagement,
-                responsable = :responsable,
+            SET responsable = :responsable,
                 periode = :periode,
-                commentaire = :commentaire 
-            WHERE id_amenagementtour = :idToUpdate"; // Use the correct primary key field
+                cout_creaction = :cout_creaction,
+                date_cree = :date_cree,
+            WHERE id_amengttour = :idToUpdate"; // Use the correct primary key field
             
             $stmt = $pdo->prepare($query);
             
             if ($stmt) {
                 // Bind parameters including the ID of the record to update
                 $params = [
-                    'detailamenagement' => $detailamenagement,
                     ':etatelement' => $etatelement,
-                    ':id_amenagement' => $id_amenagement,
                     ':responsable' => $responsable,
                     ':periode' => $periode,
-                    ':commentaire' => $commentaire,
-                    ':idToUpdate' => $id_amenagementtour // Replace with the actual ID you want to update
+                    ':cout_creaction' => $cout_creaction,
+                    ':date_cree' => $date_cree,
+                    ':idToUpdate' => $id_amengttour // Replace with the actual ID you want to update
                 ];
                 
                 $result = $stmt->execute($params);

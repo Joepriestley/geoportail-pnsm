@@ -23,11 +23,11 @@ $pdo = require_once './includes/dbConnect.php';
                                     <input type="number" class="form-control" id="codeprojet" placeholder="codeprojet">
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label for="nomprojet">Nom_Projet</label>
+                                    <label for="nomprojet">Nom du Projet</label>
                                     <input type="text" class="form-control" id="nomprojet" name="nomprojet" placeholder="nomprojet">
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label for="id_association">Id_Association</label>
+                                    <label for="id_association">ID Association</label>
                                     <input type="text" class="form-control" name="id_association" id="id_association" placeholder="Adresse_Partenaire">
                                 </div>
                                 <div class="form-group col-md-6">
@@ -35,7 +35,7 @@ $pdo = require_once './includes/dbConnect.php';
                                     <input type="text" class="form-control" name="objectif" id="objectif"  placeholder="Objectif">
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label for="datedebut">datedebut_Partenaire </label>
+                                    <label for="datedebut">Date Debut de Partenariat </label>
                                     <input type="date" class="form-control" id="datedebut" name="datedebut"  placeholder="datedebut">
                                 </div>
                                 <div class="form-group col-md-6">
@@ -49,7 +49,7 @@ $pdo = require_once './includes/dbConnect.php';
                                     <input name="budget" type="text" class="form-control" id="budget" placeholder="budget">
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label for="categoriepayment"> Categorie_payement</label>
+                                    <label for="categoriepayment"> Categorie de payement</label>
                                     <input  name="categoriepayment" type="text" class="form-control" id="categoriepayment" placeholder="categoriepayment">
                                 </div>
                                 <div class="input-group col-md-12">
@@ -72,14 +72,14 @@ $pdo = require_once './includes/dbConnect.php';
                     <thead class="table-primary">
                         <tr>
                             <th>Code Projet</th>
-                            <th>Nom_Proje</th>
+                            <th>Projet</th>
                             <th>Objectif</th>
-                            <th>Date_Debut</th>
+                            <th>Date Debut</th>
                             <th>Duree </th>
                             <th>Budget</th>
                             <th>Categorie payement</th>
-                            <th>Commentaire</th>
-                            <th>Id Association</th>
+                            <th>Comm.</th>
+                            <th>Association</th>
                             <th>Editer</th>
                             <th>Effacer</th>
                            

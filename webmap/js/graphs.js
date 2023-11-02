@@ -22,16 +22,82 @@ function distributionChart(chartCanvas, data, title){
         options: {      
             responsive: true,
             maintainAspectRatio: true,
-        scales: {
-            y: {
-            beginAtZero: true
+            scales: {
+                y: {
+                beginAtZero: true
+                }
             }
-        }
         }
     });
 
 
 }
+
+
+function barChart(canvasEl, data, title) {
+    // if chartCanvas is ObjecHTMLCanvasElement, then change it to html  canvas element
+    if (typeof canvasEl === 'object'){
+        canvasEl = canvasEl.getContext('2d');
+    }
+    const chartData = {
+        labels: data.labels,
+        datasets: [{
+          label: title,
+          data: data.values
+     }]
+      };
+
+    return  new Chart(canvasEl, {
+        type: 'bar',
+        data: chartData,
+        options: {      
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                x: {
+                },
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    })
+}
+
+
+function doughnutChart(canvasEl, data, title) {
+    // if chartCanvas is ObjecHTMLCanvasElement, then change it to html  canvas element
+    if (typeof canvasEl === 'object'){
+        canvasEl = canvasEl.getContext('2d');
+    }
+    const chartData = {
+        labels: data.labels,
+        datasets: [{
+          label: title,
+          data: data.values
+     }]
+      };
+
+    return  new Chart(canvasEl, {
+        type: 'doughnut',
+        data: chartData,
+        options: {      
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                x: {
+                    display: false,
+                },
+                y: {
+                    display: false,
+                    beginAtZero: true
+                }
+            }
+        }
+    })
+}
+
+
 
 
 function limitedText(text, maxChars){

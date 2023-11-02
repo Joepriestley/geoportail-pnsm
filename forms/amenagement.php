@@ -19,13 +19,26 @@ include_once 'header.php';
                         <?php } ?>
                         <div class="form-row">
                             <span class="form-control text-center bg-dark text-white"><b>Amenagement</b></span>
-                            <div class="form-group col-md-6">
-                                <label for="codeamenagement">Code_Amenagement</label>
+                            <!-- <div class="form-group col-md-6">
+                                <label for="codeamenagement">Code Amenagement</label>
                                 <input type="text" name="codeamenagement" class="form-control" id="codeamenagement" placeholder="codeamenagement">
+                            </div> -->
+                            <div class="form-group col-md-12">
+                                <label for="type">Type Amenagement</label>
+                                <input type="text" class="form-control" id="type" name="type" placeholder="type">
                             </div>
-                            <div class="form-group col-md-6">
-                                <label for="coutamenagement">Cout_Amenagement</label>
-                                <input type="number" class="form-control" id="coutamenagement" name="coutamenagement" placeholder="coutamenagement">
+                            <div class="form-group col-md-12">
+                                <label for="element_amenage">Element Amenagement</label>
+                                <select name="element_amenage" id="element_amenage" class="form-control">
+                                    <option value="">Selectionner un element à amenager</option>
+                                    <option value="piste">piste</option>
+                                    <option value="point_eau">point_eau</option>
+                                    <option value="cloture">cloture</option>
+                                    <option value="amenagement_touristique">amenagement_touristique</option>
+                                </select>
+                            </div>
+                            <div id="container-form">
+                           
                             </div>
                             <div class="input-group col-md-12">
                                 <div class="input-group-prepend">
@@ -40,19 +53,22 @@ include_once 'header.php';
                         </div>
                         <button type="submit" name="submit" class="btn btn-primary">Inserer</button>
                     </form>
+                    
                     <br>
                     <a href="#" class="btn btn-primary">Nouveau</a>
                 </div>
             </div>
         </div>
         <div class="col-md-7">
-            <table class="table table-striped">
+            <table class="table table-striped bg-success">
                 <thead class="table-primary">
                     <tr>
                         <th>Code_Amenagement</th>
-                        <th>Cout_Amenagement</th>
+                        <th> Element Amenagement</th>
+                        <th>Type</th>
                         <th>Commentaire</th>
-                        <th>Action</th>
+                        <th>Editer</th>
+                        <th>Effacer</th>
                     </tr>
                 </thead>
                 <tbody id="circuitTable">
@@ -69,7 +85,8 @@ include_once 'header.php';
                     <?php foreach ($results as $row) : ?>
                         <tr>
                             <td><?= $row['codeamenagement'] ?></td>
-                            <td><?= $row['coutamenagement'] ?></td>
+                            <td><?= $row['element_amenage'] ?></td>
+                            <td><?= $row['type'] ?></td>
                             <td><?= $row['commentaire'] ?></td>
                             <td>
                                 <a href="amenagement-edit.php?id=<?= $row['codeamenagement'] ?>"><button name="edit_amenagement" class="edit-btn btn btn-warning">Editer</button></a>
@@ -78,13 +95,13 @@ include_once 'header.php';
                             <td>
 
                                 <!-- Delete form -->
-                                <form style="border:0px; padding:0px;"  action="./deletion/amenagement-delete.php" method="POST">
+                                <form style="border:0px; padding:0px;" action="./deletion/amenagement-delete.php" method="POST">
                                     <!-- Hidden input field to include codeamenagement -->
                                     <input type="hidden" name="codeamenagement" value="<?= $row['codeamenagement'] ?>">
                                     <!-- Delete button -->
                                     <button name="delete_amenagement" class="delete-btn btn btn-danger" onclick="return confirm('Etes vous d\'effacer cette ligne?');">Effacer</button>
                                 </form>
-                            
+
                             </td>
                         </tr>
                     <?php endforeach; ?>
@@ -93,4 +110,204 @@ include_once 'header.php';
         </div>
     </div>
 </div>
+
+<style>
+    .col-5 {
+    -ms-flex: 0 0 41.666667%;
+    flex: 0 0 41.666667%;
+    max-width: 59.666667%;
+}
+</style>
+<script>
+    const selectElement = document.getElementById('element_amenage');
+    const selectedValueElement = document.getElementById('container-form');
+
+    // Adding an event listener to the selected element 
+    selectElement.addEventListener('change', function() {
+        const selectedOption = selectElement.options[selectElement.selectedIndex];
+        const selectValue = selectedOption.value; // Corrected from selectedOption.setFormHTML
+        const selectedText = selectedOption.text;
+
+        const piste = `<div class="col-12">
+                <div class="card">
+                    <div class="card-body bg-dark">
+                        <div style="background-color: rgb(201, 216, 214);">
+                            <div class="form-row ml-3">
+                                <span class="form-control text-center bg-dark text-white"><b>Piste</b></span>
+                                <div class="form-group col-md-12">
+                                <label for="_nom_piste">Nom Piste</label>
+                                <input name="_nom_piste" type="text" class="form-control" id="_nom_piste" placeholder="_nom_piste">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="longueur">Longueur (km)</label>
+                                    <input name="longueur" type="number" class="form-control" id="longueur" placeholder="longueur">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="cout_creation">Cout_Installation (dhs)</label>
+                                    <input name="cout_creation" type="number" class="form-control" id="cout_creation" placeholder="cout_creation">
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <label for="accessibilite">Accessibilite</label>
+                                    <input name="accessibilite" type="text" class="form-control" id="accessibilite" placeholder="accessibilite">
+                                </div>
+                            </div>
+                            <div class="form-group col-md-12">
+                                <label for="date_creation">Date Creation</label>
+                                <input name="date_creation" type="date" class="form-control" id="date_creation" placeholder="date_creation">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>`;
+
+
+
+// ++++++ start: Pint_eau form+++++++++
+
+        const point_eau = ` <div class="col-12">
+                <div class="card">
+                    <div class="card-body bg-dark">
+                        <div style="background-color: rgb(201, 216, 214);">
+                            <div class="form-row">
+                                <span class="form-control text-center bg-dark text-white"><b>Point Eau</b></span>
+                                <div class="form-group col-md-12">
+                                <label for="nom_point_eau">Nom_point_Eau</label>
+                                <input name="nom_point_eau" type="text" class="form-control" id="nom_point_eau" placeholder="nom_point_eau">
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <label for="profondeur">Profondeur (m)</label>
+                                    <input name="profondeur" type="number" class="form-control" id="profondeur" placeholder="profondeur">
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <label for="nature">Nature</label>
+                                    <input name="nature" type="text" class="form-control" id="nature" placeholder="la nature d'eau">
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <label for="cout_installation">Cout Installation</label>
+                                    <input name="cout_installation" type="number" class="form-control" id="cout_installation" placeholder="le cout de l'action">
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <label for="date_installation">Date Installation</label>
+                                    <input name="date_installation" type="date" class="form-control" id="date_installation" placeholder="la date de creation ">
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <label for="localisation">Localisation</label>
+                                    <input name="localisation" type="text" class="form-control" id="localisation" placeholder="localisation">
+                             </div>
+                             <div class="form-group col-md-12">
+                                    <label for="importance">Importance</label>
+                                    <input name="importance" type="text" class="form-control" id="importance" placeholder="les importance du point d'eau">
+                                </div>
+                            </div>
+            
+                        </div>
+                    </div>
+                </div>
+            </div>`;
+            // ++++++ End: Pint_eau form+++++++++
+
+
+            // ++++++ Start: Amenagement touristique form+++++++++
+
+
+        const amenagement_touristique = ` <div class="col-12">
+                <div class="card">
+                    <div class="card-body bg-dark">
+                        <div style="background-color: rgb(201, 216, 214);" >
+                            <div class="form-row ">
+                                <span class="form-control text-center bg-dark text-white"><b>Amenagement Touristique</b></span>
+                                <div class="form-group col-md-12">
+                                <label for="nom_amenagttour">Nom Amenagement Touristique</label>
+                                <input name="nom_amenagttour" type="text" class="form-control" id="nom_amenagttour" placeholder="nom_amenagttour">
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <label for="resposable">Responsable Amenagement Touristique</label>
+                                    <input name="resposable" type="text" class="form-control" id="resposable" placeholder="Resposable de l'amenagement touristique">
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <label for="date_cree">Date_Creation</label>
+                                    <input name="date_cree" type="date" class="form-control" id="date_cree" placeholder="date_cree de gestion">
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <label for="periode">Periode</label>
+                                    <input name="periode" type="text" class="form-control" id="periode" placeholder="Periode de gestion">
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <label for="cout_creaction">Cout Creation</label>
+                                    <input name="cout_creaction" type="text" class="form-control" id="cout_creaction" placeholder="Saissir le cout de gestion">
+                                </div>
+                               
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>`;
+
+
+            const cloture =`<div class="col-12">
+                <div class="card">
+                    <div class="card-body bg-dark">
+                        <div style="background-color: rgb(201, 216, 214);" 
+                            <div class="form-row">
+                                <span class="form-control text-center bg-dark text-white"><b>Cloture</b></span>
+                                <div class="form-group col-md-12">
+                                <label for="nom_cloture">Nom Cloture</label>
+                                <input name="nom_cloture" type="text" class="form-control" id="nom_cloture" placeholder="nom_cloture">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="date_cloture">Date_Cloture</label>
+                                    <input name="date_cloture" type="date" class="form-control" id="date_cloture" placeholder="date_cloture">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="cout_creation">Cout_Creation</label>
+                                    <input name="cout_creation" type="number" class="form-control" id="cout_creation" placeholder="cout_creation">
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <label for="nature">Nature</label>
+                                    <input name="nature" type="text" class="form-control" id="nature" placeholder="nature">
+                                </div>
+                                <div class="form-group col-md-12">
+                                <label for="duree">Duree (Ans)</label>
+                                <input name="duree" type="type" class="form-control" id="duree" placeholder="duree">
+                            </div>
+                            </div>  
+                    </div>
+                </div>
+            </div>`;
+
+             // ++++++ End: Amenagement touristique form+++++++++
+
+        // Function to set the HTML content of selectedValueElement
+        function setFormHTML(html) {
+            selectedValueElement.innerHTML = html;
+        }
+
+        // Set the HTML form based on the selected value 
+        switch (selectValue) {
+
+            case 'piste':
+                setFormHTML(piste);
+                break;
+
+            case 'point_eau':
+                setFormHTML(point_eau);
+                break;
+            case 'amenagement_touristique':
+                setFormHTML(amenagement_touristique);
+                break;
+            case 'cloture':
+                setFormHTML(cloture);
+                break;
+            default:
+                setFormHTML('Select an element of amenagement form ');
+                break;
+        }
+
+        // Updating 
+        // selectedValueElement.textContent = `Selected Value : ${selectedText} (${selectValue})`;
+    });
+</script>
+
+
 <?php include_once 'footer.php'; ?>

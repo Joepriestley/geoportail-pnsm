@@ -36,4 +36,17 @@
     border: 2px solid #fff;
     background-color: #007bff;
   }
+
+ 
+  /* Custom Lightbox Styles */
+.custom-lightbox {
+    max-width: 250px; /* Set the maximum width for the lightbox */
+    margin: 0 auto; /* Center the lightbox horizontally */
+    background-color: rgb(19, 76, 28); /* Set a background color for the lightbox */
+    /* padding: 10px; Add padding inside the lightbox */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Add a shadow for depth */
+  }
+
+
+  
   

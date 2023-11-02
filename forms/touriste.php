@@ -57,6 +57,10 @@ include_once 'header.php';
                 <input name="adresse" type="text" class="form-control" id="adresse" placeholder="fonction/occupation">
               </div>
               <div class="form-group col-md-6">
+                <label for="date_visite">date_visite</label>
+                <input name="date_visite" type="text" class="form-control" id="date_visite" placeholder="fonction/occupation">
+              </div>
+              <div class="form-group col-md-6">
                 <label for="prenom">Prenom</label>
                 <input name="prenom" type="text" class="form-control" id="prenom" placeholder="Prenom">
               </div>
@@ -75,15 +79,16 @@ include_once 'header.php';
           <tr>
             <!-- <th scope="col">Id</th> -->
             <th scope="col">Nom Touriste</th>
+            <th scope="col">Prenom</th>
             <th scope="col">Age</th>
             <th scope="col">Sexe</th>
-            <th scope="col">Numero Passport</th>
+            <th scope="col">Num Passport</th>
             <th scope="col">Nationalite</th>
             <th scope="col">Motivation</th>
             <th scope="col">Fonction</th>
-            <th scope="col">Num_Telephone</th>
-            <th scope="col">Adresse_Touriste</th>
-            <th scope="col">Prenom</th>
+            <th scope="col">Tel..</th>
+            <th scope="col">DateVisite</th>
+            <th scope="col">Adresse Touriste</th>
             <th scope="col">select</th>
             <th scope="col">Action</th>
 
@@ -105,6 +110,7 @@ include_once 'header.php';
           <?php foreach ($results as $row) : ?>
             <tr>
               <td><?= $row['nomtouriste'] ?></td>
+              <td><?= $row['prenom'] ?></td>
               <td><?= $row['age'] ?></td>
               <td><?= $row['sexe'] ?></td>
               <td><?= $row['numerocin_passport'] ?></td>
@@ -112,8 +118,9 @@ include_once 'header.php';
               <td><?= $row['motivation'] ?></td>
               <td><?= $row['fonction'] ?></td>
               <td><?= $row['telephone'] ?></td>
+              <td><?= $row['date_visite'] ?></td>
               <td><?= $row['adresse'] ?></td>
-              <td><?= $row['prenom'] ?></td>
+              
               <td>
                 <a href="touriste-edit.php?id=<?= $row['numerocin_passport'] ?>"><button name="edit_tourist" class="edit-btn btn btn-warning">Editer</button></a>
               </td>

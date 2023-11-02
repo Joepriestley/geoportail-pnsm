@@ -11,46 +11,40 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         return $data;
     }
 
-    $nompointeau = validate($_POST['nompointeau']);
-    $detailamenagement = validate($_POST['detailamenagement']);
-    $etatelement = validate($_POST['etatelement']);
-    $id_amenagement = validate($_POST['id_amenagement']);
+    $id_point_eau  = validate($_POST['id_point_eau ']);
     $profondeur = validate($_POST['profondeur']);
     $nature = validate($_POST['nature']);
+    $cout_creation = validate($_POST['cout_creation']);
     $localisation = validate($_POST['localisation']);
     $importance = validate($_POST['importance']);
-    $commentaire = validate($_POST['commentaire']);
+    $date_creation = validate($_POST['date_creation']);
 
     // Perform server-side validation
-    if (empty($nompointeau) || empty($detailamenagement) || empty($etatelement) || empty($id_amenagement) || empty($profondeur) || empty($nature) || empty($localisation) || empty($importance) || empty($commentaire)) {
+    if (empty($id_point_eau ) || empty($profondeur) || empty($nature) || empty($cout_creation) || empty($profondeur) || empty($nature) || empty($localisation) || empty($importance)) {
         echo "Please fill in all fields.";
     } else {
         try {
             $query = "UPDATE point_eau 
-            SET detailamenagement = :detailamenagement,
-                etatelement = :etatelement,
-                id_amenagement = :id_amenagement,
-                profondeur = :profondeur,
+            SET profondeur = :profondeur,
                 nature = :nature,
+                cout_creation = :cout_creation,
                 localisation = :localisation,
                 importance = :importance,
-                commentaire = :commentaire
-            WHERE nompointeau = :nompointeau"; // Change 'nompointeau' to the actual primary key field name of your table
+                date_creation = :date_creation
+            WHERE id_point_eau  = :id_point_eau "; // Change 'id_point_eau ' to the actual primary key field name of your table
             
             $stmt = $pdo->prepare($query);
             
             if ($stmt) {
-                // Bind parameters including the primary key 'nompointeau' for the record to update
+                // Bind parameters including the primary key 'id_point_eau ' for the record to update
                 $params = [
-                    ':detailamenagement' => $detailamenagement,
-                    ':etatelement' => $etatelement,
-                    ':id_amenagement' => $id_amenagement,
                     ':profondeur' => $profondeur,
                     ':nature' => $nature,
+                    ':cout_creation' => $cout_creation,
                     ':localisation' => $localisation,
                     ':importance' => $importance,
-                    ':commentaire' => $commentaire,
-                    ':nompointeau' => $nompointeau // Replace with the actual 'nompointeau' value you want to update
+                    ':date_creation' => $date_creation,
+                    ':id_point_eau ' => $id_point_eau  // Replace with the actual 'id_point_eau ' value you want to update
                 ];
                 
                 $result = $stmt->execute($params);

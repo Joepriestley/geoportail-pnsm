@@ -11,39 +11,39 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         return $data;
     }
 
-    $detailamenagement = validate($_POST['detailamenagement']);
-    $etatelement = validate($_POST['etatelement']);
-    $id_amenagement = validate($_POST['id_amenagement']);
     $id_piste = validate($_POST['id_piste']);
     $longueur = validate($_POST['longueur']);
+    $cout_amengt = validate($_POST['cout_amengt']);
     $accessibilite = validate($_POST['accessibilite']);
     $dateouverture = validate($_POST['dateouverture']);
+    $id_amengt = validate($_POST['id_amengt']);
+    $_nom_piste = validate($_POST['_nom_piste']);
     
     
 
     // Perform server-side validation
-    if (empty($detailamenagement) || empty($etatelement) || empty($id_amenagement) || empty($id_piste) || empty($longueur) || empty($accessibilite)|| empty($dateouverture)) {
+    if (empty($id_piste) || empty($longueur) || empty($cout_amengt) || empty($accessibilite)|| empty($dateouverture)|| empty($id_amengt)) {
             header("Location: ../pistes.php?message=Veuillez saisir des donnees dans tous les champs!");
             exit();
         // echo "Please fill in all fields.";
     } else {
         try {
             // Prepare the SQL query using named placeholders
-            $query = "INSERT INTO pistes (detailamenagement, etatelement, id_amenagement, id_piste, longueur,accessibilite,dateouverture)
-                     VALUES (:detailamenagement, :etatelement, :id_amenagement, :id_piste, :longueur,:accessibilite,:dateouverture)";
+            $query = "INSERT INTO pistes (id_piste,longueur,cout_amengt,accessibilite,dateouverture,id_amengt,_nom_piste)
+                     VALUES (:id_piste, :longueur,:cout_amengt,:accessibilite,:dateouverture,:id_amengt,:_nom_piste)";
             
             $stmt = $pdo->prepare($query);
 
             if ($stmt) {
                 // Bind parameters and execute the statement using an associative array
                 $params = [
-                    ':detailamenagement' => $detailamenagement,
-                    ':etatelement' => $etatelement,
-                    ':id_amenagement' => $id_amenagement,
                     ':id_piste' => $id_piste,
-                    ':longueur' =>$longueur,
+                    ':longueur' => $longueur,
+                    ':cout_amengt' => $cout_amengt,
                     ':accessibilite' => $accessibilite,
-                    ':dateouverture' => $dateouverture
+                    ':dateouverture' => $dateouverture,
+                    ':id_amengt' => $id_amengt,
+                    ':_nom_piste' => $_nom_piste
                     
                 ];
 

@@ -56,19 +56,19 @@ if (isset($_GET['id'])) {
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
-                                    <label for="id_douar">Id Douar</label>
-                                    <select name="id_douar" id="id_douar" class="form-control">
+                                    <label for="douar">Id Douar</label>
+                                    <select name="douar" id="douar" class="form-control">
                                         <option value="">--Choissisez l'identifiant de douar--</option>
-                                        <option value="1" <?= ($result->id_douar == 1) ? 'selected' : ''; ?>>Larjam(1)</option>
-                                        <option value="2" <?= ($result->id_douar == 2) ? 'selected' : ''; ?>>Sdi Boulafdail(2)</option>
-                                        <option value="3" <?= ($result->id_douar == 3) ? 'selected' : ''; ?>>Aghrimaz(3)</option>
-                                        <option value="4" <?= ($result->id_douar == 4) ? 'selected' : ''; ?>>Sidi Binzaren(4)</option>
-                                        <option value="5" <?= ($result->id_douar == 5) ? 'selected' : ''; ?>>Sidi Oussay(5)</option>
-                                        <option value="6" <?= ($result->id_douar == 6) ? 'selected' : ''; ?>>Sidi Rbat(6)</option>
-                                        <option value="7" <?= ($result->id_douar == 7) ? 'selected' : ''; ?>>Ifaryane(7)</option>
-                                        <option value="8" <?= ($result->id_douar == 8) ? 'selected' : ''; ?>>Douira(8)</option>
-                                        <option value="9" <?= ($result->id_douar == 9) ? 'selected' : ''; ?>>Tifnit(9)</option>
-                                        <option value="10" <?= ($result->id_douar == 10) ? 'selected' : ''; ?>>Sidi Toualnon(10)</option>
+                                        <option value="Larjam">Larjam(1)</option>
+                                        <option value="Sidi Boulafdail">Sidi Boulafdail(2)</option>
+                                        <option value="Aghrimaz">Aghrimaz(3)</option>
+                                        <option value="Sidi Binzaren">Sidi Binzaren(4)</option>
+                                        <option value="Sidi Oussay">Sidi Oussay(5)</option>
+                                        <option value="Sidi Rba">Sidi Rbat(6)</option>
+                                        <option value="Ifaryane">Ifaryane(7)</option>
+                                        <option value="Douira">Douira(8)</option>
+                                        <option value="Tifnit">Tifnit(9)</option>
+                                        <option value="Sidi Toualnon">Sidi Toualnon(10)</option>
                                     </select>
                                 </div>
                                 <div class="input-group col-md-12">

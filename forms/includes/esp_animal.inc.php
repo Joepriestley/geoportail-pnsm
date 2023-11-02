@@ -13,6 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $nomscientifique = validate($_POST['nomscientifique']);
     $nomfrancais = validate($_POST['nomfrancais']);
+    $famille = validate($_POST['famille']);
     $statutsocial = validate($_POST['statutsocial']);
     $sedentaire = validate($_POST['sedentaire']);
     $regimealimentaire = validate($_POST['regimealimentaire']);
@@ -21,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nombreportee_an = validate($_POST['nombreportee_an']);
     $commentaire = validate($_POST['commentaire']);
     
-    $path = './includes/';
+    $path = 'includes/';
     $uploadDir = 'savedImage/';
     $imageFileName = basename($_FILES['photo']['name']);
 
@@ -59,8 +60,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         try {
             // Prepare the SQL query using named placeholders
-            $query = "INSERT INTO espece_animale (nomscientifique, nomfrancais, statutsocial, sedentaire,regimealimentaire, periodereproduction, tailleportee, nombreportee_an, commentaire, photo) 
-                    VALUES (:nomscientifique, :nomfrancais,:statutsocial, :sedentaire,:regimealimentaire, :periodereproduction, :tailleportee, :nombreportee_an, :commentaire, :photo)";
+            $query = "INSERT INTO espece_animale (nomscientifique, nomfrancais,famille, statutsocial, sedentaire,regimealimentaire, periodereproduction, tailleportee, nombreportee_an, commentaire, photo) 
+                    VALUES (:nomscientifique, :nomfrancais,:famille,:statutsocial, :sedentaire,:regimealimentaire, :periodereproduction, :tailleportee, :nombreportee_an, :commentaire, :photo)";
             
             $stmt = $pdo->prepare($query);
 
@@ -69,6 +70,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $params = [
                     ':nomscientifique' => $nomscientifique,
                     ':nomfrancais' => $nomfrancais,
+                    ':famille' => $famille,
                     ':statutsocial' => $statutsocial,
                     ':sedentaire' => $sedentaire,
                     ':regimealimentaire' => $regimealimentaire,
@@ -82,7 +84,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $result = $stmt->execute($params);
 
                 if ($result) {
-                    header("Location: ./esp_animal.php?message=Data inserted successfully!");
+                    header("Location: ../esp_animal.php?message=Data inserted successfully!");
                     exit();
                 } else {
                     echo "Error: " . $stmt->errorInfo()[2];

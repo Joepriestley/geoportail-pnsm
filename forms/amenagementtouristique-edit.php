@@ -14,10 +14,10 @@ include_once 'header.php';
 
                     <?php
                         if (isset($_GET['id'])) {
-                            $id_amenagementtour = $_GET['id'];
-                            $query = "SELECT * FROM amenagement_touristique WHERE id_amenagementtour= :id_amenagementtour";
+                            $id_amengttour = $_GET['id'];
+                            $query = "SELECT * FROM amenagement_touristiques WHERE id_amengttour= :id_amengttour";
                             $stmt = $pdo->prepare($query);
-                            $stmt->bindParam(':id_amenagementtour', $id_amenagementtour, PDO::PARAM_STR);
+                            $stmt->bindParam(':id_amengttour', $id_amengttour, PDO::PARAM_STR);
                             $stmt->execute();
                         
                             $result = $stmt->fetch(PDO::FETCH_OBJ);
@@ -37,20 +37,20 @@ include_once 'header.php';
                             <div class="form-row">
                                 <span class="form-control text-center bg-dark text-white"><b>Amenagement Touristique</b></span>
                                 <div class="form-group col-md-6">
-                                    <label for="id_amenagement">Id_Amenagement</label>
-                                    <input name="id_amenagement" type="number" value="<?=$result->id_amenagement; ?>" class="form-control" id="id_amenagement" name="id_amenagement" placeholder="Id_Amenagement">
+                                    <label for="type">Type Amenagement Touristique</label>
+                                    <input name="type" type="number" value="<?=$result->type; ?>" class="form-control" id="type" name="type" placeholder="type">
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label for="etatelement">Etat_Element</label>
-                                    <input name="etatelement" type="text" value="<?=$result->etatelement; ?>" class="form-control" id="etatelement" placeholder="etatelement">
+                                    <label for="resposable">Responsable Amenagement Touristique</label>
+                                    <input name="resposable" type="text" value="<?=$result->resposable; ?>" class="form-control" id="resposable" placeholder="resposable">
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label for="detailamenagement">Details_Amenagement</label>
-                                    <input name="detailamenagement" type="text" value="<?=$result->detailamenagement; ?>" class="form-control" id="detailamenagement" placeholder="detailamenagement">
+                                    <label for="periode">Periode</label>
+                                    <input name="periode" type="text" value="<?=$result->periode; ?>" class="form-control" id="periode" placeholder="periode de gestion">
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label for="id_amenagementtour">Id_Amenagement_Touristique </label>
-                                    <input name="id_amenagementtour"  type="text" value="<?=$result->id_amenagementtour; ?>" class="form-control" id="id_amenagementtour" placeholder="id_amenagementtour" disabled="disabaled">
+                                    <label for="id_amengttour">ID Amenagement Touristique </label>
+                                    <input name="id_amengttour"  type="text" value="<?=$result->id_amengttour; ?>" class="form-control" id="id_amengttour" placeholder="Donnerr un numero d'identifiant" disabled="disabaled">
                                 </div>
                                 <div class="form-group col-md-12">
                                     <label for="responsable">Responsable</label>
@@ -61,17 +61,18 @@ include_once 'header.php';
                                     <input name="periode" type="text"  value="<?=$result->periode; ?>"class="form-control" id="periode" placeholder="periode">
                                 </div>
                                 </div>
-                                <input type="hidden" value="<?=$result->id_amenagementtour; ?>"  name="id_amenagementtour" >
+                                <input type="hidden" value="<?=$result->id_amengttour; ?>"  name="id_amengttour" >
                             </div>
                             </div>
-                            <div class="form-row">
-                                <div class="input-group col-md-12">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text">Commentaire</span>
-                                    </div>
-                                    <textarea name="commentaire" value="<?=$result->commentaire; ?>" class="form-control" id="commentaire" aria-label="detailamenagement" placeholder="Entrer un commentaire/description de l'especes"></textarea>
+                            <div class="form-group col-md-12">
+                                    <label for="id_amenagement">Cout Amenagement</label>
+                                    <input name="cout_amengt" type="text"  value="<?=$result->cout_amengt; ?>" class="form-control" id="cout_amengt"  placeholder="Saissir le cout de gestion">
                                 </div>
-                            </div>
+                            <!-- <div class="form-group col-md-12">
+                                    <label for="id_amenagement">ID Amenagement</label>
+                                    <input name="id_amenagement" type="text"  value="<?=$result->id_amenagement; ?>" class="form-control" id="id_amenagement"  placeholder="Saissir l'identifiant d'amenagement">
+                                </div>
+                             -->
                             <button type="submit" name="submit" class="btn btn-primary">UPDATE</button>
                         </form>
                         <br>
@@ -81,19 +82,7 @@ include_once 'header.php';
             </div>
             <div class="col-md-7">
                 <table class="table table-striped">
-                    <thead class="table-success">
-                        <tr >
-                            <th>Id_Amenagement</th>
-                            <th>Etat_Element</th>
-                            <th>Identifiant_Amenagement</th>
-                            <th>Id_Amenagement_Touristique </th>
-                            <th>Responsable</th>
-                            <th>Periode</th>
-                            <th>Commentaire</th>
-                            <th>Editer</th>
-                            <th>Effacer</th>
-                        </tr>
-                    </thead>
+                    
                     <tbody id="circuitTable" >
                         <!-- Table rows will be dynamically added here -->
 

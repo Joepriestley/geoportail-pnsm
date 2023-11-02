@@ -6,13 +6,26 @@ var lyrEsriImagery,lyrTopo,lyrESri,lyrOSM,lyrsearch;
 var mrkCurrentLocation;
 var ctlAttribute,ctlScale,ctlPan,ctlMouseposition,ctlMeasure,ctlEasybutton,ctlSidebar,ctlSearch,cltLayers,browserControl,map;
 var objBasemaps,objOverlays,landscape_image;
-var ctlDraw, drawnItems,styleEditor,lyrDouar,lyrClusters;
+var ctlDraw, drawnItems,styleEditor,lyrDouar,lyrClusters, lyrzoneCoeurs;
 var googleStreets,googleHybrid,googleSatellite,googleTerrain;
 var histChart;
+var jsnActivites;
+
+var imagesBaseUrl = "http://localhost/geoportail-pnsm/forms"
+
+var clickedLayer = null;
+
+
+// relevant columns 
+var zoneAdhesionCols = ["name", "superf", ,"zonebiogeo"]; 
+
+var zoneCoeurCols = ["nom", "superficie(ha)", "zone_biogeographique", "commune"];
+
+var douarCols = ["nom", "population", "menages" ,"photo"]
 
 
 // initialisation des variables pour les données geojson
-var jsnDouar, jsnzcoeurs, jsnzAdhesion,jsnSites;
+var jsnDouar, jsnzcoeurs, jsnzAdhesion,jsnSites, jsnZonesEspeces;
 
 var home = {
 	lat: 30.13285,
@@ -23,23 +36,31 @@ var home = {
 
 
 //****************** layers style */
-var zonecoeursStyle = {
-    "color": "#ff7800",
-    "weight": 5,
-    "opacity": 0.65
-}
+// var zonecoeursStyle = {
+//     "color": "red",
+//     "weight": 5,
+//     "opacity": 0.65
+// }
 
 //#############style for zoneadhesion#######################
-var styleAdhesion = {
-    "color":"#006600",
+// var styleAdhesion = {
+//     "color":"#006600",
+//     "weight":4,
+//     "opacity":0.75
+// }
+
+var sitesStyle = {
+    "color":"lime",
     "weight":4,
-    "opacity":0.75
+    "opacity":0.4,
+    "zIndexOffset":200
 }
+
 
 //*********map initialisation*****************
 
 $(document).ready(function(){
-
+ 
     mymap = L.map('mapdiv', {center:[30.13285,-9.61349], zoom:11, attributionControl:false});
     // function onMapClick(e){
     //     console.log(e.target)
@@ -86,14 +107,14 @@ $(document).ready(function(){
     //**********Start:WMS Layers  ***************
 
 var ZoneC = L.tileLayer.wms("http://localhost:8080/geoserver/PNSM_geoportal/wms", {
-    layers: 'PNSM_geoportal:zonecoeurs',
+    layers: 'PNSM_geoportal:zcoeur',
     format: 'image/png',
     transparent: true,
     attribution: "@geoserver"
 })
 
 var ZoneA = L.tileLayer.wms("http://localhost:8080/geoserver/PNSM_geoportal/wms", {
-    layers: 'PNSM_geoportal:zoneadhesions',
+    layers: 'PNSM_geoportal:zadhesions',
     format: 'image/png',
     transparent:true,
     attribution:"@geoserver"
@@ -128,7 +149,7 @@ var LimtePNSM = L.tileLayer.wms("http://localhost:8080/geoserver/PNSM_geoportal/
 
 
 //**************control panel**********************/
-    ctlPan = L.control.pan().addTo(mymap);
+ctlPan = L.control.pan().addTo(mymap);
 
  //***********Home button*********************** */
  L.easyButton('<i class="fa fa-home fa-lg" title="Zoom to home"></i>',function(btn,map){
@@ -139,14 +160,14 @@ var LimtePNSM = L.tileLayer.wms("http://localhost:8080/geoserver/PNSM_geoportal/
 
 
 
-    ctlMeasure = L.control.polylineMeasure().addTo(mymap);
-    ctlSidebar = L.control.sidebar('side-bar').addTo(mymap);
+ctlMeasure = L.control.polylineMeasure().addTo(mymap);
+ctlSidebar = L.control.sidebar('side-bar').addTo(mymap);
 
 
-    
-    ctlEasybutton = L.easyButton('glyphicon-transfer', function(){
-       ctlSidebar.toggle(); 
-    }).addTo(mymap);
+
+ctlEasybutton = L.easyButton('glyphicon-transfer', function(){
+    ctlSidebar.toggle(); 
+}).addTo(mymap);
 
 
     
@@ -168,42 +189,6 @@ var LimtePNSM = L.tileLayer.wms("http://localhost:8080/geoserver/PNSM_geoportal/
 // });
 
 
-// ###############style for zonecoeur ###################
-function zoneCoeurStyle(layer) {
-    layer.setStyle({
-        fillColor: 'rgb(43, 55, 0, 0.8)',
-        fillOpacity: 0.8,
-        color: '#421800',
-        weight: 2,
-        opacity: 1
-    });
-}
-
-// ############Zone du coeur####################
-$.ajax({
-    url: 'zonecoeurs.php',
-    success: function(response) {
-        jsnzcoeurs = JSON.parse(response);
-        lyrzoneCoeurs = L.geoJSON(jsnzcoeurs, { 
-            style: zonecoeursStyle,  // styling each feature like css
-            onEachFeature: function(feature, layer) { // loop on each zonecoeur feature to customize its behavior
-                // feature is a json that contains properties in 'feature.properties'
-                if (feature.properties) { // we check if the attribute properties exists just for security
-                    layer
-                    .bindPopup(buildFearuePopup(feature.properties, 'zonecoeur'))
-
-            
-                }          
-        }
-        }).addTo(mymap);
-
-        cltLayers.addOverlay(lyrzoneCoeurs, "Zone du Coeurs");
-    },
-    error: function(xhr, status, error) {
-        alert("ERROR:" + error);
-    }
-});
-
 
 //#############pnsmlimites #######################
 // $.ajax({
@@ -220,6 +205,98 @@ $.ajax({
 //     }
 // });
 
+//############Zone adhesion####################
+
+
+var styleAdhesion = {
+    "color": "#006600",
+    "weight": 4,
+    "opacity": 0.75,
+    "zIndexOffset":100
+
+};
+
+var clickedLayerAdhesion = null; // To keep track of the selected layer
+
+$.ajax({
+    url: 'zoneAdhesion.php',
+    success: function (response) {
+        jsnzAdhesion = JSON.parse(response);
+        lyrzAdhesion = L.geoJSON(jsnzAdhesion, {
+            style: styleAdhesion,
+            onEachFeature: function (feature, layer) {
+                if (feature.properties) {
+                    layer
+                        .bindPopup(buildFearuePopup(feature.properties, 'zoneadhesion', zoneAdhesionCols));
+                }
+            }
+        }).addTo(mymap);
+
+        cltLayers.addOverlay(lyrzAdhesion, "Zone d'Adhesion");
+
+        lyrzAdhesion.on('click', function (event) {
+
+           // change the opacity of the previously clicked layer back to 0.75
+        
+            event.layer.setStyle({
+                opacity: 0.70,
+                fillOpacity: 0.70
+                
+            });
+
+        });
+    },
+    error: function (xhr, status, error) {
+        alert("ERROR: " + error);
+    }
+});
+
+
+// ############Zone du coeur####################
+
+var zonecoeursStyle = {
+    "color": "red",
+    "weight": 5,
+    "opacity": 0.65,
+    "zIndexOffset":100
+
+};
+
+var clickedLayer = null;  // To keep track of the selected layer
+
+$.ajax({
+    url: 'zonecoeurs.php',
+    success: function(response) {
+        jsnzcoeurs = JSON.parse(response);
+        lyrzoneCoeurs = L.geoJSON(jsnzcoeurs, { 
+            style: zonecoeursStyle,
+            onEachFeature: function(feature, layer) {
+                if (feature.properties) {
+                    layer.bindPopup(buildFearuePopup(feature.properties, 'zonecoeur', zoneCoeurCols));
+                }          
+            }
+        }).addTo(mymap);
+
+        cltLayers.addOverlay(lyrzoneCoeurs, "Zone du Coeurs");
+
+        // Adding a click event to the layer
+        lyrzoneCoeurs.on('click', function(e){
+            // change the opacity of the previously clicked layer back to 0.75
+            e.layer.setStyle({
+                opacity: 0.70,
+                fillOpacity: 0.70
+            
+            }); 
+        });
+    },
+    error: function(xhr, status, error) {
+        alert("ERROR: " + error);
+    }
+});
+
+
+
+
 
 //===============sites invest ===========================/
 $.ajax({
@@ -227,7 +304,7 @@ $.ajax({
     success:function(response){
         jsnSites=JSON.parse(response);
         sitesInvest= L.geoJSON(jsnSites,{
-            style: zoneCoeurStyle,
+            style: sitesStyle,
             onEachFeature: function(layer,feature){
                 
                 if(feature.properties){
@@ -245,33 +322,6 @@ $.ajax({
 });
 
 
-//############Zone adhesion####################
-$.ajax({
-    url:'zoneAdhesion.php',
-    success:function(response){
-        jsnzAdhesion=JSON.parse(response);
-        lyrzAdhesion= L.geoJSON(jsnzAdhesion ,{
-            style:styleAdhesion,
-            onEachFeature: function(feature,layer){
-                if(feature.properties){
-                    layer
-                    .bindPopup(buildFearuePopup(feature.properties, 'zoneadhesion'))
-                    
-                }
-            }
-        }).addTo(mymap);
-
-     
-       cltLayers.addOverlay(lyrzAdhesion,"Zone d'Adhesion");
-    },
-    error:function(xhr,status,error){
-        alert("ERROR:"+ error);
-    }
-});
-
-    
-
-
 
 //=============== Douar Parc ======================/
 $.ajax({
@@ -281,7 +331,21 @@ $.ajax({
         lyrTest= L.geoJSON(jsnDouar,{pointToLayer:returnDouarmakr}).addTo(mymap);
 
        cltLayers.addOverlay(lyrTest,"Douars du Parc");
+
+       var clickedLayer = null;
+
+
+       // Adding a click event to the layer
+       lyrTest.on('click', function(e){
+         // change the opacity of the previously clicked layer back to 0.75
+         e.layer.setStyle({
+            opacity: 0.70,
+            fillOpacity: 0.70
+        
+        });
+    });
     },
+    
     error:function(xhr,status,error){
         alert("ERROR:"+ error);
     }
@@ -302,12 +366,48 @@ $.ajax({
 
         }).addTo(mymap);
        cltLayers.addOverlay(clusters,"Clusters");
+
+        // Adding a click event to the layer
+        clusters.on('click', function(e){
+             // change the opacity of the previously clicked layer back to 0.75
+             e.layer.setStyle({
+                opacity: 0.70,
+                fillOpacity: 0.70
+            
+            });
+        });
+
+    },
+
+    error:function(xhr,status,error){
+        alert("ERROR:"+ error);
+    }
+});
+
+//===============Zones especes ======================/
+$.ajax({
+    url:'zonesEspeces.php',
+    success:function(response){
+
+        jsnZonesEspeces=JSON.parse(response);
+
     },
     error:function(xhr,status,error){
         alert("ERROR:"+ error);
     }
 });
 
+//===============Activites=============================/
+
+$.ajax({
+    url: 'activites.php',
+    success: function(response) {
+        jsnActivites = JSON.parse(response);
+    },
+    error: function(xhr, status, error) {
+        alert("ERROR: " + error);
+    }
+});
 
 
 //END:FETCHING DATA FROM THE DATABASE TO THE MAP 
@@ -324,7 +424,6 @@ $.ajax({
     ctlDraw = new L.Control.Draw({
         draw:{
             circle:true,
-          
         },
         edit:{
             featureGroup:drawnItems
@@ -376,14 +475,12 @@ objBasemaps = {
 };
 //overlays 
 objOverlays={
-
     "Province":province,
     "Secteur Forestiere":secteurFor,
     "Zone Adhesion du Parc":ZoneA,
     "Zone Coeur du Parc":ZoneC,
     "Limite du PNSM":LimtePNSM,
     "Drawn Items":drawnItems,
-  
     "Sites Investissement Touristiques":siteInvest,
 };
 
@@ -433,10 +530,7 @@ objOverlays={
         mymap.locate();
     });
     
-    $("#btnZocalo").click(function(){
-        mymap.setView([19.43262,-99.13325]);
-        mymap.openPopup(popZocalo);
-    })
+    
     
 });
 
@@ -449,9 +543,8 @@ function LatLngToArrayString(ll) {
 
  function returnDouarmakr(json,latlng){
     var att =json.properties;
-    return L.circleMarker(latlng,{radius:10,color:'black',fillColor:'green',fillOpacity:0.7})
-    //.bindTooltip("<h4>Id:"+att.id +"</h4> Nom: "+ att.nom)    
-   
+    return L.circleMarker(latlng,{radius:10,color:'black',fillColor:'green',fillOpacity:0.7, zIndexOffset:200,zIndex:2000,
+})   
     .bindPopup(buildFearuePopup(att, 'douar'))
 
    
@@ -533,40 +626,99 @@ function LatLngToArrayString(ll) {
 //####################function to handle the map #############################/
 
 
-function showDouarDetailsOnSideBar(){
+
+
+ function showZoneCoeurDetailsOnSideBar(attrs){
+
+    let properties = attrs;
+
+    let especesAnimals = jsnZonesEspeces.filter(line => line.zone_type == "zone_coeur" && line.zone_name == properties.nom && line.espece_type == "espece_animale");
+    let especesVegetals = jsnZonesEspeces.filter(line => line.zone_type == "zone_coeur" && line.zone_name == properties.nom && line.espece_type == "espece_vegetale");
+
+    let sidbarHtml = buildZoneSidebarHtml("Zone coeur", properties.nom, properties, zoneCoeurCols, especesAnimals, especesVegetals);
+    // set the sidebar content
+    $("#side-bar-content").html(sidbarHtml);
+
+ }
+
+
+
+
+
+ function showZoneAdesionDetailsOnSideBar(attrs){ 
+
+    let properties = attrs;
+
+    let especesAnimals = jsnZonesEspeces.filter(line => line.zone_type == "zone_adhesion" && line.zone_name == properties.name && line.espece_type == "espece_animale");
+    let especesVegetals = jsnZonesEspeces.filter(line => line.zone_type == "zone_adhesion" && line.zone_name == properties.name && line.espece_type == "espece_vegetale");
+
+    let sidbarHtml = buildZoneSidebarHtml("Zone adhesion", properties.name, properties, zoneAdhesionCols, especesAnimals, especesVegetals);
+    // set the sidebar content
+    $("#side-bar-content").html(sidbarHtml);
+
+ }
+
+
+
+ function showDouarDetailsOnSideBar(attrs){
+   
+    let sidbarHtml = buildDouarSidebarHtml(attrs, douarCols)
+    $("#side-bar-content").html(sidbarHtml);
+
+    let douarActiviteDoughnutEl = document.getElementById("douar_activite_doughnut")
     
-    showFeatureBarChart("Douar Bar chart", jsnDouar.features, {labelCol:"nom", valueCol:"pop"});
+    let activitiesSet = [...new Set(jsnActivites.map(act =>  act.activite_type))] 
 
- }
+    // nombre d'activités par douar
+    let data = {
+        labels: activitiesSet,
+        values: activitiesSet.map(act_type => jsnActivites.filter( act => act.activite_type == act_type && act.douar == attrs.nom).length)
+    }
+    var chart = doughnutChart(douarActiviteDoughnutEl, data,  "Niveau d'activité")
 
 
- function showZoneCoeurDetailsOnSideBar(){
-    showFeatureBarChart("Zone Coeur Bar chart", jsnzcoeurs.features, {labelCol:"name", valueCol:"objectid"});
 
- }
+    // nombre rendement des activites par douar
+    let douarRendementActiviteDoughnutEl = document.getElementById("douar_rendement_activite_bar")
 
-
- function showZoneAdesionDetailsOnSideBar(){
+    var dataRendement = {
+        labels: activitiesSet, //["agr", "eleva"]
+        values: activitiesSet.map( 
+            act_type =>  
+            jsnActivites // [{rendement: 1O, nom:..., act_type: agr}, ...]
+            .filter( act => act.activite_type == act_type && act.douar == attrs.nom)
+            .map(a => a.rendement ?? 0)
+            .reduce((a,b) => a+b)
     
-    showFeatureBarChart("Zone adhesion Bar chart", jsnzAdhesion.features, {labelCol:"name", valueCol:"objectid_1"});
+        )
+    }
+
+    var chartRendement = barChart(douarRendementActiviteDoughnutEl, dataRendement,  "Rendement des activités")
+
+    
 
  }
 
- function showSiteDetailsOnSideBar(){
+ 
+
+ function showSiteDetailsOnSideBar(attrs){
  
     showFeatureBarChart("Sites Invest Bar chart", jsnSites.features, {labelCol:"nom", valueCol:"supericie"});
 
  }
 
- function showClusterDetailsOnSideBar(){
+ function showClusterDetailsOnSideBar(attrs){
  
     showFeatureBarChart("Clusters Bar chart", jsnClusters.features, {labelCol:"id", valueCol:"nom"});
 
  }
 
+ 
+
 
 
  //#################### Generic function to show charts #############################/
+
 
 
  function showFeatureBarChart(title, featureList, chartDefaultColumns) {
@@ -577,7 +729,6 @@ function showDouarDetailsOnSideBar(){
 
     const columns = getColumnsFromObject(featureList[0].properties)
     
-
     showSelectedColumnsBarChart(chartCanvas, featureList, chartDefaultColumns)
 
     // clear the select element
@@ -630,7 +781,7 @@ function showDouarDetailsOnSideBar(){
     histChart = distributionChart(chartCanvas, data, title)
  }
 
- function showFeatureDetailsOnSideBar(){
+ function showFeatureDetailsOnSideBar(attrs){
     // get the feature name as attribute of html element
     var featureName = $("#charts-popup-link").attr("feature_name")
 
@@ -639,75 +790,29 @@ function showDouarDetailsOnSideBar(){
 
     // case of douar
     if(featureName == "douar"){
-        showDouarDetailsOnSideBar()
+        showDouarDetailsOnSideBar(attrs)
     }
     // case of zone coeur
     else if(featureName == "zonecoeur"){
-        showZoneCoeurDetailsOnSideBar()
+        showZoneCoeurDetailsOnSideBar(attrs)
     }
     // case of zone adhesion
     else if(featureName == "zoneadhesion"){
-        showZoneAdesionDetailsOnSideBar()
+        showZoneAdesionDetailsOnSideBar(attrs)
     }
     // case of sites invest
     else if(featureName == "sitesInvest"){
-        showSiteDetailsOnSideBar()
+        showSiteDetailsOnSideBar(attrs)
     }
 
     else if(featureName == "cluster") {
-        showClusterDetailsOnSideBar()
+        showClusterDetailsOnSideBar(attrs)
     }
 
 
  }
 
 
- function buildFearuePopup(attrs, featureKey){
-
-      
-    var tableHtml = `
-    <div
-    id="item-details-dialog"
-    class="relative space-y-3 overflow-y-scroll w-auto" 
-    >
-    <table class="table w-full mb-6 ">
-    <thead>
-      <tr>
-        <th scope="col">Field</th>
-        <th scope="col">Value</th>
-      </tr>
-    </thead>
-    <tbody class="body">
-    `;
-    
-    for (var key of Object.keys(attrs)) {
-        tableHtml += "<tr><th>"+key+"</th><td>"+attrs[key]+"</td></tr>";
-    }
-
-    tableHtml += `</tbody>
-    </table>
-    <div class="w-full bg-white pt-6 pb-2 flex absolute bottom-0 left-0 z-20">
-    <button
-      feature_name=${featureKey}
-      id="charts-popup-link"
-      class="graph-link px-4 py-1 block rounded-full text-white bg-[#9e1b49] shadow outline-none"
-      href=""
-    >
-      Afficher le graphe ${featureKey}
-    </button>
-  </div>
-    </div>
-    ` 
-
-    var tableEl = document.createElement('div')
-    tableEl.innerHTML = tableHtml
-    tableEl.addEventListener('click', showFeatureDetailsOnSideBar)
-
-    return tableEl
-
-
-
-}
 
   //#################### end Generic function to show charts #############################/
 
@@ -749,3 +854,29 @@ function getColumnsFromObject(obj) {
 function isNumeric(n) {
     return !isNaN(parseFloat(n)) && isFinite(n);
 }
+
+
+
+
+// line 678-685
+// {/* <div class="shadow-sm flex-wrap bg-gray-50 w-40 flex-none overflow-hidden rounded-md p-0">
+// <div class="w-full h-28 overflow-hidden">
+//     <img class="object-cover h w-full h-full" src="${imagesBaseUrl}/${line.photo}"  alt="">
+    
+// </div>                    
+// <div class="p-3"></div>
+//     <h3 class="text-lg font-semibold">${line.espece_name}</h3>
+// </div>
+// </div> */}
+
+// 2nd // line 678-685
+// {/* <div class="shadow-sm flex-none bg-gray-50 w-40 flex-none overflow-hidden rounded-md p-0">
+//                     <div class="w-full h-28 overflow-hidden">
+//                         <img class="object-cover h w-full h-full" src="${imagesBaseUrl}/${line.photo}"  alt="">
+//                     </div>  
+//                     <div class="p-3">
+//                         <h3 class="text-lg font-semibold">${line.espece_name}</h3>
+//                     </div>
+//                 </div> */}
+
+

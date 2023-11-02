@@ -2,7 +2,6 @@
 include_once 'header.php';
 ?>
 
-
 <div class="container">
     <div>
         <h1 class="head text-center m-3" style="font-size: xx-larger;">INTRODUCTION</h1>
@@ -372,7 +371,93 @@ include_once 'header.php';
             </p>
 
         </div>
+        <h4>Les villages situés dans le PNSM</h4>
+        <p>Le territoire du PNSM est habité par une population de plus de 4 000 habitants,
+            répartis sur 8 douars : Tifnit, Douira, Sidi Rbat, Sidi Binzarne, Sidi Wassay,
+            Sidi Boulfdail, Ouled et Timzlit, se répartissant le long de la côte du parc sous forme de groupe d'habitations .
+        </p> Ces communautés locales se sont enrichies, au cours de l'histoire, des influences de civilisations et de cultures diverses.
+        <p>
+            Cette pluralité a donné lieu à une diversification patrimoniale significative qui reflète une profondeur historique conjuguée à un contraste géographique et a modelé au cours des temps immémoriaux des formes divergentes d'adaptation des populations humaines.
+            En plus des savoir-faire, des traditions, des connaissances et des modes de vie qui se regroupent généralement dans la catégorie du patrimoine culturel
+            immatériel, on y rencontre plusieurs formes du patrimoine culturel matériel :
+            patrimoine archéologique, patrimoine urbanistique et architectural et patrimoine mobilier ethnographique, artistique.</p>
+
+        <div>
+            <h5>Les principales sources de revenus de la population du PNSM :</h5>
+            <ul>
+                <li><b>Agriculture</b> : avec une prédominance des cultures de subsistance (orge et blé tendre), un élevage extensif et une apiculture traditionnelle constituant une ressource économique d'appoint.</li>
+                <li><b>Pêche artisanale </b>: avec une zone côtière de 3 miles marins et une franche littorale qui s'étend depuis l'oued Souss au Nord jusqu'au douar d'Aglou au sud, la pêche artisanale
+                    (pêche à la barque par les hommes et ramassage de moules par les femmes) constitue une composante essentielle dans l'économie et reste une activité rentable et essentielle pour la stabilisation des revenus de la population.</li>
+                <li><b>Elevage</b>: celui de bovins, l'élevage de volaille de moindre importance, l'artisanat (fabrication de nattes et de couvertures de laine etc.). </li>
+                <li><b>Autres</b>: Le revenu provenant en particulier l'immigration qui joue un rôle considérable dans le maintien de l'équilibre économique et social dans la zone du parc. </li>
+            </ul>
+        </div>
+        <h5>Sidi Wassay</h5>
+        <p>Le territoire du PNSM est habité par une population de plus de 4 000 habitants,
+            répartis sur 8 douars : Tifnit, Douira, Sidi Rbat, Sidi Binzarne, Sidi Wassay,
+            Sidi Boulfdail, Ouled et Timzlit, se répartissant le long de la côte du parc sous forme de groupe d'habitations
+            Le village de Sidi Wassay est situé sur la rive sud de l'embouchure de l'oued Massa, donnant sur l'océan atlantique.
+            Parmi les 3 villages enclavant l'estuaire de Massa, le village de Sidi Wassay est celui qui connait le plus une importante fréquentation touristique.
+            Son Moussem et sa plage qui attire chaque années un grand nombre des visiteurs nationaux et internationaux.
+        </p>
+
+        <div class="col-md-12">
+            <figure class="photo">
+                <img class="circuit" src="../img/sidi_wassay.jpg" alt="" height="350" width="80%">
+                <figcaption>Marabout de Sidi Wassay</figcaption>
+            </figure>
+        </div>
+        <h5>Village de Tifnit</h5>
+        <p>Village de pêche situé au nord du PNSM et habités uniquement par des pêcheurs. 
+            Il a un contient , avec un point de débarquent aménagé utilisé par les locaux et ceux venant de différentes régions pour pratiquer la pêche artisanale par barques.
+            Ils est très fréquentés par les touristes en période estival.
+        </p>
+
+        <div class="col-md-12">
+            <figure class="photo">
+                <img class="circuit" src="../img/tifnit2.png"  alt="" height="350" width="80%">
+                <figcaption>Village de pêche de Tifnit</figcaption>
+            </figure>
+        </div>
+
+
+        <h5>Le village de Sidi Binzarène</h5>
+        <p>Le village de Sidi Binzarne un village compte 395 citoyens, les femmes constituent 48,61% du totale habitants. 
+            Le Village de Sidi Binzarne présente un certain équilibre linguistique entre amazighophones et arabophones sur leur territoire. 
+            Concernant le niveau d'instruction, les instruits au-delà du primaire ne dépassent pas 24%.
+             Une partie importante de 35% demeure analphabète.
+        </p>
+        <p>Sur le plan socio-économique, les revenus moyens annuels sont relativement faibles,
+             mais s'expliquent en partie par la proportion importante de population inactive. 
+            Dans lequel moins de 30% de la population exerce un emploi au Village de Sidi Binzarne.</p>
+
+
+
+        <h5>Le village de Sidi R'bat</h5>
+        <p>Le village de Sidi Binzarne un village compte 395 citoyens, les femmes constituent 48,61% du totale habitants. 
+            Le Village de Sidi Binzarne présente un certain équilibre linguistique entre amazighophones et arabophones sur leur territoire. 
+            Concernant le niveau d'instruction, les instruits au-delà du primaire ne dépassent pas 24%.
+             Une partie importante de 35% demeure analphabète.
+        </p>
+        <p>Sur le plan socio-économique, le village offre pourtant beaucoup d'intérêts pour les pêcheurs qui trouvent des spots de pêches plus abondants que sur le reste de la côte Atlantique,
+             en raison des nombreux nutriments déversés en permanence dans l'océan, par le fleuve de Massa.
+            D'autre coté les coopératives joue un rôle primordial dans l'exploitation durable de cette ressource,
+             afin d'améliorer le revenu à même d'améliorer la situation des femmes et d'assurer le bien-être de la famille</p>
+
+        <div class="col-md-12">
+            <figure class="photo">
+                <img class="circuit" src="../img/sidi_Rbat.jpg"  alt="" height="350" width="80%">
+                <figcaption>La plage de sidi Rbat</figcaption>
+            </figure>
+        </div>
+        <div class="col-md-12">
+            <figure class="photo">
+                <img class="circuit" src="../img/sidi_Rbat2.jpg"  alt="" height="350" width="80%">
+                <figcaption>Marabout de sidi Rbat</figcaption>
+            </figure>
+        </div>
     </div>
+
     <div>
         <h4>Fondements Economiques </h4>
         <p>Les principales ressources économiques de la population vivant dans la zone du PNSM, proviennent de l'agriculture à travers
@@ -489,7 +574,7 @@ include_once 'header.php';
                     le HCEFLCD et d'autres organismes de gestion au Maroc.</p>
                 <p>Dans ce contexte, l'objectif de ce travail était de mettre en place un système de gestion accessible par le web pour
                     le parc national de Sous-Massa, appelé Geoportail-PNSM.</p>
-                <p>Ce système permet le stockage, la mise à jour et la saisie des données relatives à la gestion du parc,facilitant le suivi et la visualisation 
+                <p>Ce système permet le stockage, la mise à jour et la saisie des données relatives à la gestion du parc,facilitant le suivi et la visualisation
                     de l'évolution de ses principales composantes.Il assiste également les gestionnaires dans leur prise de décision quotidienne.
                 </p>
             </div>

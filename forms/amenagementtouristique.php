@@ -10,45 +10,39 @@ include_once 'header.php';
                     <div class="card-header bg-info text-white">
                       <b> Elements Amenagement</b>
                     </div>
-                    <div class="card-body">
+                    <div class="card-body bg-dark">
                         <form action="./includes/amenagementtouristique.inc.php" id="circuittouristForm" style="background-color: rgb(201, 216, 214);" method="post">
                         <?php if (isset($_GET['message']))  { ?>
                                  <p class="message"><?php echo $_GET['message']; ?></p> <?php }?>
                             <div class="form-row">
                                 <span class="form-control text-center bg-dark text-white"><b>Amenagement Touristique</b></span>
                                 <div class="form-group col-md-6">
-                                    <label for="id_amenagement">Id_Amenagement</label>
-                                    <input name="id_amenagement" type="number" class="form-control" id="id_amenagement" name="id_amenagement" placeholder="Id_Amenagement">
+                                    <label for="type">Type Amenagement Touristique</label>
+                                    <input name="type" type="text" class="form-control" id="type" name="type" placeholder="type d'amenagement touristique">
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label for="etatelement">Etat_Element</label>
-                                    <input name="etatelement" type="text" class="form-control" id="etatelement" placeholder="etatelement">
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <label for="detailamenagement">Details_Amenagement</label>
-                                    <input name="detailamenagement" type="text" class="form-control" id="detailamenagement" placeholder="detailamenagement">
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <label for="id_amenagementtour">Id_Amenagement_Touristique </label>
-                                    <input name="id_amenagementtour" type="text" class="form-control" id="id_amenagementtour" placeholder="id_amenagementtour">
+                                    <label for="resposable">Responsable Amenagement Touristique</label>
+                                    <input name="resposable" type="text" class="form-control" id="resposable" placeholder="Resposable de l'amenagement touristique">
                                 </div>
                                 <div class="form-group col-md-12">
-                                    <label for="responsable">Responsable</label>
-                                    <input name="responsable" type="text" class="form-control" id="responsable" placeholder="responsable">
+                                    <label for="id_amengttour">ID Amenagement Touristique </label>
+                                    <input name="id_amegttour" type="text" class="form-control" id="id_amengttour" placeholder="Donnerr un numero d'identifiant">
                                 </div>
                                 <div class="form-group col-md-12">
                                     <label for="periode">Periode</label>
-                                    <input name="periode" type="text" class="form-control" id="periode" placeholder="periode">
+                                    <input name="periode" type="text" class="form-control" id="periode" placeholder="Periode de gestion">
                                 </div>
-                            </div>
-                            <div class="form-row">
-                                <div class="input-group col-md-12">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text">Commentaire</span>
-                                    </div>
-                                    <textarea name="commentaire" class="form-control" id="commentaire" aria-label="detailamenagement" placeholder="Entrer un commentaire/description de l'especes"></textarea>
+                                <div class="form-group col-md-12">
+                                    <label for="date_cree">Date_Creation</label>
+                                    <input name="date_cree" type="date" class="form-control" id="date_cree" placeholder="date_cree de gestion">
                                 </div>
+                                <div class="form-group col-md-12">
+                                    <label for="cout_amengt">Cout Amenagement</label>
+                                    <input name="cout_amengt" type="text" class="form-control" id="cout_amengt" placeholder="Saissir le cout de gestion">
+                                </div>
+                               
                             </div>
+                            
                             <button type="submit" name="submit" class="btn btn-primary">Inserer</button>
                         </form>
                         <br>
@@ -60,13 +54,11 @@ include_once 'header.php';
                 <table class="table table-striped">
                     <thead class="table-success">
                         <tr >
-                            <th>Id_Amenagement</th>
-                            <th>Etat_Element</th>
-                            <th>Identifiant_Amenagement</th>
-                            <th>Id_Amenagement_Touristique </th>
-                            <th>Responsable</th>
+                            <th>identifiant</th>
+                            <th>Type</th>
+                            <th>Responsable </th>
                             <th>Periode</th>
-                            <th>Commentaire</th>
+                            <th>Cout Creation</th>
                             <th>Editer</th>
                             <th>Effacer</th>
                         </tr>
@@ -76,7 +68,7 @@ include_once 'header.php';
 
                         <?php
                             // Assuming you already have the database connection established ($pdo)
-                            $query = "SELECT * FROM amenagement_touristique";
+                            $query = "SELECT * FROM amenagement_touristiques";
                             $stmt = $pdo->prepare($query);
                             $stmt->execute();
                             $results = $stmt->fetchall(PDO::FETCH_ASSOC);
@@ -85,18 +77,16 @@ include_once 'header.php';
                             <!-- Add this inside the table body -->
                             <?php foreach ($results as $row) : ?>
                                 <tr>
-                                    <td><?= $row['detailamenagement'] ?></td>
-                                    <td><?= $row['etatelement'] ?></td>
-                                    <td><?= $row['id_amenagement'] ?></td>
-                                    <td><?= $row['id_amenagementtour'] ?></td>
+                                    <td><?= $row['id_amengttour'] ?></td>
+                                    <td><?= $row['type'] ?></td>
                                     <td><?= $row['responsable'] ?></td>
                                     <td><?= $row['periode'] ?></td>
-                                    <td><?= $row['commentaire'] ?></td>
+                                    <td><?= $row['cout_creation'] ?></td>
                                     <td>
-                                        <a href="amenagementtouristique-edit.php?id=<?= $row['id_amenagementtour'] ?>"><button name="edit_amenagementtour" class="edit-btn btn btn-warning" data-id="<?= $row['id_amenagementtour'] ?>">Editer</button></a>
+                                        <a href="amenagementtouristique-edit.php?id=<?= $row['id_amengttour'] ?>"><button name="edit_amenagementtour" class="edit-btn btn btn-warning" data-id="<?= $row['id_amengttour'] ?>">Editer</button></a>
                                     </td>
                                     <td>
-                                        <button name="delete_amenagementtour" class="delete-btn btn btn-danger" data-id="<?= $row['id_amenagementtour'] ?>" onclick="return confirm('Etes vous d\'effacer cette ligne?');">Effacer</button>
+                                        <button name="delete_amenagementtour" class="delete-btn btn btn-danger" data-id="<?= $row['id_amengttour'] ?>" onclick="return confirm('Etes vous d\'effacer cette ligne?');">Effacer</button>
                                     </td>
                                 </tr>
                         <?php endforeach; ?>

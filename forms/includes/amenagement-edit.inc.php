@@ -13,6 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $codeamenagement = validate($_POST['codeamenagement']);
     $coutamenagement = validate($_POST['coutamenagement']);
+    $element_amenage = validate($_POST['element_amenage']);
     $commentaire = validate($_POST['commentaire']);
 
     // Perform server-side validation
@@ -22,7 +23,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         try {
             $query = "UPDATE amenagement  
             SET coutamenagement = :coutamenagement,
-                commentaire = :commentaire
+                element_amenage = :element_amenage,
+                commentaire = :commentaire,
+               
             WHERE codeamenagement = :idToUpdate"; // Change 'id' to the actual primary key field name of your table
             
             $stmt = $pdo->prepare($query);
@@ -52,17 +55,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 
-// Uncomment and complete this section for handling record deletion
-/*
-elseif(isset($_POST["delet_amenagement"])) {
-    $idToDelete = $_GET['idToDelete'];
-
-    // Show a confirmation prompt
-    echo '<script type="text/javascript">
-        if (confirm("Are you sure you want to delete this record?")) {
-            // Perform the deletion logic here
-        }
-    </script>';
-}
-*/
 ?>

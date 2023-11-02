@@ -11,26 +11,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         return $data;
     }
 
-    $detailamenagement = validate($_POST['detailamenagement']);
-    $etatelement = validate($_POST['etatelement']);
-    $id_amenagement = validate($_POST['id_amenagement']);
     $id_piste = validate($_POST['id_piste']);
     $longueur = validate($_POST['longueur']);
+    $cout_amengt = validate($_POST['cout_amengt']);
     $accessibilite = validate($_POST['accessibilite']);
     $dateouverture = validate($_POST['dateouverture']);
+    $id_amengt = validate($_POST['id_amengt']);
+    $_nom_piste = validate($_POST['_nom_piste']);
     
     // Perform server-side validation
-    if (empty($detailamenagement) || empty($etatelement) || empty($id_amenagement) || empty($id_piste) || empty($longueur) || empty($accessibilite) || empty($dateouverture)) {
+    if (empty($id_piste) || empty($longueur) || empty($cout_amengt) || empty($accessibilite) || empty($dateouverture)|| empty($id_amengt)) {
         echo "Please fill in all fields.";
     } else {
         try {
             $query = "UPDATE pistes 
-            SET detailamenagement = :detailamenagement,
-                etatelement = :etatelement,
-                id_amenagement = :id_amenagement,
+            SET id_piste = :id_piste,
                 longueur = :longueur,
+                cout_amengt = :cout_amengt,
                 accessibilite = :accessibilite,
-                dateouverture = :dateouverture
+                dateouverture = :dateouverture,
+                id_amengt = :id_amengt
+                _nom_piste = :_nom_piste
             WHERE id_piste = :idToUpdate"; // Change 'id_piste' to the actual primary key field name of your table
             
             $stmt = $pdo->prepare($query);
@@ -38,12 +39,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if ($stmt) {
                 // Bind parameters including the ID of the record to update
                 $params = [
-                    ':detailamenagement' => $detailamenagement,
-                    ':etatelement' => $etatelement,
-                    ':id_amenagement' => $id_amenagement,
+                    ':id_piste' => $id_piste,
                     ':longueur' => $longueur,
+                    ':cout_amengt' => $cout_amengt,
                     ':accessibilite' => $accessibilite,
                     ':dateouverture' => $dateouverture,
+                    ':id_amengt' => $id_amengt,
+                    ':_nom_piste' => $_nom_piste,
                     ':idToUpdate' => $id_piste // Replace with the actual ID you want to update
                 ];
                 

@@ -21,6 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $telephone = validate($_POST['telephone']);
     $adresse = validate($_POST['adresse']);
     $prenom = validate($_POST['prenom']);
+    $date_visite = validate($_POST['date_visite']);
 
     // Perform server-side validation
     if (empty($numerocin_passport) || empty($nomtouriste) || empty($nationalite) || empty($motivation) || empty($age) || empty($sexe) || empty($fonction)
@@ -29,8 +30,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         try {
             // Prepare the SQL query using named placeholders
-            $query = "INSERT INTO touristes (numerocin_passport, nomtouriste, nationalite, motivation, age, sexe, fonction, telephone, adresse, prenom)
-                     VALUES (:numerocin_passport, :nomtouriste, :nationalite, :motivation, :age, :sexe, :fonction, :telephone, :adresse, :prenom)";
+            $query = "INSERT INTO touristes (numerocin_passport, nomtouriste, nationalite, motivation, age, sexe, fonction, telephone, adresse, prenom, date_visite)
+                     VALUES (:numerocin_passport, :nomtouriste, :nationalite, :motivation, :age, :sexe, :fonction, :telephone, :adresse, :prenom, :date_visite)";
             
             $stmt = $pdo->prepare($query);
 
@@ -46,7 +47,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     ':fonction' => $fonction,
                     ':telephone' => $telephone,
                     ':adresse' => $adresse,
-                    ':prenom' => $prenom
+                    ':prenom' => $prenom,
+                    ':date_visite' => $date_visite
                 ];
 
                 $result = $stmt->execute($params);

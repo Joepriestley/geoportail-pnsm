@@ -1,4 +1,9 @@
 
+
+
+
+
+
 <style>
    footer {
         display: flex;
@@ -81,6 +86,14 @@
         
             </div> -->
             </div>
+            <!-- <div class="contact-form">
+                <h4>Contact Us</h4>
+                <label for="name">Name</label>
+               <input type="text" name="name" id="name" placeholder="Please enter your name here">
+              <label for="message">Message</label>
+                <textarea name="message" id="" cols="30" rows="3"></textarea>
+
+            </div> -->
             <div class="col-md-2  mt-3 pt-3">
                 <img src="../img/logo.png" alt="" width="95px"/>
                 <br><br>
@@ -101,6 +114,7 @@
 <!-- Include Bootstrap JS and Font Awesome icons -->
 <!-- <script src="https://kit.fontawesome.com/a076d05399.js"></script> -->
 <!-- light box js  -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="../lightbox/lightbox-plus-jquery.js"></script>
 <!-- fontawseome js -->
 <script src="../fontawesome-free-6.4.0-web/js/all.js"></script>
@@ -110,6 +124,10 @@
         integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>  
+
+
+
+        
 
 </body>
 </html>
