@@ -11,27 +11,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         return $data;
     }
 
-    $id_point_eau  = validate($_POST['id_point_eau ']);
+    $id_point_eau  = validate($_POST['id_point_eau']);
     $profondeur = validate($_POST['profondeur']);
     $nature = validate($_POST['nature']);
-    $cout_creation = validate($_POST['cout_creation']);
+    $cout_installation = validate($_POST['cout_installation']);
     $localisation = validate($_POST['localisation']);
     $importance = validate($_POST['importance']);
-    $date_creation = validate($_POST['date_creation']);
+    $date_installation = validate($_POST['date_installation']);
 
     // Perform server-side validation
-    if (empty($id_point_eau ) || empty($profondeur) || empty($nature) || empty($cout_creation) || empty($profondeur) || empty($nature) || empty($localisation) || empty($importance)) {
+    if (empty($id_point_eau ) || empty($profondeur) || empty($nature) || empty($cout_installation) || empty($profondeur) || empty($nature) || empty($localisation) || empty($importance)) {
         echo "Please fill in all fields.";
     } else {
         try {
             $query = "UPDATE point_eau 
             SET profondeur = :profondeur,
                 nature = :nature,
-                cout_creation = :cout_creation,
+                cout_installation = :cout_installation,
                 localisation = :localisation,
                 importance = :importance,
-                date_creation = :date_creation
-            WHERE id_point_eau  = :id_point_eau "; // Change 'id_point_eau ' to the actual primary key field name of your table
+                date_installation = :date_installation
+            WHERE id_point_eau  = :id_point_eau"; // Change 'id_point_eau ' to the actual primary key field name of your table
             
             $stmt = $pdo->prepare($query);
             
@@ -40,11 +40,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $params = [
                     ':profondeur' => $profondeur,
                     ':nature' => $nature,
-                    ':cout_creation' => $cout_creation,
+                    ':cout_installation' => $cout_installation,
                     ':localisation' => $localisation,
                     ':importance' => $importance,
-                    ':date_creation' => $date_creation,
-                    ':id_point_eau ' => $id_point_eau  // Replace with the actual 'id_point_eau ' value you want to update
+                    ':date_installation' => $date_installation,
+                    ':id_point_eau' => $id_point_eau  // Replace with the actual 'id_point_eau ' value you want to update
                 ];
                 
                 $result = $stmt->execute($params);

@@ -35,7 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nom_point_eau = '';
     
 
-    $id_amengttour = '';
+    $type = '';
     $responsable = '';
     $periode = '';
     $cout_creaction = '';
@@ -73,6 +73,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     } elseif ($element_amenage === "amenagement_touristique") {
         $id_amengttour ='';
+        $type = validate($_POST['type']);
         $responsable = validate($_POST['responsable']);
         $periode = validate($_POST['periode']);
         $cout_creaction = validate($_POST['cout_creaction']);
@@ -214,8 +215,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                     try {
                         // Prepare the SQL query using named placeholders
-                        $query = "INSERT INTO amenagement_touristiques(id_amengttour, responsable, periode, cout_creaction,date_cree,nom_amenagttour)
-                                 VALUES (:id_amengttour, :responsable, :periode, :cout_creaction,:date_cree,:nom_amenagttour)";
+                        $query = "INSERT INTO amenagement_touristiques(id_amengttour,type, responsable, periode, cout_creaction,date_cree,nom_amenagttour)
+                                 VALUES (:id_amengttour,:type, :responsable, :periode, :cout_creaction,:date_cree,:nom_amenagttour)";
 
                         $stmt = $pdo->prepare($query);
 
@@ -224,6 +225,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             $params = [
 
                                 ':id_amengttour' => $id,
+                                ':type' => $type,
                                 ':responsable' => $responsable,
                                 ':periode' => $periode,
                                 ':cout_creaction' => $cout_creaction,

@@ -14,23 +14,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $id_point_eau = validate($_POST['id_point_eau']);
     $profondeur = validate($_POST['profondeur']);
     $nature = validate($_POST['nature']);
-    $cout_creation = validate($_POST['cout_creation']);
+    $cout_installation = validate($_POST['cout_installation']);
     $localisation = validate($_POST['localisation']);
     $importance = validate($_POST['importance']);
-    $date_creation = validate($_POST['date_creation']);
+    $date_installation = validate($_POST['date_installation']);
     
     
 
     // Perform server-side validation
-    if (empty($id_point_eau) || empty($profondeur) || empty($nature) || empty($cout_creation) ||  empty($localisation)|| empty($importance)) {
+    if (empty($id_point_eau) || empty($profondeur) || empty($nature) || empty($cout_installation) ||  empty($localisation)|| empty($importance)) {
             header("Location: ../point_eau.php?message=Veuillez saisir des donnees dans tous les champs!");
             exit();
         // echo "Please fill in all fields.";
     } else {
         try {
             // Prepare the SQL query using named placeholders
-            $query = "INSERT INTO point_eau (id_point_eau, profondeur, nature, cout_creation,localisation,importance,date_creation)
-                     VALUES (:id_point_eau, :profondeur, :nature, :cout_creation,:localisation,:importance,:date_creation)";
+            $query = "INSERT INTO point_eau (id_point_eau, profondeur, nature, cout_installation,localisation,importance,date_installation)
+                     VALUES (:id_point_eau, :profondeur, :nature, :cout_installation,:localisation,:importance,:date_installation)";
             
             $stmt = $pdo->prepare($query);
 
@@ -40,10 +40,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     ':id_point_eau' => $id_point_eau,
                     ':profondeur' => $profondeur,
                     ':nature' => $nature,
-                    ':cout_creation' => $cout_creation,
+                    ':cout_installation' => $cout_installation,
                     ':localisation' => $localisation,
                     ':importance' => $importance,
-                    ':date_creation' => $date_creation
+                    ':date_installation' => $date_installation
                     
                 ];
 

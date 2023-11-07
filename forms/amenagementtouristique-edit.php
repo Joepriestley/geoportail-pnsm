@@ -41,8 +41,8 @@ include_once 'header.php';
                                     <input name="type" type="number" value="<?=$result->type; ?>" class="form-control" id="type" name="type" placeholder="type">
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label for="resposable">Responsable Amenagement Touristique</label>
-                                    <input name="resposable" type="text" value="<?=$result->resposable; ?>" class="form-control" id="resposable" placeholder="resposable">
+                                    <label for="responsable">Responsable Amenagement Touristique</label>
+                                    <input name="responsable" type="text" value="<?=$result->responsable; ?>" class="form-control" id="responsable" placeholder="responsable">
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="periode">Periode</label>

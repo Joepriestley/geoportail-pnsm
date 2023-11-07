@@ -37,20 +37,25 @@ include_once 'header.php';
                                 <span class="form-control text-center bg-dark text-white"><b>Point  Eau</b></span>
 
                                 <div class="form-group col-md-6">
-                                    <label for="id_point_eau">Nom_Point_Eau </label>
+                                    <label for="id_point_eau">Id Point Eau</label>
                                     <input name="id_point_eau"  value="<?=$result->id_point_eau; ?>"  type="text" class="form-control" id="id_point_eau" placeholder="id_point_eau" disabled="disabled">
                                 </div>
+                                <div class="form-group col-md-6">
+                                    <label for="nom_point_eau">Id Point Eau</label>
+                                    <input name="nom_point_eau"  value="<?=$result->nom_point_eau; ?>"  type="text" class="form-control" id="nom_point_eau" placeholder="nom_point_eau" disabled="disabled">
+                                </div>
+                                
                                 <div class="form-group col-md-6">
                                     <label for="profondeur">Profondeur</label>
                                     <input name="profondeur"  value="<?=$result->profondeur; ?>"  type="number" class="form-control" id="profondeur" placeholder="profondeur">
                                 </div>
-                                <div class="form-group col-md-12">
+                                <div class="form-group col-md-6">
                                     <label for="nature">Nature</label>
                                     <input name="nature"  value="<?=$result->nature; ?>"  type="text" class="form-control" id="nature" placeholder="nature">
                                 </div>
                                 <div class="form-group col-md-12">
-                                    <label for="cout_amengt">Cout_Amenagement</label>
-                                    <input name="cout_amengt"  value="<?=$result->cout_amengt; ?>"  type="text" class="form-control" id="cout_amengt" placeholder="cout_amengt">
+                                    <label for="cout_installation">Cout_Installation</label>
+                                    <input name="cout_installation"  value="<?=$result->cout_installation; ?>"  type="text" class="form-control" id="cout_installation" placeholder="cout_installation">
                                 </div>
                                 <div class="form-group col-md-12">
                                     <label for="localisation">Localisation</label>
@@ -60,13 +65,12 @@ include_once 'header.php';
                             </div>
                             <div class="form-group col-md-12">
                                 <label for="importance">importance</label>
-                                <input name="importance" type="date"  value="<?=$result->importance; ?>"  class="form-control" id="importance" placeholder="importance">
+                                <input name="importance" type="text"  value="<?=$result->importance; ?>"  class="form-control" id="importance" placeholder="importance">
                             </div>
-                            <!-- <div class="form-group col-md-12">
-                                <label for="id_amengt">Id_amenagement</label>
-                                <input name="id_amengt" type="date"  value="<?=$result->id_amengt; ?>"  class="form-control" id="id_amengt" placeholder="id_amengt">
-                            </div> -->
-                            
+                            <div class="form-group col-md-12">
+                                <label for="date_installation">Date Installation</label>
+                                <input name="date_installation" type="date"  value="<?=$result->date_installation; ?>"  class="form-control" id="date_installation" placeholder="date_installation">
+                            </div>
                             <button type="submit" name="submit" class="btn btn-primary">UPDATE</button>
                         </form>
                         <br>

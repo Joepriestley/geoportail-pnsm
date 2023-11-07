@@ -27,8 +27,8 @@ include_once 'header.php';
                                     <input name="longueur" type="number" class="form-control" id="longueur" placeholder="longueur">
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label for="cout_amengt">Cout_Amenagement (dhs)</label>
-                                    <input name="cout_amengt" type="number" class="form-control" id="cout_amengt" placeholder="cout_amengt">
+                                    <label for="cout_creationt">Cout Creation (dhs)</label>
+                                    <input name="cout_creationt" type="number" class="form-control" id="cout_creationt" placeholder="cout_creationt">
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="accessibilite">Accessibilite</label>
@@ -36,12 +36,12 @@ include_once 'header.php';
                                 </div>
                             </div>
                             <div class="form-group col-md-12">
-                                <label for="dateouverture">Date ouverture</label>
-                                <input name="dateouverture" type="date" class="form-control" id="dateouverture" placeholder="dateouverture">
+                                <label for="date_creation">Date ouverture</label>
+                                <input name="date_creation" type="date" class="form-control" id="date_creation" placeholder="date_creation">
                             </div>
                             <div class="form-group col-md-12">
-                                <label for="id_amengt">Id_Amenagement</label>
-                                <input name="id_amengt" type="number" class="form-control" id="id_amengt" placeholder="id_amengt">
+                                <label for="_nom_piste">Id_Amenagement</label>
+                                <input name=_nom_piste" type="number" class="form-control" id=_nom_piste" placeholder=_nom_piste">
                             </div>
                             <button type="submit"name="submit" class="btn btn-primary">Inserer</button>
                         </form>
@@ -56,9 +56,9 @@ include_once 'header.php';
                         <tr >
                             <th>Id_Piste</th>
                             <th>Longueur (km)</th>
-                            <th>Cout Amenagement (dhs)</th>
+                            <th>Cout Creation (dhs)</th>
                             <th>Accessibilite</th>
-                            <th>Date ouverture</th>
+                            <th>Date uverture</th>
                             <th>Id_Amenagement</th>
                             <th>Editer</th>
                             <th>Effacer</th>
@@ -79,9 +79,9 @@ include_once 'header.php';
                             <tr>
                                 <td><?= $row['id_piste'] ?></td>
                                 <td><?= $row['longueur'] ?></td>
-                                <td><?= $row['cout_amengt'] ?></td>
+                                <td><?= $row['cout_creationt'] ?></td>
                                 <td><?= $row['accessibilite'] ?></td>
-                                <td><?= $row['dateouverture'] ?></td>
+                                <td><?= $row['date_creation'] ?></td>
                                 <td><?= $row['id_amengt'] ?></td>   
                                 <td>
                                     <a href="pistes-edit.php?id=<?= $row['id_piste'] ?>"><button name="edit_pistes" class="edit-btn btn btn-warning" data-id="<?= $row['id_piste'] ?>">Editer</button></a>

@@ -78,7 +78,7 @@ $pdo = require_once './includes/dbConnect.php';
                                         <option value="Aghrimaz">Aghrimaz(3)</option>
                                         <option value="Sidi Binzaren">Sidi Binzaren(4)</option>
                                         <option value="Sidi Oussay">Sidi Oussay(5)</option>
-                                        <option value="Sidi Rba">Sidi Rbat(6)</option>
+                                        <option value="Sidi R'bat">Sidi Rbat(6)</option>
                                         <option value="Ifaryane">Ifaryane(7)</option>
                                         <option value="Douira">Douira(8)</option>
                                         <option value="Tifnit">Tifnit(9)</option>
@@ -101,50 +101,7 @@ $pdo = require_once './includes/dbConnect.php';
                 </div>
             </div>
             <div class="col-md-7">
-                <table class="table table-striped">
-                    <thead class="table-success">
-                        <tr >
-                            <th>code Activite</th>
-                            <th>Annee Activite</th>
-                            <th>Nombre pratiquant</th>
-                            <th>Rendement</th>
-                            <th>nombreruches</th>
-                            <th>Id Douar</th>
-                            <th>Commentaire</th>
-                            <th>Editer</th>
-                            <th>Effacer</th>
-                        </tr>
-                    </thead>
-                    <tbody id="circuitTable" class="text-dark border">
-                        <!-- Table rows will be dynamically added here -->
-                        <?php
-                            // Assuming you already have the database connection established ($pdo)
-                            $query = "SELECT * FROM agriculture";
-                            $stmt = $pdo->prepare($query);
-                            $stmt->execute();
-                            $results = $stmt->fetchall(PDO::FETCH_ASSOC);
-                            ?>
-
-                            <!-- Add this inside the table body -->
-                            <?php foreach ($results as $row) : ?>
-                                <tr>
-                                    <td><?= $row['codeactivite'] ?></td>
-                                    <td><?= $row['annee'] ?></td>
-                                    <td><?= $row['nombrepratiquant'] ?></td>
-                                    <td><?= $row['commentaire'] ?></td>
-                                    <td><?= $row['douar'] ?></td>
-                                    <td><?= $row['rendement'] ?></td>
-                                    <td><?= $row['nombreruches'] ?></td>
-                                    <td>
-                                        <a href="agriculture-edit.php?id=<?= $row['codeactivite'] ?>"><button name="edit_agriculture" class="edit-btn btn btn-warning" data-id="<?= $row['codeactivite'] ?>">Editer</button></a>
-                                    </td>
-                                    <td>
-                                        <button name="delete_agriculture" class="delete-btn btn btn-danger" data-id="<?= $row['codeactivite'] ?>" onclick="return confirm('Etes vous d\'effacer cette ligne?');">Effacer</button>
-                                    </td>
-                                </tr>
-                        <?php endforeach; ?>
-                    </tbody>
-                </table>
+                
             </div>
         </div>
     </div>

@@ -62,6 +62,99 @@
   </style>
 
   <body>
+
+
+  <!--start modal for edit feature -->
+  <!-- Button to trigger the modal -->
+ <!-- <button type="button" id="modalButton" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" data-toggle="modal" data-target="#editPolygonModal">
+  Edit Polygon
+</button> -->
+
+<!-- Modal -->
+<div class="modal fixed w-full h-full top-0 left-0 flex items-center justify-center" style="display:none;">
+  <div class="modal-overlay absolute w-full h-full bg-gray-900 opacity-50"></div>
+
+  <div class="modal-container bg-white w-11/12 md:max-w-md mx-auto rounded shadow-lg z-50 overflow-y-auto">
+
+    <!-- Add margin if you want to see some of the overlay behind the modal-->
+    <div class="modal-content py-4 text-left px-6">
+      <!--Title-->
+      <div class="flex justify-between items-center pb-3">
+        <p class="text-2xl font-bold">Edit Polygon</p>
+        <div class="modal-close cursor-pointer z-50">
+          <svg class="fill-current text-black hover:text-gray-700" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
+            <path d="M18 1.5L16.5 0 9 7.5 1.5 0 0 1.5 7.5 9 0 16.5 1.5 18 9 10.5l7.5 7.5 1.5-1.5L10.5 9z"/>
+          </svg>
+        </div>
+      </div>
+
+      <!--Body-->
+      <form id="editPolygonForm" class="w-full max-w-lg">
+        <div class="flex flex-wrap -mx-3 mb-6">
+          <div class="w-full px-3">
+            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="property1">
+              Property 1:
+            </label>
+            <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="property1" name="property1" type="text">
+          </div>
+        </div>
+        <div class="flex flex-wrap -mx-3 mb-6">
+          <div class="w-full px-3">
+            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="property2">
+              Property 2:
+            </label>
+            <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="property2" name="property2" type="text">
+          </div>
+        </div>
+        <!-- Add additional form fields as needed -->
+        <input type="hidden" id="polygonCoords" name="polygonCoords">
+      </form>
+
+      <!--Footer-->
+      <div class="flex justify-end pt-2">
+        <button id="savePolygonBtn" class="px-4 bg-blue-500 p-3 rounded-lg text-white hover:bg-blue-400">Save</button>
+        <button class="modal-close px-4 ml-2 bg-gray-500 p-3 rounded-lg text-white hover:bg-gray-400">Cancel</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- <script>
+// // Initialize the edit polygon modal
+// $('.modal').on('shown.bs.modal', function (event) {
+//   // Get the polygon data and convert it to a string of coordinates
+//   var polygonData = drawnItems.getLayers()[0].toGeoJSON();
+//   var polygonCoords = JSON.stringify(polygonData.geometry.coordinates[0]);
+
+//   // Set the polygon coordinates in the hidden input field
+//   $('#polygonCoords').val(polygonCoords);
+// });
+
+// // Save the edited polygon when the Save button is clicked
+// $('#savePolygonBtn').click(function() {
+//   // Get the form data and polygon coordinates
+//   var formData = $('#editPolygonForm').serialize();
+//   var polygonCoords = $('#polygonCoords').val();
+
+//   // Send the form data and polygon coordinates to the server using AJAX
+//   $.ajax({
+//     url: 'editInsertion.php',
+//     type: 'POST',
+//     data: formData + '&polygonCoords=' + polygonCoords,
+//     success: function(response) {
+//       console.log('Polygon saved successfully!');
+//       $('.modal').modal('hide');
+//     },
+//     error: function(xhr, status, error) {
+//       console.error('Error saving polygon:', error);
+//     }
+//   });
+// });
+</script> -->
+
+
+  <!--end modal for edit feature -->
  
     <div id="side-bar" class="col-md-5  text-black">
       <div id="side-bar-content" class="w-full h-full relative p-3 ">

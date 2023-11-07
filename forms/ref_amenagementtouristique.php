@@ -62,55 +62,119 @@ json_encode($data);
             </div>
         </div>
         <div class="col-md-7">
-            <table class="table table-striped">
-                <thead class="table-success">
-                    <tr>
-                        <th>identifiant</th>
-                        <th>Nature</th>
-                        <th>Responsable </th>
-                        <th>Periode</th>
-                        <th>Cout Creation</th>
-                        <th>Nom Am.Tour.</th>
-                        <th>Editer</th>
-                        <th>Effacer</th>
-                    </tr>
-                </thead>
-                <tbody id="circuitTable">
-                    <!-- Table rows will be dynamically added here -->
 
-                    <?php
-                    // Assuming you already have the database connection established ($pdo)
-                    $query = "SELECT * FROM ref_amenagement_touristique";
-                    $stmt = $pdo->prepare($query);
-                    $stmt->execute();
-                    $results = $stmt->fetchall(PDO::FETCH_ASSOC);
-                    ?>
 
-                    <!-- Add this inside the table body -->
-                    <?php foreach ($results as $row) : ?>
-                        <tr>
-                            <td><?= $row['id_ref_amengt_tour'] ?></td>
-                            <td><?= $row['nature'] ?></td>
-                            <td><?= $row['responsable'] ?></td>
-                            <td><?= $row['date_refection'] ?></td>
-                            <td><?= $row['cout_amengt'] ?></td>
-                            <td><?= $row['nom_amenagementtour'] ?></td>
-                            <td>
-                                <a href="ref_amenagementtouristique-edit.php?id=<?= $row['id_ref_amengt_tour'] ?>"><button name="edit_amenagementtour" class="edit-btn btn btn-warning" data-id="<?= $row['id_ref_amengt_tour'] ?>">Editer</button></a>
-                            </td>
-                            <td>
-                                <!-- Delete form -->
-                                <form style="border:0px; padding:0px;" action="./deletion/ref_amenagementtour-delete.php" method="POST">
-                                    <!-- Hidden input field to include id_piste -->
-                                    <input type="hidden" name="id_ref_amengt_tour" value="<?=$row['id_ref_amengt_tour'] ?>">
-                                    <!-- Delete button -->
-                                    <button name="delete_amenagementtour" class="delete-btn btn btn-danger" data-id="<?= $row['id_ref_amengt_tour'] ?>" onclick="return confirm('Etes vous d\'effacer cette ligne?');">Effacer</button>
-                                </form>
-                            </td>
-                        </tr>
-                    <?php endforeach; ?>
-                </tbody>
-            </table>
+            <div class="col-md-7">
+                <nav>
+                    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                        <button class="nav-item nav-link active btn btn-success" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true" title="Table Amenagement Touristique"> Amen.Tour.</button>
+                        <button class="nav-item nav-link  btn btn-success" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="true" title="Table de Refection Amenagement Touristique">Refection Amen.Tour.</button>
+
+                        <a href="amenagement.php"><button class="nav-item nav-link  btn btn-secondary" id="nav-profile-tab" href="#nav-profile" title="Aller au formuliare de saisir de donnees amenagement touristique">Saisir Donnees de Amen.Touristique</button></a>
+                    </div>
+                </nav>
+                <div class="tab-content" id="nav-tabContent">
+                    <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                        <table class="table table-striped">
+                            <thead class="table-success">
+                                <tr>
+                                    <th>identifiant</th>
+                                    <th>Type</th>
+                                    <th>Responsable </th>
+                                    <th>Periode</th>
+                                    <th>Date_Creation</th>
+                                    <th>Cout_Creation</th>
+                                    <th>Editer</th>
+                                    <th>Effacer</th>
+                                </tr>
+                            </thead>
+                            <tbody id="circuitTable">
+                                <!-- Table rows will be dynamically added here -->
+
+                                <?php
+                                // Assuming you already have the database connection established ($pdo)
+                                $query = "SELECT * FROM amenagement_touristiques";
+                                $stmt = $pdo->prepare($query);
+                                $stmt->execute();
+                                $results = $stmt->fetchall(PDO::FETCH_ASSOC);
+                                ?>
+
+                                <!-- Add this inside the table body -->
+                                <?php foreach ($results as $row) : ?>
+                                    <tr>
+                                        <td><?= $row['id_amengttour'] ?></td>
+                                        <td><?= $row['type'] ?></td>
+                                        <td><?= $row['responsable'] ?></td>
+                                        <td><?= $row['periode'] ?></td>
+                                        <td><?= $row['date_cree'] ?></td>
+                                        <td><?= $row['cout_creaction'] ?></td>
+                                        <td>
+                                            <a href="amenagementtouristique-edit.php?id=<?= $row['id_amengttour'] ?>"><button name="edit_amenagementtour" class="edit-btn btn btn-warning" data-id="<?= $row['id_amengttour'] ?>">Editer</button></a>
+                                        </td>
+                                        <td>
+                                            <button name="delete_amenagementtour" class="delete-btn btn btn-danger" data-id="<?= $row['id_amengttour'] ?>" onclick="return confirm('Etes vous d\'effacer cette ligne?');">Effacer</button>
+                                        </td>
+                                    </tr>
+                                <?php endforeach; ?>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+
+                        <table class="table table-striped">
+                            <thead class="table-success">
+                                <tr>
+                                    <th>identifiant</th>
+                                    <th>Nature</th>
+                                    <th>Responsable </th>
+                                    <th>Periode</th>
+                                    <th>Cout_Creation</th>
+                                    <th>Nom Amenagement Touristique</th>
+                                    <th>Editer</th>
+                                    <th>Effacer</th>
+                                </tr>
+                            </thead>
+                            <tbody id="circuitTable">
+                                <!-- Table rows will be dynamically added here -->
+
+                                <?php
+                                // Assuming you already have the database connection established ($pdo)
+                                $query = "SELECT * FROM ref_amenagement_touristique";
+                                $stmt = $pdo->prepare($query);
+                                $stmt->execute();
+                                $results = $stmt->fetchall(PDO::FETCH_ASSOC);
+                                ?>
+
+                                <!-- Add this inside the table body -->
+                                <?php foreach ($results as $row) : ?>
+                                    <tr>
+                                        <td><?= $row['id_ref_amengt_tour'] ?></td>
+                                        <td><?= $row['nature'] ?></td>
+                                        <td><?= $row['responsable'] ?></td>
+                                        <td><?= $row['date_refection'] ?></td>
+                                        <td><?= $row['cout_amengt'] ?></td>
+                                        <td><?= $row['nom_amenagementtour'] ?></td>
+                                        <td>
+                                            <a href="ref_amenagementtouristique-edit.php?id=<?= $row['id_ref_amengt_tour'] ?>"><button name="edit_amenagementtour" class="edit-btn btn btn-warning" data-id="<?= $row['id_ref_amengt_tour'] ?>">Editer</button></a>
+                                        </td>
+                                        <td>
+                                            <!-- Delete form -->
+                                            <form style="border:0px; padding:0px;" action="./deletion/ref_amenagementtour-delete.php" method="POST">
+                                                <!-- Hidden input field to include id_piste -->
+                                                <input type="hidden" name="id_ref_amengt_tour" value="<?= $row['id_ref_amengt_tour'] ?>">
+                                                <!-- Delete button -->
+                                                <button name="delete_amenagementtour" class="delete-btn btn btn-danger" data-id="<?= $row['id_ref_amengt_tour'] ?>" onclick="return confirm('Etes vous d\'effacer cette ligne?');">Effacer</button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                <?php endforeach; ?>
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
 </div>

@@ -24,6 +24,7 @@ var zoneCoeurCols = ["nom", "superficie(ha)", "zone_biogeographique", "commune"]
 var douarCols = ["nom", "population", "menages" ,"photo"]
 
 
+
 // initialisation des variables pour les données geojson
 var jsnDouar, jsnzcoeurs, jsnzAdhesion,jsnSites, jsnZonesEspeces;
 
@@ -170,23 +171,41 @@ ctlEasybutton = L.easyButton('glyphicon-transfer', function(){
 }).addTo(mymap);
 
 
+
+
+
+/////////////modal handling ///////////////
+
+var customControl = L.Control.extend({
+    options: {
+        position: 'bottomleft'
+    },
+
+    onAdd: function () {
+        var container = L.DomUtil.create('div', 'leaflet-bar leaflet-control');
+
+        // Create your button and add it to the container
+        var button = L.DomUtil.create('button', 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded', container);
+        button.innerHTML = 'Edit';
+        button.id = 'modalButton';
+
+        // Add a click event listener to your button
+        L.DomEvent.on(button, 'click', function () {
+            // Open the modal when the button is clicked
+            document.querySelector('.modal').style.display = 'block';
+        });
+
+        return container;
+    }
+});
+
+// Add the custom control to the map
+mymap.addControl(new customControl());
+
+//////////////modal handling /////////////
     
 
 //==============########### START:FETCHING SPATIAL DATA FROM THE DATABASE TO THE MAP######## ==========/
-
-
-// //===============clusters================================/
-// $.ajax({
-//     url:'clusters.php',
-//     success:function(response){
-//         jsnClusters=JSON.parse(response);
-//         clusters= L.geoJSON(jsnClusters,{pointToLayer:returnClustermakr}).addTo(mymap);
-//        cltLayers.addOverlay(clusters,"Clusters");
-//     },
-//     error:function(xhr,status,error){
-//         alert("ERROR:"+ error);
-//     }
-// });
 
 
 
@@ -328,7 +347,9 @@ $.ajax({
     url:'douar2.php',
     success:function(response){
         jsnDouar=JSON.parse(response);
-        lyrTest= L.geoJSON(jsnDouar,{pointToLayer:returnDouarmakr}).addTo(mymap);
+        lyrTest= L.geoJSON(jsnDouar,{pointToLayer:returnDouarmakr
+        
+        }).addTo(mymap);
 
        cltLayers.addOverlay(lyrTest,"Douars du Parc");
 
@@ -350,11 +371,6 @@ $.ajax({
         alert("ERROR:"+ error);
     }
 });
-// addFeatureToMap(
-//     title="Douars du Parc",
-//     backendUrl = 'douar2.php',
-//     pointToLayerFunction =  returnDouarmakr
-// )
 
 
 //===============clusters================================/
@@ -435,26 +451,38 @@ $.ajax({
         drawnItems.addLayer(e.layer);
         let polygonData = e.layer.toGeoJSON();
 
-        /*
 
-        $.ajax({
-            url:'addZoneAdhesion.php',
-            success:function(response){
-                jsnClusters=JSON.parse(response);
-                clusters= L.geoJSON(jsnClusters,{pointToLayer:returnClustermakr,
         
-                }).addTo(mymap);
-               cltLayers.addOverlay(clusters,"Clusters");
-            },
-            error:function(xhr,status,error){
-                alert("ERROR:"+ error);
-            }
-        });
-
-        */
-
 
     });
+
+    //############## START HANDLING EDITING DATA INSERTION################;
+
+         // Send the polygon data to the server using AJAX
+    $.ajax({
+        url: 'editInsertion.php',
+        type: 'POST',
+        data: {polygon: JSON.stringify(polygonData)},
+        success: function(response) {
+            console.log('Polygon saved successfully!');
+        },
+        error: function(xhr, status, error) {
+            console.error('Error saving polygon:', error);
+        }
+    });
+
+   
+
+
+
+//##############END HANDLING EDITING DATA INSERTION################
+
+
+///############## START HANDLING THE MODAL FORM########################
+
+
+
+///############## END HANDLING THE MODAL FORM########################
 
     //styling tool
     styleEditor = L.control.styleEditor({position:'topright'}).addTo(mymap);
@@ -545,7 +573,7 @@ function LatLngToArrayString(ll) {
     var att =json.properties;
     return L.circleMarker(latlng,{radius:10,color:'black',fillColor:'green',fillOpacity:0.7, zIndexOffset:200,zIndex:2000,
 })   
-    .bindPopup(buildFearuePopup(att, 'douar'))
+    .bindPopup(buildFearuePopup(att, 'douar', douarCols))
 
    
    

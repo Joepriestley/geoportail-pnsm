@@ -29,8 +29,8 @@ include_once 'header.php';
                                     <input name="nature" type="text" class="form-control" id="nature" placeholder="la nature d'eau">
                                 </div>
                                 <div class="form-group col-md-12">
-                                    <label for="cout_creaction">Cout Installation</label>
-                                    <input name="cout_creaction" type="number" class="form-control" id="cout_creaction" placeholder="le cout de l'action">
+                                    <label for="cout_installation">Cout Installation</label>
+                                    <input name="cout_installation" type="number" class="form-control" id="cout_installation" placeholder="le cout de l'action">
                                 </div>
                                 <div class="form-group col-md-12">
                                     <label for="localisation">Localisation</label>
@@ -41,10 +41,10 @@ include_once 'header.php';
                                     <label for="importance">Importance</label>
                                     <input name="importance" type="text" class="form-control" id="importance" placeholder="les importance du point d'eau">
                                 </div>
-                                <!-- <div class="form-group col-md-12">
-                                    <label for="id_amengt">ID Amenagement</label>
-                                    <input name="id_amengt" type="number" class="form-control" id="id_amengt" placeholder="mettre l'identifiant de type d'amenagement">
-                                </div> -->
+                                <div class="form-group col-md-12">
+                                    <label for="date_installation">Dte Installation</label>
+                                    <input name="date_installation" type="date" class="form-control" id="date_installation" placeholder="mettre l'identifiant de type d'amenagement">
+                                </div>
                            
                             <button type="submit" name="submit" class="btn btn-primary">Inserer</button>
                         </form>
@@ -60,6 +60,7 @@ include_once 'header.php';
                             <tr >
                                 <th>ID Point Eau</th>
                                 <th>Profondeur</th>
+                                <th>Date Creation</th>
                                 <th>Nature</th>
                                 <th>Cout Installation</th>
                                 <th>Localisation</th>
@@ -82,8 +83,9 @@ include_once 'header.php';
                                 <tr>
                                     <td><?= $row['id_point_eau'] ?></td>
                                     <td><?= $row['profondeur'] ?></td>
+                                    <td><?= $row['date_installation'] ?></td>
                                     <td><?= $row['nature'] ?></td>
-                                    <td><?= $row['cout_creaction'] ?></td>
+                                    <td><?= $row['cout_installation'] ?></td>
                                     <td><?= $row['localisation'] ?></td>
                                     <td><?= $row['importance'] ?></td>
                                     <td>

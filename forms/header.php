@@ -48,10 +48,10 @@
                                 <li>
                                     <a href="amenagement.php" class="dropdown-item">Amenagement</a>
                                 </li>
-                                <div class="dropdown-divider"></div>
+                                <!-- <div class="dropdown-divider"></div>
                                 <li>
                                     <a href="gestion.php" class="dropdown-item">Gestion d'Amenagement</a>
-                                </li> 
+                                </li>  -->
                             </ul>
                         </li>
                         <div class="dropdown-divider"></div>
@@ -62,25 +62,25 @@
                                     <a href="pistes.php" class="dropdown-item">Pistes</a>
                                 </li> -->
                                 <li>
-                                    <a href="/geoportail-pnsm/forms/refection_pistes.php" class="dropdown-item">Refection Pistes</a>
+                                    <a href="/geoportail-pnsm/forms/refection_pistes.php" class="dropdown-item">Pistes</a>
                                 </li>
                                 <div class="dropdown-divider"></div>
                                 <!-- <li>
                                     <a href="/geoportail-pnsm/forms/point_eau.php" class="dropdown-item">Point Eau</a>
                                 </li> -->
                                 <li>
-                                    <a href="/geoportail-pnsm/forms/ref_point_eau.php" class="dropdown-item"> Refection Point Eau</a>
+                                    <a href="/geoportail-pnsm/forms/ref_point_eau.php" class="dropdown-item">Point Eau</a>
                                 </li>
                                 <div class="dropdown-divider"></div>
                                 <!-- <li>
                                     <a href="/geoportail-pnsm/forms/amenagementtouristique.php" class="dropdown-item">Amenagement Touristiques</a>
                                 </li> -->
                                 <li>
-                                    <a href="/geoportail-pnsm/forms/ref_amenagementtouristique.php" class="dropdown-item"> Ref Amenagement Touristiques</a>
+                                    <a href="/geoportail-pnsm/forms/ref_amenagementtouristique.php" class="dropdown-item">Amenagement Touristiques</a>
                                 </li>
                                 <div class="dropdown-divider"></div>
                                 <li>
-                                    <a href="/geoportail-pnsm/forms/refection_cloture.php" class="dropdown-item">Refection Cloture</a>
+                                    <a href="/geoportail-pnsm/forms/refection_cloture.php" class="dropdown-item">Cloture</a>
                                 </li>
                             </ul>
                         </li>

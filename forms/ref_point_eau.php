@@ -72,14 +72,71 @@ json_encode($data);
         <div class="col-md-7">
         <nav>
   <div class="nav nav-tabs" id="nav-tab" role="tablist">
-    <button class="nav-item nav-link active " id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Home</button>
-    <button class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Profile</button>
+    <button class="nav-item nav-link active btn btn-success" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true" >Table   Point Eau</button>
+    <button class="nav-item nav-link  btn btn-success" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="true">Table Refection Point Eau</button>
+    
+    <a href="amenagement.php"><button class="nav-item nav-link  btn btn-secondary" id="nav-profile-tab"  href="#nav-profile">Saisir Donnees de Point Eau</button></a>
   </div>
 </nav>
     <div class="tab-content" id="nav-tabContent">
     <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
 
-        <table class="table table-striped">
+    <table class="table table-striped">
+                        <thead class="table-success">
+                            <tr >
+                                <th>ID Point Eau</th>
+                                <th>Profondeur (m)</th>
+                                <th>Date Installation</th>
+                                <th>Nature</th>
+                                <th>Cout Installation (dhs)</th>
+                                <th>Localisation</th>
+                                <th>Importance</th>
+                                <th>Editer</th>
+                                <th>Effacer</th>
+                            </tr>
+                        </thead>
+                        <tbody id="circuitTable" class="table table-dark text-dark table-striped" >
+                            <!-- Table rows will be dynamically added here -->
+                            <?php
+                            // Assuming you already have the database connection established ($pdo)
+                            $query = "SELECT * FROM point_eau";
+                            $stmt = $pdo->prepare($query);
+                            $stmt->execute();
+                            $results = $stmt->fetchall(PDO::FETCH_ASSOC);
+                            ?>
+                            <!-- Add this inside the table body -->
+                            <?php foreach ($results as $row) : ?>
+                                <tr>
+                                    <td><?= $row['id_point_eau'] ?></td>
+                                    <td><?= $row['profondeur'] ?></td>
+                                    <td><?= $row['date_installation'] ?></td>
+                                    <td><?= $row['nature'] ?></td>
+                                    <td><?= $row['cout_installation'] ?></td>
+                                    <td><?= $row['localisation'] ?></td>
+                                    <td><?= $row['importance'] ?></td>
+                                    <td>
+                                        <a href="point_eau-edit.php?id=<?= $row['id_point_eau'] ?>"><button name="edit_point_eau" class="edit-btn btn btn-warning" data-id="<?= $row['id_point_eau'] ?>">Editer</button></a>
+                                    </td>
+                                    <td>
+                                        <!-- Delete form -->
+                                        <form style="border:0px; padding:0px;" action="./deletion/point_eau-delete.php" method="POST">
+                                            <!-- Hidden input field to include id_point_eau  -->
+                                            <input type="hidden" name="id_point_eau" value="<?= $row['id_point_eau'] ?>">
+                                            <!-- Delete button -->
+                                            <button name="delete_point_eau" class="delete-btn btn btn-danger" data-id="<?= $row['id_point_eau'] ?>" onclick="return confirm('Etes vous d\'effacer cette ligne?');">Effacer</button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            <?php endforeach; ?>
+                        </tbody>
+                    </table>
+
+  </div>
+  <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+
+
+
+  <table class="table table-striped">
                 <thead class="table-success">
     
                     <tr>
@@ -125,55 +182,8 @@ json_encode($data);
                     <?php endforeach; ?>
                 </tbody>
             </table>
-  </div>
-  <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
         
-  <table class="table table-striped">
-                <thead class="table-success">
-    
-                    <tr>
-                        <th>ID Point Eau @</th>
-                        <th>date_refection</th>
-                        <th>executeur</th>
-                        <th>Cout Amenagement</th>
-                        <th>Nom Point Eau</th>
-                        <th>Editer</th>
-                        <th>Effacer</th>
-                    </tr>
-                </thead>
-                <tbody id="circuitTable" class="table table-dark text-dark table-striped">
-                    <!-- Table rows will be dynamically added here -->
-                    <?php
-                    // Assuming you already have the database connection established ($pdo)
-                    $query = "SELECT * FROM ref_point_eau";
-                    $stmt = $pdo->prepare($query);
-                    $stmt->execute();
-                    $results = $stmt->fetchall(PDO::FETCH_ASSOC);
-                    ?>
-                    <!-- Add this inside the table body -->
-                    <?php foreach ($results as $row) : ?>
-                        <tr>
-                            <td><?= $row['id_ref_point_eau'] ?></td>
-                            <td><?= $row['date_refection'] ?></td>
-                            <td><?= $row['executeur'] ?></td>
-                            <td><?= $row['cout_amengt'] ?></td>
-                            <td><?= $row['nom_point_eau'] ?></td>
-                            <td>
-                                <a href="refection_point_eau-edit.php?id=<?= $row['id_ref_point_eau'] ?>"><button name="edit_point_eau" class="edit-btn btn btn-warning" data-id="<?= $row['id_ref_point_eau'] ?>">Editer</button></a>
-                            </td>
-                            <td>
-                                <!-- Delete form -->
-                                <form style="border:0px; padding:0px;" action="./deletion/ref_point_eau-delete.php" method="POST">
-                                    <!-- Hidden input field to include id_ref_point_eau  -->
-                                    <input type="hidden" name="id_ref_point_eau" value="<?= $row['id_ref_point_eau'] ?>">
-                                    <!-- Delete button -->
-                                    <button name="delete_ref_point_eau" class="delete-btn btn btn-danger" data-id="<?= $row['id_ref_point_eau'] ?>" onclick="return confirm('Etes vous sur d\'effacer cette ligne?');">Effacer</button>
-                                </form>
-                            </td>
-                        </tr>
-                    <?php endforeach; ?>
-                </tbody>
-            </table>
+  
  
   </div>
 </div>

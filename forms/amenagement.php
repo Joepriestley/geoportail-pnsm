@@ -52,15 +52,21 @@ include_once 'header.php';
                         <div class="form-row">
                         </div>
                         <button type="submit" name="submit" class="btn btn-primary">Inserer</button>
+                        
                     </form>
+                   
                     
-                    <br>
-                    <a href="#" class="btn btn-primary">Nouveau</a>
+                    <div class="form-group row pt-2 mb-auto ml-auto">
+                        <a href="refection_pistes.php" class="ml-1 pt-2"><button class="btn btn-success " id="nav-profile-tab"  href="amenagement.php" title="Visualiser la table de donnees sur les pistes">Voir Table Pistes</button></a>
+                        <a href="ref_amenagementtouristique.php" class="ml-1 pt-2"><button class="btn btn-success " id="nav-profile-tab"  href="amenagement.php"  title="Visualiser la table de donnees sur les Amenagement Touristique">Voir Table Amen.Touristique</button></a>
+                        <a href="ref_point_eau.php" class="ml-1 pt-2"><button class="nav-item nav-link btn btn-success " href="#nav-home"  title="Visualiser la table de donnees sur les Points Eaux">Voir Table Point Eau</button></a>
+                        <a href="refection_cloture.php" class="ml-1 pt-2"><button class="nav-item nav-link btn btn-success " href="#nav-home"  title="Visualiser la table de donnees sur les Clotures">Voir Table Cloture</button></a>
+                    </div>
                 </div>
             </div>
         </div>
         <div class="col-md-7">
-            <table class="table table-striped bg-success">
+            <table class="table table-striped bg-white">
                 <thead class="table-primary">
                     <tr>
                         <th>Code_Amenagement</th>
@@ -221,8 +227,8 @@ include_once 'header.php';
                                 <input name="nom_amenagttour" type="text" class="form-control" id="nom_amenagttour" placeholder="nom_amenagttour">
                                 </div>
                                 <div class="form-group col-md-12">
-                                    <label for="resposable">Responsable Amenagement Touristique</label>
-                                    <input name="resposable" type="text" class="form-control" id="resposable" placeholder="Resposable de l'amenagement touristique">
+                                    <label for="responsable">Responsable Amenagement Touristique</label>
+                                    <input name="responsable" type="text" class="form-control" id="responsable" placeholder="responsable de l'amenagement touristique">
                                 </div>
                                 <div class="form-group col-md-12">
                                     <label for="date_cree">Date_Creation</label>
