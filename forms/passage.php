@@ -68,7 +68,7 @@ include_once 'header.php';
                             <th>Effacer</th>
                         </tr>
                     </thead>
-                    <tbody id="passageTable" class="table table-dark text-dark table-striped">
+                    <tbody id="passageTable" class="table table-white bg-white text-dark table-striped">
                         <!-- Table rows will be dynamically added here -->
                         <?php
                         $query = "SELECT * FROM passe";

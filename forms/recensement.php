@@ -74,7 +74,7 @@ $pdo = require_once './includes/dbConnect.php';
                     </div>
                 </div>
             </div>
-            <div class="col-md-6 bg-light">
+            <div class="col-md-6 ">
                 <table class="table table-striped">
                     <thead class="table-primary">
                         <tr>
@@ -90,7 +90,7 @@ $pdo = require_once './includes/dbConnect.php';
                             <th>Effacer</th>
                         </tr>
                     </thead>
-                    <tbody id="actionTable" class="table table-dark text-dark table-striped">
+                    <tbody id="actionTable" class="table table-white text-dark bg-white table-striped">
                         <!-- Table rows will be dynamically added here -->
                         <?php
                         // Assuming you already have the database connection established ($pdo)

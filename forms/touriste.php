@@ -80,8 +80,6 @@ include_once 'header.php';
             <!-- <th scope="col">Id</th> -->
             <th scope="col">Nom Touriste</th>
             <th scope="col">Prenom</th>
-            <th scope="col">Age</th>
-            <th scope="col">Sexe</th>
             <th scope="col">Num Passport</th>
             <th scope="col">Nationalite</th>
             <th scope="col">Motivation</th>
@@ -94,7 +92,7 @@ include_once 'header.php';
 
           </tr>
         </thead>
-        <tbody id="touriste" class="table table-dark text-dark table-striped">
+        <tbody id="touriste" class="table table-white bg-white text-dark table-striped">
 
           <!-- Table will be added here dynamically -->
 
@@ -111,8 +109,6 @@ include_once 'header.php';
             <tr>
               <td><?= $row['nomtouriste'] ?></td>
               <td><?= $row['prenom'] ?></td>
-              <td><?= $row['age'] ?></td>
-              <td><?= $row['sexe'] ?></td>
               <td><?= $row['numerocin_passport'] ?></td>
               <td><?= $row['nationalite'] ?></td>
               <td><?= $row['motivation'] ?></td>

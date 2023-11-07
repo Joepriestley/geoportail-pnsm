@@ -21,7 +21,7 @@ var zoneAdhesionCols = ["name", "superf", ,"zonebiogeo"];
 
 var zoneCoeurCols = ["nom", "superficie(ha)", "zone_biogeographique", "commune"];
 
-var douarCols = ["nom", "population", "menages" ,"photo"]
+var douarCols = ["nom", "population", "menages","nombrehommes", "nombrefemmes","nombreenfants","totalscolarises"]
 
 
 
@@ -173,36 +173,35 @@ ctlEasybutton = L.easyButton('glyphicon-transfer', function(){
 
 
 
+// /////////////HANDLING MODAL///////////////
 
-/////////////modal handling ///////////////
+// var customControl = L.Control.extend({
+//     options: {
+//         position: 'bottomleft'
+//     },
 
-var customControl = L.Control.extend({
-    options: {
-        position: 'bottomleft'
-    },
+//     onAdd: function () {
+//         var container = L.DomUtil.create('div', 'leaflet-bar leaflet-control');
 
-    onAdd: function () {
-        var container = L.DomUtil.create('div', 'leaflet-bar leaflet-control');
+//         // Create your button and add it to the container
+//         var button = L.DomUtil.create('button', 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded', container);
+//         button.innerHTML = 'Edit';
+//         button.id = 'modalButton';
 
-        // Create your button and add it to the container
-        var button = L.DomUtil.create('button', 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded', container);
-        button.innerHTML = 'Edit';
-        button.id = 'modalButton';
+//         // Add a click event listener to your button
+//         L.DomEvent.on(button, 'click', function () {
+//             // Open the modal when the button is clicked
+//             document.querySelector('.modal').style.display = 'block';
+//         });
 
-        // Add a click event listener to your button
-        L.DomEvent.on(button, 'click', function () {
-            // Open the modal when the button is clicked
-            document.querySelector('.modal').style.display = 'block';
-        });
+//         return container;
+//     }
+// });
 
-        return container;
-    }
-});
+// // Add the custom control to the map
+// mymap.addControl(new customControl());
 
-// Add the custom control to the map
-mymap.addControl(new customControl());
-
-//////////////modal handling /////////////
+//////////////MODAL HANDLING  /////////////
     
 
 //==============########### START:FETCHING SPATIAL DATA FROM THE DATABASE TO THE MAP######## ==========/
@@ -374,31 +373,31 @@ $.ajax({
 
 
 //===============clusters================================/
-$.ajax({
-    url:'clusters.php',
-    success:function(response){
-        jsnClusters=JSON.parse(response);
-        clusters= L.geoJSON(jsnClusters,{pointToLayer:returnClustermakr,
+// $.ajax({
+//     url:'clusters.php',
+//     success:function(response){
+//         jsnClusters=JSON.parse(response);
+//         clusters= L.geoJSON(jsnClusters,{pointToLayer:returnClustermakr,
 
-        }).addTo(mymap);
-       cltLayers.addOverlay(clusters,"Clusters");
+//         }).addTo(mymap);
+//        cltLayers.addOverlay(clusters,"Clusters");
 
-        // Adding a click event to the layer
-        clusters.on('click', function(e){
-             // change the opacity of the previously clicked layer back to 0.75
-             e.layer.setStyle({
-                opacity: 0.70,
-                fillOpacity: 0.70
+//         // Adding a click event to the layer
+//         clusters.on('click', function(e){
+//              // change the opacity of the previously clicked layer back to 0.75
+//              e.layer.setStyle({
+//                 opacity: 0.70,
+//                 fillOpacity: 0.70
             
-            });
-        });
+//             });
+//         });
 
-    },
+//     },
 
-    error:function(xhr,status,error){
-        alert("ERROR:"+ error);
-    }
-});
+//     error:function(xhr,status,error){
+//         alert("ERROR:"+ error);
+//     }
+// });
 
 //===============Zones especes ======================/
 $.ajax({
@@ -459,17 +458,17 @@ $.ajax({
     //############## START HANDLING EDITING DATA INSERTION################;
 
          // Send the polygon data to the server using AJAX
-    $.ajax({
-        url: 'editInsertion.php',
-        type: 'POST',
-        data: {polygon: JSON.stringify(polygonData)},
-        success: function(response) {
-            console.log('Polygon saved successfully!');
-        },
-        error: function(xhr, status, error) {
-            console.error('Error saving polygon:', error);
-        }
-    });
+    // $.ajax({
+    //     url: 'editInsertion.php',
+    //     type: 'POST',
+    //     data: {polygon: JSON.stringify(polygonData)},
+    //     success: function(response) {
+    //         console.log('Polygon saved successfully!');
+    //     },
+    //     error: function(xhr, status, error) {
+    //         console.error('Error saving polygon:', error);
+    //     }
+    // });
 
    
 
@@ -579,20 +578,20 @@ function LatLngToArrayString(ll) {
    
  }
 
- //#############func for styling clusters##########################
- function returnClustermakr(json,latlng){
-    var att =json.properties;
-    customCircleMarker = L.CircleMarker.extend({
-        options: { 
-           id: att.id,
-           name: "cluster"
-        }
-     });
-    return new customCircleMarker(latlng,{radius:10,color:'green',fillColor:'blue',fillOpacity:0.5,dashArray:'5,5',
-    id:att.id,name:"cluster"})    
-    .bindPopup(buildFearuePopup(att, 'cluster'))
+//  //#############func for styling clusters##########################
+//  function returnClustermakr(json,latlng){
+//     var att =json.properties;
+//     customCircleMarker = L.CircleMarker.extend({
+//         options: { 
+//            id: att.id,
+//            name: "cluster"
+//         }
+//      });
+//     return new customCircleMarker(latlng,{radius:10,color:'green',fillColor:'blue',fillOpacity:0.5,dashArray:'5,5',
+//     id:att.id,name:"cluster"})    
+//     .bindPopup(buildFearuePopup(att, 'cluster'))
 
- }
+//  }
  //#############func for styling zonecoeur ##########################
  function returnZonePolygon (json,latlng){
     var att =json.properties;

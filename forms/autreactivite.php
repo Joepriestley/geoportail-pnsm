@@ -45,7 +45,7 @@ include_once 'header.php';
                             </div>
                             <div class="form-row">
                         
-                                <div class="form-group col-md-6">
+                                <div class="form-group col-md-12">
                                     <label for="douar">douar</label>
                                     <select name="douar" id="douar" class="form-control">
                                         <option value="">--Choissisez l'identifiant de douar--</option>
@@ -77,7 +77,7 @@ include_once 'header.php';
                 </div>
             </div>
             <div class="col-md-7">
-                <table class="table table-striped">
+                <table class="white-striped table table-white">
                     <thead class="table-success">
                         <tr >
                             <th>code Activite</th>
@@ -92,7 +92,7 @@ include_once 'header.php';
                             <th>Effacer</th>
                         </tr>
                     </thead>
-                    <tbody id="circuitTable"  class="table table-dark text-dark table-striped">
+                    <tbody id="circuitTable"  class="table table-white bg-white text-dark table-striped">
                         <!-- Table rows will be dynamically added here -->
                         <?php
                             // Assuming you already have the database connection established ($pdo)

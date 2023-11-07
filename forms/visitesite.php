@@ -62,7 +62,7 @@ $pdo = require_once './includes/dbConnect.php';
                             <th>Action</th>
                         </tr>
                     </thead>
-                    <tbody id="circuitTable" class="table table-dark text-dark table-striped">
+                    <tbody id="circuitTable" class="table table-white bg-white text-dark table-striped">
                         <!-- Table rows will be dynamically added here -->
                         <?php
                         // Assuming you already have the database connection established ($pdo)

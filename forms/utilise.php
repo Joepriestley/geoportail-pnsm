@@ -64,7 +64,7 @@ $pdo = require_once './includes/dbConnect.php';
                             <th>Effacer</th>
                         </tr>
                     </thead>
-                    <tbody id="circuitTable" class="table table-dark text-dark table-striped">
+                    <tbody id="circuitTable" class="table table-white bg-white text-dark table-striped">
                         <!-- Table rows will be dynamically added here -->
 
 

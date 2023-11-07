@@ -59,8 +59,8 @@ include_once 'header.php';
                 </div>
             </div>
             <div class="col-md-7">
-                <table class="table table-striped">
-                    <thead class="table-primary">
+                <table class="table table-striped bg-success bg-white"">
+                    <thead class="table-success">
                         <tr>
                             <th>Numero Cin</th>
                             <th>Nom Executeur</th>
@@ -72,7 +72,7 @@ include_once 'header.php';
                             <th>Effacer</th>
                         </tr>
                     </thead>
-                    <tbody id="circuitTable" class="table table-dark text-dark table-striped">
+                    <tbody id="circuitTable" class="table table-white text-dark table-striped">
                         <!-- Table rows will be dynamically added here -->
 
                         <?php

@@ -82,7 +82,7 @@ include_once 'header.php';
             <div class="col-md-7">
                 <table class="table table-striped">
                    
-                    <tbody id="circuitTable" class="table table-dark text-dark table-striped" >
+                    <tbody id="circuitTable" class="table table-white bg-white text-dark table-striped" >
                         <!-- Table rows will be dynamically added here -->
                          <?php
                         // Assuming you already have the database connection established ($pdo)
