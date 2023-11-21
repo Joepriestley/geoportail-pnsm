@@ -2,13 +2,13 @@
 $pdo = require_once './includes/dbConnect.php';
 include_once 'header.php';
 
-$query = "SELECT id_piste,_nom_piste FROm pistes";
+$query = "SELECT id_piste,_nom_piste FROM pistes";
 $stmt = $pdo->query($query);
 $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
 json_encode($data);
 
 ?>
-<div class="container-fluid mt-4">
+<div class="container-fluid mt-4 pt-5">
     <div class="row">
         <div class="col-5">
             <div class="card">

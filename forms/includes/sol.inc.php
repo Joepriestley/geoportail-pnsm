@@ -17,11 +17,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $couleur = validate($_POST['couleur']);
     $classe = validate($_POST['classe']);
     $sousclasse = validate($_POST['sousclasse']);
-    $fonction = validate($_POST['fonction']);
-    $telephone = validate($_POST['telephone']);
-    $adresse = validate($_POST['adresse']);
-    $prenom = validate($_POST['prenom']);
-    $edit_sol = validate($_POST['edit_sol']);
+    // $fonction = validate($_POST['fonction']);
+    // $telephone = validate($_POST['telephone']);
+    // $adresse = validate($_POST['adresse']);
+    // $prenom = validate($_POST['prenom']);
+    // $edit_sol = validate($_POST['edit_sol']);
 
     // Perform server-side validation
     if (empty($codemunsell) || empty($nomsol) || empty($groupe) || empty($couleur) || empty($classe) || empty($sousclasse)) {

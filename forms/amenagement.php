@@ -5,7 +5,7 @@ $pdo = require_once './includes/dbConnect.php';
 
 include_once 'header.php';
 ?>
-<div class="container-fluid mt-auto">
+<div class="container-fluid mt-auto pt-5">
     <div class="row">
         <div class="col-5">
             <div class="card">

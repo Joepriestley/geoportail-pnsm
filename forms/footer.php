@@ -1,9 +1,9 @@
 <style>
     footer {
-        background-color: #272727;
+        background-image: linear-gradient( 109.6deg,  rgba(61,131,97,1) 11.2%, rgba(28,103,88,1) 91.1% );
         color: white;
         text-align: center;
-        padding: 50px 0;
+        padding: 94px 0;
     }
 
     .container-fluid {
@@ -51,32 +51,20 @@
     }
 </style>
 
-<footer class="text-white mt-2">
+<footer class="text-white mt-5">
     <div class="container-fluid pt-3 pb-3">
         <div class="row">
-            <div class="col-md-2 tit mt-3">
-                <img src="../img/pnsm.png" alt="" width="130px">
-            </div>
-            <div class="col-md-4 text-center mt-4">
+
+
+            <div class="col-md-12 text-center mt-3">
                 <div class="smed text-center">
+
                     <a href="https://www.facebook.com/profile.php?id=100075829525114" target="_blank"><i class="fab fa-facebook"></i></a>
                     <a href="https://twitter.com/search?q=sous-massa%20maroc&src=typed_query&f=top" target="_blank"><i class="fab fa-twitter"></i></a>
                     <a href="https://instagram.com/pnsm.agadir?igshid=MzRlODBiNWFlZA==" target="_blank"><i class="fab fa-instagram"></i></a>
                     <a href="https://www.youtube.com/watch?v=3h1nHiGpLpw&ab_channel=j%C3%A9r%C3%B4mesintes" target="_blank"><i class="fab fa-youtube"></i></a>
                 </div>
                 <p class="copy">Copyright &copy; 2023 All rights reserved | Geoportail-PNSM</p>
-            </div>
-            <div class="col-md-4 mt-5">
-                <p class="con">Contact us</p>
-                <div class="contact-info">
-                    <i class="fas fa-phone"></i>0626-270675
-                </div>
-                <!-- Add your contact form here if needed -->
-            </div>
-            <div class="col-md-2 mt-3">
-                <img src="../img/logo.png" alt="" width="95px">
-                <br><br>
-                <img src="../img/pnsm-logo.jpg" alt="" width="95px">
             </div>
         </div>
         <!-- Add your scripts here, preferably at the end of the footer -->
@@ -89,3 +77,6 @@
     </div>
 </footer>
 
+</body>
+
+</html>

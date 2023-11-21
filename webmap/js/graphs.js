@@ -34,7 +34,7 @@ function distributionChart(chartCanvas, data, title){
 }
 
 
-function barChart(canvasEl, data, title) {
+function barChart(canvasEl, data, title, axisTitles) {
     // if chartCanvas is ObjecHTMLCanvasElement, then change it to html  canvas element
     if (typeof canvasEl === 'object'){
         canvasEl = canvasEl.getContext('2d');
@@ -45,7 +45,7 @@ function barChart(canvasEl, data, title) {
           label: title,
           data: data.values
      }]
-      };
+    };
 
     return  new Chart(canvasEl, {
         type: 'bar',
@@ -55,9 +55,17 @@ function barChart(canvasEl, data, title) {
             maintainAspectRatio: false,
             scales: {
                 x: {
+                    title:{
+                        display: axisTitles?.x ? true : false,
+                        text: axisTitles?.x ?? ''
+                    }
                 },
                 y: {
-                    beginAtZero: true
+                    beginAtZero: true,
+                    title:{
+                        display: axisTitles?.y ? true : false, 
+                        text: axisTitles?.y ?? ''
+                    }
                 }
             }
         }

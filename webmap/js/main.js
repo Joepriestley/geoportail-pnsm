@@ -273,10 +273,10 @@ $.ajax({
 // ############Zone du coeur####################
 
 var zonecoeursStyle = {
-    "color": "red",
-    "weight": 5,
-    "opacity": 0.65,
-    "zIndexOffset":100
+    color: "red",
+    weight: 5,
+    opacity: 0.65,
+    zIndexOffset: 100
 
 };
 
@@ -297,14 +297,20 @@ $.ajax({
 
         cltLayers.addOverlay(lyrzoneCoeurs, "Zone du Coeurs");
 
+
         // Adding a click event to the layer
         lyrzoneCoeurs.on('click', function(e){
-            // change the opacity of the previously clicked layer back to 0.75
-            e.layer.setStyle({
+            
+            // // change the opacity of the previously clicked layer back to 0.75
+            //alert(JSON.stringify(e.layer.feature.properties))
+            lyrzoneCoeurs.eachLayer(function (l) {  if(l.feature.properties.nom == e.layer.feature.properties.nom) { l.setStyle({
                 opacity: 0.70,
                 fillOpacity: 0.70
             
-            }); 
+            });  } else l.setStyle(zonecoeursStyle) })
+
+
+
         });
     },
     error: function(xhr, status, error) {
@@ -357,8 +363,9 @@ $.ajax({
 
        // Adding a click event to the layer
        lyrTest.on('click', function(e){
-         // change the opacity of the previously clicked layer back to 0.75
-         e.layer.setStyle({
+
+            // change the opacity of the previously clicked layer back to 0.75
+            e.layer.setStyle({
             opacity: 0.70,
             fillOpacity: 0.70
         
@@ -487,36 +494,34 @@ $.ajax({
     styleEditor = L.control.styleEditor({position:'topright'}).addTo(mymap);
 
     //**********Layer controls*************** */
-//basemaps
+    //basemaps
 
-objBasemaps = {
-    "Google Street Map":googleStreets,
-    "Google Hybrid Map":googleHybrid,
-    "Google Satellite Map":googleSatellite,
-    "Google Terrain Map":googleTerrain,
-    "Open Street Maps":lyrOSM,
-    "Esri World Imagery":lyrEsriImagery,
-    "Open Topo Map":lyrTopo,
+    objBasemaps = {
+        "Google Street Map":googleStreets,
+        "Google Hybrid Map":googleHybrid,
+        "Google Satellite Map":googleSatellite,
+        "Google Terrain Map":googleTerrain,
+        "Open Street Maps":lyrOSM,
+        "Esri World Imagery":lyrEsriImagery,
+        "Open Topo Map":lyrTopo
+    };
+    //overlays 
+    objOverlays={
+        "Province":province,
+        "Secteur Forestiere":secteurFor,
+        "Zone Adhesion du Parc":ZoneA,
+        "Zone Coeur du Parc":ZoneC,
+        "Limite du PNSM":LimtePNSM,
+        "Drawn Items":drawnItems,
+        "Sites Investissement Touristiques":siteInvest,
+    };
+
+
+    // Create the control layers with the custom icon
+    cltLayers = L.control.layers(objBasemaps, objOverlays,{collapsed:true}).addTo(mymap);
     
-    
-};
-//overlays 
-objOverlays={
-    "Province":province,
-    "Secteur Forestiere":secteurFor,
-    "Zone Adhesion du Parc":ZoneA,
-    "Zone Coeur du Parc":ZoneC,
-    "Limite du PNSM":LimtePNSM,
-    "Drawn Items":drawnItems,
-    "Sites Investissement Touristiques":siteInvest,
-};
 
-
-  // Create the control layers with the custom icon
-  cltLayers = L.control.layers(objBasemaps, objOverlays,{collapsed:true}).addTo(mymap);
-  
-
-//***********Geosearching button ******************** */
+    //***********Geosearching button ******************** */
 
     ctlSearch = L.Control.openCageSearch({key: '27beae5a6d64406c8fa78ad7d2a10442',limit: 10}).addTo(mymap);//3c38d15e76c02545181b07d3f8cfccf0
     
@@ -720,7 +725,11 @@ function LatLngToArrayString(ll) {
         )
     }
 
-    var chartRendement = barChart(douarRendementActiviteDoughnutEl, dataRendement,  "Rendement des activités")
+    var axisTitles = {
+        x: '',
+        y: 'Rendement Monetaire (dhs)' 
+    }
+    var chartRendement = barChart(douarRendementActiviteDoughnutEl, dataRendement,  "Rendement des activités", axisTitles)
 
     
 

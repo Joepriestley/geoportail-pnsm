@@ -17,7 +17,7 @@ if (isset($_GET['id'])) {
 }
 ?>
 
-<div class="container-fluid mt-4">
+<div class="container-fluid mt-4 pt-5">
     <div class="row">
         <div class="col-5">
             <div class="card">

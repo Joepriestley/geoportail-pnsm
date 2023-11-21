@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Page</title>
-    <!-- Add Bootstrap 4.0.0 CSS CDN link -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-</head>
-<body>
+<?php
+include_once 'header.php';
+// style for the galerie\
+require_once './includes/dbConnect.php';
+// session_start();
+// if(isset($_POST['']))
+
+?>
 <div class=" mt-3">
     <div class="row justify-content-center">
         <div class="col-md-4">
@@ -15,6 +15,8 @@
                 <div class="card-header">
                     <h2 class="text-center">Login</h2>
                 </div>
+
+               
                 <?php
                     // Check if an error or success message is set in the session
                     if (isset($_GET['error_message'])) {
@@ -27,7 +29,7 @@
                     }
                     ?>
                 <div class="card-body">
-                    <form action="../includes/login.inc.php" method="POST">
+                    <form  action="includes/login.inc.php" method="POST">
                         <div class="form-group  ">
                             <label for="username">Username:</label>
                             <input type="text" class="form-control" id="username" name="nom" required>

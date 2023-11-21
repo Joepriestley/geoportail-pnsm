@@ -1,16 +1,19 @@
 <?php
 include_once 'header.php';
-?>
 
-<div class="mt-5 mb-3">
-    <div class="row "></div>
-        <div class="col-md-3  ml-5 ">
+if ($_SESSION['role'] === 'admin') {
+?>
+    <div class="mt-5 mb-3 pt-5">
+
+        <div class="row "></div>
+        <div class="col-md-3  ml-5  " style="left: 40rem; ">
             <div class="card bg-info">
                 <div class="card-header bg-danger text-white">
                     <h2 class="text-center">Authentification</h2>
                 </div>
                 <div class="card-body bg-dark">
-                <?php
+
+                    <?php
                     // Check if an error or success message is set in the session
                     if (isset($_GET['error_message'])) {
                         echo '<div class="error-message">' . $_GET['error_message'] . '</div>';
@@ -53,8 +56,14 @@ include_once 'header.php';
             </div>
         </div>
     </div>
-</div>
+
+<?php
+}
+?>
+
+
+
+
 <?php
 include_once 'footer.php';
 ?>
-
