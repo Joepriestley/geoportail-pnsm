@@ -13,7 +13,7 @@ var jsnActivites;
 
 var imagesBaseUrl = "http://localhost/geoportail-pnsm/forms"
 
-var clickedLayer = null;
+var selectedLayer = null;
 
 
 // relevant columns 
@@ -252,16 +252,44 @@ $.ajax({
 
         cltLayers.addOverlay(lyrzAdhesion, "Zone d'Adhesion");
 
-        lyrzAdhesion.on('click', function (event) {
+        // lyrzAdhesion.on('click', function (event) {
 
-           // change the opacity of the previously clicked layer back to 0.75
+        //    // change the opacity of the previously clicked layer back to 0.75
         
-            event.layer.setStyle({
-                opacity: 0.70,
-                fillOpacity: 0.70
+        //     event.layer.setStyle({
+        //         opacity: 0.70,
+        //         fillOpacity: 0.70
                 
-            });
+        //     });
 
+        // });
+        lyrzAdhesion.on('click', function(e) {
+            if (selectedLayer === e.layer) {
+                // If the clicked layer is already selected, revert its style to the previous style
+                if (e.layer.previousStyle) {
+                    e.layer.setStyle(e.layer.previousStyle);
+                }
+                selectedLayer = null; // Reset the selected layer
+            } else {
+                // Revert the style of the previously selected layer if exists
+                if (selectedLayer && selectedLayer.previousStyle) {
+                    selectedLayer.setStyle(selectedLayer.previousStyle);
+                }
+
+                // Store the current style before setting a new one for the clicked layer
+                var currentStyle = {
+                    opacity: e.layer.options.opacity,
+                    fillOpacity: e.layer.options.fillOpacity
+                };
+
+                // Set the style of the clicked layer
+                e.layer.setStyle({
+                    opacity: 0.7, // Adjust this value as needed
+                    fillOpacity: 0.7 // Adjust this value as needed
+                });
+                selectedLayer = e.layer; // Update the selected layer
+                e.layer.previousStyle = currentStyle; // Store the previous style
+            }
         });
     },
     error: function (xhr, status, error) {
@@ -280,7 +308,7 @@ var zonecoeursStyle = {
 
 };
 
-var clickedLayer = null;  // To keep track of the selected layer
+// var selectedLayer = null;  // To keep track of the selected layer
 
 $.ajax({
     url: 'zonecoeurs.php',
@@ -297,26 +325,44 @@ $.ajax({
 
         cltLayers.addOverlay(lyrzoneCoeurs, "Zone du Coeurs");
 
+        lyrzoneCoeurs.on('click', function(e) {
+            if (selectedLayer === e.layer) {
+                // If the clicked layer is already selected, revert its style to the previous style
+                if (e.layer.previousStyle) {
+                    e.layer.setStyle(e.layer.previousStyle);
+                }
+                selectedLayer = null; // Reset the selected layer
+            } else {
+                // Revert the style of the previously selected layer if exists
+                if (selectedLayer && selectedLayer.previousStyle) {
+                    selectedLayer.setStyle(selectedLayer.previousStyle);
+                }
 
-        // Adding a click event to the layer
-        lyrzoneCoeurs.on('click', function(e){
-            
-            // // change the opacity of the previously clicked layer back to 0.75
-            //alert(JSON.stringify(e.layer.feature.properties))
-            lyrzoneCoeurs.eachLayer(function (l) {  if(l.feature.properties.nom == e.layer.feature.properties.nom) { l.setStyle({
-                opacity: 0.70,
-                fillOpacity: 0.70
-            
-            });  } else l.setStyle(zonecoeursStyle) })
+                // Store the current style before setting a new one for the clicked layer
+                var currentStyle = {
+                    opacity: e.layer.options.opacity,
+                    fillOpacity: e.layer.options.fillOpacity
+                };
 
-
-
+                // Set the style of the clicked layer
+                e.layer.setStyle({
+                    opacity: 0.7, // Adjust this value as needed
+                    fillOpacity: 0.7 // Adjust this value as needed
+                });
+                selectedLayer = e.layer; // Update the selected layer
+                e.layer.previousStyle = currentStyle; // Store the previous style
+            }
         });
+
+
     },
     error: function(xhr, status, error) {
         alert("ERROR: " + error);
     }
 });
+
+
+
 
 
 
@@ -347,36 +393,67 @@ $.ajax({
 
 
 
-//=============== Douar Parc ======================/
-$.ajax({
-    url:'douar2.php',
-    success:function(response){
-        jsnDouar=JSON.parse(response);
-        lyrTest= L.geoJSON(jsnDouar,{pointToLayer:returnDouarmakr
+// //=============== Douar Parc ======================/
+// $.ajax({
+//     url:'douar2.php',
+//     success:function(response){
+//         jsnDouar=JSON.parse(response);
+//         lyrTest= L.geoJSON(jsnDouar,{pointToLayer:returnDouarmakr
         
-        }).addTo(mymap);
+//         }).addTo(mymap);
 
-       cltLayers.addOverlay(lyrTest,"Douars du Parc");
+//        cltLayers.addOverlay(lyrTest,"Douars du Parc");
 
-       var clickedLayer = null;
+//        var clickedLayer = null;
 
 
-       // Adding a click event to the layer
-       lyrTest.on('click', function(e){
+//        // Adding a click event to the layer
+//        lyrTest.on('click', function(e){
 
-            // change the opacity of the previously clicked layer back to 0.75
-            e.layer.setStyle({
-            opacity: 0.70,
-            fillOpacity: 0.70
+//         //     // change the opacity of the previously clicked layer back to 0.75
+//         //     e.layer.setStyle({
+//         //     opacity: 0.70,
+//         //     fillOpacity: 0.70
         
-        });
-    });
-    },
+//         // });
+   
+//     if (selectedLayer === e.layer) {
+//         // If the clicked layer is already selected, revert its style to the previous style
+//         if (e.layer.previousStyle) {
+//             e.layer.setStyle(e.layer.previousStyle);
+//         }
+//         selectedLayer = null; // Reset the selected layer
+//     } else {
+//         // Revert the style of the previously selected layer if exists
+//         if (selectedLayer && selectedLayer.previousStyle) {
+//             selectedLayer.setStyle(selectedLayer.previousStyle);
+//         }
+
+//         // Store the current style before setting a new one for the clicked layer
+//         var currentStyle = {
+//             opacity: e.layer.options.opacity,
+//             fillOpacity: e.layer.options.fillOpacity
+//         };
+//         selectedLayer = null;
+
+//         // Set the style of the clicked layer
+//         e.layer.setStyle({
+//             opacity: 0.9, // Adjust this value as needed
+//             fillOpacity: 0.9 // Adjust this value as needed
+//         });
+//         selectedLayer = e.layer; // Update the selected layer
+        
+//         e.layer.previousStyle = currentStyle; // Store the previous style
+        
+//     }
+// });
+
+//     },
     
-    error:function(xhr,status,error){
-        alert("ERROR:"+ error);
-    }
-});
+//     error:function(xhr,status,error){
+//         alert("ERROR:"+ error);
+//     }
+// });
 
 
 //===============clusters================================/
@@ -482,6 +559,72 @@ $.ajax({
 
 
 //##############END HANDLING EDITING DATA INSERTION################
+
+
+
+
+
+//=============== Douar Parc ======================/
+$.ajax({
+    url:'douar2.php',
+    success:function(response){
+        jsnDouar=JSON.parse(response);
+        lyrTest= L.geoJSON(jsnDouar,{pointToLayer:returnDouarmakr
+        
+        }).addTo(mymap);
+
+       cltLayers.addOverlay(lyrTest,"Douars du Parc");
+
+       var clickedLayer = null;
+
+
+       // Adding a click event to the layer
+       lyrTest.on('click', function(e){
+
+        //     // change the opacity of the previously clicked layer back to 0.75
+        //     e.layer.setStyle({
+        //     opacity: 0.70,
+        //     fillOpacity: 0.70
+        
+        // });
+   
+    if (selectedLayer === e.layer) {
+        // If the clicked layer is already selected, revert its style to the previous style
+        if (e.layer.previousStyle) {
+            e.layer.setStyle(e.layer.previousStyle);
+        }
+        selectedLayer = null; // Reset the selected layer
+    } else {
+        // Revert the style of the previously selected layer if exists
+        if (selectedLayer && selectedLayer.previousStyle) {
+            selectedLayer.setStyle(selectedLayer.previousStyle);
+        }
+
+        // Store the current style before setting a new one for the clicked layer
+        var currentStyle = {
+            opacity: e.layer.options.opacity,
+            fillOpacity: e.layer.options.fillOpacity
+        };
+        selectedLayer = null;
+
+        // Set the style of the clicked layer
+        e.layer.setStyle({
+            opacity: 0.9, // Adjust this value as needed
+            fillOpacity: 0.9 // Adjust this value as needed
+        });
+        selectedLayer = e.layer; // Update the selected layer
+        
+        e.layer.previousStyle = currentStyle; // Store the previous style
+        
+    }
+});
+
+    },
+    
+    error:function(xhr,status,error){
+        alert("ERROR:"+ error);
+    }
+});
 
 
 ///############## START HANDLING THE MODAL FORM########################

@@ -61,15 +61,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         try {
             // Prepare the SQL query using named placeholders
-            $query = "INSERT INTO espece_vegetale (nomscientifique, nomfrancais, nomvernaculaire, famille, ordre,categorie, milieuvie, modreproduction, id_sol, id_bioclimat, commentaire, photo) 
-                    VALUES (:nomscientifique, :nomfrancais, :nomvernaculaire, :famille, :ordre,:categorie, :milieuvie, :modreproduction, :id_sol, :id_bioclimat, :commentaire, :photo)";
+            $query = "UPDATE espece_vegetale
+            SET nomfrancais = :nomfrancais,
+                nomvernaculaire = :nomvernaculaire,
+                famille = :famille,
+                ordre = :ordre,
+                categorie = :categorie,
+                milieuvie = :milieuvie,
+                modreproduction = :modreproduction,
+                id_sol = :id_sol,
+                id_bioclimat = :id_bioclimat,
+                commentaire = :commentaire,
+                photo = :photo
+                WHERE nomscientifique = :nomscientifique";
             
             $stmt = $pdo->prepare($query);
 
             if ($stmt) {
                 // Bind parameters and execute the statement using an associative array
                 $params = [
-                    ':nomscientifique' => $nomscientifique,
                     ':nomfrancais' => $nomfrancais,
                     ':nomvernaculaire' => $nomvernaculaire,
                     ':famille' => $famille,
@@ -80,52 +90,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     ':id_sol' => $id_sol,
                     ':id_bioclimat' => $id_bioclimat,
                     ':commentaire' => $commentaire,
-                    ':photo' => $path . $uploadDir . $imageFileName
+                    ':photo' => $path . $uploadDir . $imageFileName,
+                    ':nomscientifique' => $nomscientifique,
                 ];
 
                 $result = $stmt->execute($params);
-
-
-                 # save espece zone coeur 
-     
-
-        foreach($_POST['zcoeurs'] as $zone_name) {
-            $query = "INSERT into espece_zone (zone_type, espece_type, espece_name, zone_name)  values (:zone_type, :espece_type, :espece_name, :zone_name)";
-            $stmt = $pdo->prepare($query);
-            
-            if ($stmt) {
-                // Bind parameters and execute the statement using an associative array
-                $params = [
-                    ':zone_type' => "zone_coeur",
-                    ':espece_type' => "espece_vegetale",
-                    ':espece_name' => $nomscientifique,
-                    ':zone_name' => $zone_name
-                ];
-                $result = $stmt->execute($params);
-
-                
-            }
-        }
-# save espece zone adhsion
-
-        foreach($_POST['zadhesions'] as $zone_name) {
-            $query = "INSERT into espece_zone (zone_type, espece_type, espece_name, zone_name)  values (:zone_type, :espece_type, :espece_name, :zone_name)";
-            $stmt = $pdo->prepare($query);
-            
-            if ($stmt) {
-                // Bind parameters and execute the statement using an associative array
-                $params = [
-                    ':zone_type' => "zone_adhesion",
-                    ':espece_type' => "espece_vegetale",
-                    ':espece_name' => $nomscientifique,
-                    ':zone_name' => $zone_name
-                ];
-
-                $result = $stmt->execute($params);
-
-                
-            }
-        }
 
 
                 if ($result) {
@@ -137,16 +106,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             } else {
                 echo "Error preparing statement.";
             }
-       
-       
-
-
         } catch (PDOException $e) {
             echo "Error: " . $e->getMessage();
         }
-
-
-
     }
 }
 ?>

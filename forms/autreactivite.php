@@ -3,18 +3,19 @@ $pdo = require_once './includes/dbConnect.php';
 include_once 'header.php';
 
 ?>
+
 <body>
     <div class="container-fluid mt-4 pt-5">
         <div class="row">
             <div class="col-5">
                 <div class="card bg-dark">
-                    <div class="card-header bg-info text-white">
-                      <b>Les Activites</b>
+                    <div class="card-header text-white" style="background-color:rgb(61,131,97,1);">
+                        <b>Les Activites</b>
                     </div>
                     <div class="card-body">
                         <form action="./includes/autre_activite.inc.php" id="autreactiviteForm" style="background-color: rgb(201, 216, 214);" method="post">
-                        <?php if (isset($_GET['message']))  { ?>
-                                 <p class="message"><?php echo $_GET['message']; ?></p> <?php }?>
+                            <?php if (isset($_GET['message'])) { ?>
+                                <p class="message"><?php echo $_GET['message']; ?></p> <?php } ?>
                             <div class="form-row">
                                 <span class="form-control text-center bg-dark text-white"><b>Autres Activites</b></span>
                                 <!-- <div class="form-group col-md-6">
@@ -23,9 +24,9 @@ include_once 'header.php';
                                 </div> -->
                                 <div class="form-group col-md-6">
                                     <label for="annee">Annee Activite </label>
-                                    <input  type="month" class="form-control" id="annee"  name="annee" min="2019-07" value="2018-07" placeholder="annee d'activite">
+                                    <input type="month" class="form-control" id="annee" name="annee" min="2019-07" value="2018-07" placeholder="annee d'activite">
                                 </div>
-    
+
                                 <div class="form-group col-md-6">
                                     <label for="nombrepratiquant">Nombre pratiquant</label>
                                     <input name="nombrepratiquant" type="number" class="form-control" id="nombrepratiquant" placeholder="nombrepratiquant">
@@ -44,7 +45,7 @@ include_once 'header.php';
                                 </div>
                             </div>
                             <div class="form-row">
-                        
+
                                 <div class="form-group col-md-12">
                                     <label for="douar">douar</label>
                                     <select name="douar" id="douar" class="form-control">
@@ -61,7 +62,7 @@ include_once 'header.php';
                                         <option value="Sidi Toualnon">Sidi Toualnon(10)</option>
                                     </select>
                                 </div>
-                               
+
                                 <div class="input-group col-md-12">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text">Commentaire</span>
@@ -69,17 +70,17 @@ include_once 'header.php';
                                     <textarea name="commentaire" class="form-control" id="commentaire" aria-label="commentaire" placeholder="Entrer un commentaire /description de l'especes"></textarea>
                                 </div>
                             </div>
-                            <button type="submit" name="submit" class="btn btn-primary">Inserer</button>
+                            <button type="submit" name="submit" style="background-color:rgb(61,131,97,1);">Inserer</button>
                         </form>
                         <br>
-                        <a href="#" class="btn btn-primary">Nouveau</a>
+                        
                     </div>
                 </div>
             </div>
             <div class="col-md-7">
                 <table class="white-striped table table-white">
                     <thead class="table-success">
-                        <tr >
+                        <tr>
                             <th>code Activite</th>
                             <th>Annee Activite</th>
                             <th>Nombre prat.</th>
@@ -92,34 +93,42 @@ include_once 'header.php';
                             <th>Effacer</th>
                         </tr>
                     </thead>
-                    <tbody id="circuitTable"  class="table table-white bg-white text-dark table-striped">
+                    <tbody id="circuitTable" class="table table-white bg-white text-dark table-striped">
                         <!-- Table rows will be dynamically added here -->
                         <?php
-                            // Assuming you already have the database connection established ($pdo)
-                            $query = "SELECT * FROM autre_activites";
-                            $stmt = $pdo->prepare($query);
-                            $stmt->execute();
-                            $results = $stmt->fetchall(PDO::FETCH_ASSOC);
-                            ?>
+                        // Assuming you already have the database connection established ($pdo)
+                        $query = "SELECT * FROM autre_activites";
+                        $stmt = $pdo->prepare($query);
+                        $stmt->execute();
+                        $results = $stmt->fetchall(PDO::FETCH_ASSOC);
+                        ?>
 
-                            <!-- Add this inside the table body -->
-                            <?php foreach ($results as $row) : ?>
-                                <tr>
-                                    <td><?= $row['codeactivite'] ?></td>
-                                    <td><?= $row['annee'] ?></td>
-                                    <td><?= $row['nombrepratiquant'] ?></td>
-                                    <td><?= $row['rendement'] ?></td>
-                                    <td><?= $row['commentaire'] ?></td>
-                                    <td><?= $row['douar'] ?></td>
-                                    <td><?= $row['nomactivite'] ?></td>
-                                    <td><?= $row['caracteristiques'] ?></td>
-                                    <td>
-                                        <a href="autreactivite-edit.php?id=<?= $row['codeactivite'] ?>"><button name="edit_sol" class="edit-btn btn btn-warning" data-id="<?= $row['codeactivite'] ?>">Editer</button></a>
-                                    </td>
-                                    <td>
-                                        <button name="delete_autreactivite" class="delete-btn btn btn-danger" data-id="<?= $row['codeactivite'] ?>" onclick="return confirm('Etes vous d\'effacer cette ligne?');">Effacer</button>
-                                    </td>
-                                </tr>
+                        <!-- Add this inside the table body -->
+                        <?php foreach ($results as $row) : ?>
+                            <tr>
+                                <td><?= $row['codeactivite'] ?></td>
+                                <td><?= $row['annee'] ?></td>
+                                <td><?= $row['nombrepratiquant'] ?></td>
+                                <td><?= $row['rendement'] ?></td>
+                                <td><?= $row['commentaire'] ?></td>
+                                <td><?= $row['douar'] ?></td>
+                                <td><?= $row['nomactivite'] ?></td>
+                                <td><?= $row['caracteristiques'] ?></td>
+                                <td>
+                                    <a href="autreactivite-edit.php?id=<?= $row['codeactivite'] ?>"><button name="edit_sol" class="edit-btn" style="background-color:rgb(61,131,97,1);" data-id="<?= $row['codeactivite'] ?>">Editer</button></a>
+                                </td>
+                                <td>
+
+                                    <!-- Delete form -->
+                                    <form style="border:0px; padding:0px;" action="./deletion/autreactivite-delete.php" method="POST">
+                                        <!-- Hidden input field to include codeactivite -->
+                                        <input type="hidden" name="codeactivite" value="<?= $row['codeactivite'] ?>">
+                                        <!-- Delete button -->
+                                        <button name="delete_autreactivite" class="delete-btn" style="background-color:rgb(61,131,97,1);" onclick="return confirm('Etes vous d\'effacer cette ligne?');">Effacer</button>
+                                    </form>
+
+                                </td>
+                            </tr>
                         <?php endforeach; ?>
                     </tbody>
                 </table>
@@ -127,23 +136,9 @@ include_once 'header.php';
         </div>
     </div>
 
-    
-
-<?php
-include_once 'footer.php';
-
-?>
 
 
+    <?php
+    include_once 'footer.php';
 
-
-
-
-
-
-
-
-
-
-
-
+    ?>

@@ -34,22 +34,22 @@ include_once 'header.php';
         <div class="carousel-item active" style="height:1000px !important;" >
           <img class="d-block w-100 height-img" height="400" src="../img/josvan.jpg" alt="photo_addax" style="height:100% !important;">
           <div class="carousel-caption d-none d-md-block">
-            <h1>this is addaxe of the saharienne speces at PNSM</h1>
-            <h5>sdjhsdusdh</h5>
+            <h1>La Gazzelle Dorcas</h1>
+            <h5>Symbole de grâce et de vivacité, habitante emblématique du Parc National de Souss Massa</h5>
           </div>
         </div>
         <div class="carousel-item w-80">
           <img class="d-block w-100" height="800" src="../img/ORYX10.jpg" alt="photo_oryx">
           <div class="carousel-caption d-none d-md-block">
-            <h1>this is addaxe of speces at PNSM</h1>
-            <h5>gjyi joupip</h5>
+            <h1>L'Addax </h1>
+            <h5>Élégance et robustesse incarnées au cœur du Parc National de Souss Massa, un symbole de résilience désertique.</h5>
           </div>
         </div>
         <div class="carousel-item">
         <img class="d-block w-100"  src="../img/ostrich10.jpg" alt="autriche">
         <div class="carousel-caption d-none d-md-block">
-          <h1>The Red Neck Ostrich</h1>
-          <h5>This is the red neck ostrich among the four saharian species in the Souss Massa National Park</h5>
+          <h1>L'Autruche</h1>
+          <h5>L'autruche à cou rouge : une espèce distinctive parmi les quatre espèces sahariennes, prospérant dans le Parc National de Souss Massa</h5>
         </div>
       </div>
       </div>
@@ -68,40 +68,74 @@ include_once 'header.php';
     </div>
 
 <div style="width: 80%; margin-left:10%; margin-top:100px; margin-bottom:100px; text-align: center;">
-<h2>Nos Services</h2>
+<h2>Nos Activités</h2>
   <div class="card-deck">
   <div class="card">
-      <img class="card-img-top" height="230" src="../img/car.png" alt="Card image cap">
+      <img class="card-img-top" height="240" src="../img/walk.png" alt="Card image cap">
       <div class="card-body">
         <h5 class="card-title">Circuit Touristiques</h5>
-        <p class="card-text"></p>
+        <p class="card-text"><i>Explorez nos circuits sécurisés conçus pour divertir toute la famille. 
+          Découvrez des sentiers captivants et des attractions pour des moments inoubliables au cœur de notre parc.</i></p>
+      </div>
+    </div>
+    
+    <div class="card">
+      <img class="card-img-top" height="240" src="../img/horse_ride.png" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">Circuit A Dos d'Ane</h5>
+        <p class="card-text"><i>Partez à l'aventure avec notre circuit à dos d'âne. 
+          Explorez la nature à un rythme tranquille et vivez des moments authentiques en compagnie de ces adorables compagnons</i></p>
       </div>
     </div>
     <div class="card">
-      <img class="card-img-top" height="230" src="../img/Children.png" alt="Card image cap">
+      <img class="card-img-top" height="240" src="../img/fishing.svg" alt="Card image cap">
       <div class="card-body">
-        <h5 class="card-title">Espace Enfants</h5>
-        <p class="card-text">Totalement sécurisé et pensé afin d'accueillir vos petits chou pour passer des moments agréables au sein du parc</p>
+        <h5 class="card-title">Perche Artisanal</h5>
+        <p class="card-text"><i>Découvrez notre perche artisanale, créée avec passion pour capturer vos moments uniques en extérieur avec style et fonctionnalité.</i></p>
       </div>
     </div>
     <div class="card">
-      <img class="card-img-top" height="230" src="../img/food.png" alt="Card image cap">
+      <img class="card-img-top" height="240" src="../img/ornithology.png" alt="Card image cap">
       <div class="card-body">
-        <h5 class="card-title">Restaurant</h5>
-        <p class="card-text">Une restauration local et international pour tous les gouts</p>
-      </div>
-    </div>
-    <div class="card">
-      <img class="card-img-top" height="230" src="../img/car.png" alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title">Station Service</h5>
-        <p class="card-text">Plusieurs services sont proposés pour vos véchicules</p>
+        <h5 class="card-title">Ornithologie</h5>
+        <p class="card-text"><i>Développez votre passion pour les oiseaux avec notre guide ornithologique. 
+          Explorez la diversité des espèces et découvrez leurs habitats au sein de nos circuits dédiés.</i></p>
       </div>
     </div>
   
   </div>
 </div>
-
+<div style="width: 80%; margin-left:10%; margin-top:100px; margin-bottom:100px; text-align: center;">
+<h2>Nos Services</h2>
+  <div class="card-deck">
+    <div class="card">
+      <img class="card-img-top" height="245" src="../img/Children.png" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">Espace Enfants</h5>
+        <p class="card-text"><i>Totalement sécurisé et pensé afin d'accueillir vos petits chou pour passer des moments agréables au sein du parc</i></p>
+      </div>
+    </div>
+    <div class="card">
+      <img class="card-img-top" height="245" src="../img/food.png" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">Restaurant</h5>
+        <p class="card-text"><i>Une restauration local et international pour tous les gouts</i></p>
+      </div>
+    </div>
+    <div class="card">
+      <img class="card-img-top" height="245" src="../img/car.png" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">Station Service</h5>
+        <p class="card-text"><i>Plusieurs services sont proposés pour vos véchicules</i></p>
+      </div>
+    </div>
+  </div>
+</div>
+<div style="text-align: center;">
+  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d18012.089738433435!2d-9.637165521372017!3d30.199410016042883!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xdb3bfb1eddebaf9%3A0x21551b50a964bb53!2sPorte%20du%20parc%20national%20de%20souss%20massa!5e0!3m2!1sen!2sma!4v1700663185496!5m2!1sen!2sma"
+    width="1000" height="350" style="border:3px; display: inline-block;"
+    allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</div>
 
 <?php
 include_once 'footer.php';

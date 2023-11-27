@@ -238,7 +238,6 @@ echo '</style>';
               </div>
             </div>
           </div>
-          
           <div class="col-md-4 ">
             <div class="card">
                 <a href="../img/ory_gpr1.jpg" data-lightbox="models" data-title="Echasse blanche"><img src="../img/ory_gpr1.jpg"  width="350" height="350" ></a>
@@ -258,7 +257,7 @@ echo '</style>';
           </div>
           <div class="col-md-4 ">
             <div class="card">
-                <a href="../img/flamant.jpg" data-lightbox="models" data-title="Chevalier gambette"><img src="../img/flamant.jpg"  width="350" height="350" ></a>
+                <a href="../img/flamant.jpg" data-lightbox="models" data-title="Flamant"><img src="../img/flamant.jpg"  width="350" height="350" ></a>
               <div class="card-body">
                 <p class="card-text">Flamant</p>
               </div>

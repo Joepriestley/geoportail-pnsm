@@ -1,7 +1,7 @@
 <?php
     require_once ("./config/dbConnect.php");
 
-    $result = $pdo->query("SELECT * ,ST_AsGeoJSON(geom,5) AS geojson FROM sites_invest_tour");
+    $result = $pdo->query("SELECT * ,ST_AsGeoJSON(geom,5) AS geojson FROM sites_touristiques");
     $features =[];
     foreach($result AS $row){
         unset($row['geom']);

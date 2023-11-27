@@ -7,10 +7,10 @@ include_once 'header.php';
   <div class="row">
     <div class="col-5 ">
       <div class="card">
-        <div class="card-header bg-info text-white">
+        <div class="card-header  text-white" style="background-color:rgb(61,131,97,1);">
           <b>Ajouter une espece Vegetale</b>
         </div>
-        <div class="card-body bg-dark">
+        <div class="card-body ">
           <form action="./includes/esp_vegetal.inc.php" enctype="multipart/form-data" style="background-color: rgb(201, 216, 214);" method="post">
             <div class="form-row">
               <span class="form-control text-center bg-dark text-white"><b>Identification d'Espece</b></span>
@@ -97,10 +97,57 @@ include_once 'header.php';
                 <input type="file" accept="image/*" id="photo" name="photo" class="form-control-file">
                 <img src="../img/acaciagumi.jpg" id="photo-preview" class="img-fluid img-thumbnail rounded mt-2" height="200" width="270" alt="Photo du Vegetal">
               </div>
-            </div><br>
-            <button type="submit" class="btn btn-primary">Inserer</button>
+              <div>
+                
+              </div>
+            </div>
+           
+            <span class="form-control text-center bg-dark text-white mt-4"><b>Zone d'existence</b></span>
+            <?php
+              // Assuming you already have the database connection established ($pdo)
+              $query_zone_coeur = "SELECT * FROM zcoeur";
+              $stmt = $pdo->prepare($query_zone_coeur);
+              $stmt->execute();
+              $zonecoeurs = $stmt->fetchall(PDO::FETCH_ASSOC);
+
+              $query_zone_adhezion = "SELECT * FROM zadhesions";
+              $stmt = $pdo->prepare($query_zone_adhezion);
+              $stmt->execute();
+              $zone_adhesions = $stmt->fetchall(PDO::FETCH_ASSOC);
+
+              ?>
+            <div class="form-row pt-3">
+              <div class="form-group col-md-6">
+                <label for="zcoeurs">Zone coeurs</label>
+                <select id="zcoeurs" name="zcoeurs[]" class="form-control" multiple>
+                <?php  
+                  foreach($zonecoeurs as $zone_c) {
+                 ?>
+                  <option value="<?=$zone_c['nom'] ?>"  ><?=$zone_c['nom'] ?></option>
+                  <?php  
+                  }                 
+                 ?>
+                </select>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="zone_adhesions">Zone Adhezion</label>
+                <select id="zone_adhesions" name="zadhesions[]" class="form-control" multiple>
+                <?php  
+                  foreach($zone_adhesions as $zone_a) {
+                 ?>
+                  <option value="<?=$zone_a['name'] ?>" ><?=$zone_a['name'] ?></option>
+          
+                  <?php  
+                  }                 
+                 ?>
+                </select>
+              </div>
+           
+            </div>
+
+
+            <button type="submit" style="background-color:rgb(61,131,97,1);">Inserer</button>
           </form><br>
-          <a href="#" class="btn btn-primary">Nouveau</a>
         </div>
       </div>
     </div>
@@ -145,12 +192,12 @@ include_once 'header.php';
                       <strong>Bioclimat:</strong> <?= $row['id_bioclimat'] ?><br>
                       <strong>Commentaire :</strong> <?= $row['commentaire'] ?>
                     </p>
-                    <a href="esp_vegetal-edit.php?id=<?= $row['nomscientifique'] ?>" class="btn btn-warning">Editer</a><br><br>
+                    <a href="esp_vegetal-edit.php?id=<?= $row['nomscientifique'] ?>" class="btn btn-warning" style="background-color:rgb(61,131,97,1);">Editer</a><br><br>
                     <form style="border:0px; padding:0px;" action="./deletion/esp_vegetal-delete.php" method="POST">
                       <!-- Hidden input field to include id_action -->
                       <input type="hidden" name="nomscientifique" value="<?= $row['nomscientifique'] ?>">
                       <!-- Delete button -->
-                      <button name="delete_vegetal" class="delete-btn btn btn-danger" data-id="<?= $row['nomscientifique'] ?>" 
+                      <button name="delete_vegetal" class="delete-btn r" style="background-color:rgb(61,131,97,1);" data-id="<?= $row['nomscientifique'] ?>" 
                       onclick="return confirm('Etes vous d\'effacer cette ligne?');">Effacer</button>
                     </form>
                   </div>

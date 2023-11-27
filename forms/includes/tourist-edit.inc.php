@@ -23,7 +23,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $date_visite = validate($_POST['date_visite']);
     $prenom = validate($_POST['prenom']);
     // Perform server-side validation
-    if (empty($numerocin_passport) || empty($nomtouriste) || empty($nationalite) || empty($motivation) || empty($age) || empty($sexe) || empty($fonction)|| empty($telephone) || empty($adresse) || empty($prenom)){
+    if (empty($numerocin_passport) || empty($nomtouriste) || empty($nationalite) || empty($motivation) 
+    || empty($age) || empty($sexe) || empty($fonction)|| empty($telephone) || empty($adresse) || empty($prenom)){
         echo "Please fill in all fields.";
     } else {
         try {
@@ -38,7 +39,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 adresse = :adresse,
                 date_visite = :date_visite,
                 prenom = :prenom               
-            WHERE numerocin_passport = :idToUpdate"; // Change 'id' to the actual primary key field name of your table
+            WHERE numerocin_passport = :numerocin_passport"; // Change 'id' to the actual primary key field name of your table
             
             $stmt = $pdo->prepare($query);
             
@@ -55,13 +56,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     ':adresse' => $adresse,
                     ':date_visite' => $date_visite,
                     ':prenom' => $prenom,
-                    ':idToUpdate' => $numerocin_passport // Replace with the actual ID you want to update
+                    ':numerocin_passport' => $numerocin_passport // Replace with the actual ID you want to update
                 ];
                 
                 $result = $stmt->execute($params);
 
                 if ($result) {
-                    header("Location: ../touriste.php?message=Data updated successfully!");
+                    header("Location: ../touriste.php?message=Les mises a jour faite avec succes!!");
                     exit();
                 } else {
                     echo "Error: " . $stmt->errorInfo()[2];

@@ -8,7 +8,7 @@ $pdo = require_once './includes/dbConnect.php';
         <div class="row">
             <div class="col-5">
                 <div class="card">
-                    <div class="card-header bg-info text-white">
+                    <div class="card-header  text-white" style="background-color:rgb(61,131,97,1);">
                       <b>Les Activites</b>
                     </div>
                     <div class="card-body bg-dark">
@@ -72,11 +72,11 @@ $pdo = require_once './includes/dbConnect.php';
                                     </div>
                                     <textarea name="commentaire" class="form-control" id="commentaire" aria-label="commentaire" placeholder="Entrer un commentaire /description de l'especes"></textarea>
                                 </div>
-                            </div>
-                            <button type="submit" name="submit" class="btn btn-primary">Inserer</button>
-                        </form>
-                        <br>
-                        <a href="#" class="btn btn-primary">Nouveau</a>
+                            </div>  <br>
+                             <button type="submit" name="submit" style="background-color:rgb(61,131,97,1);">Inserer</button><br>
+                        </form><br>
+                      
+                        
                     </div>
                 </div>
             </div>
@@ -117,16 +117,15 @@ $pdo = require_once './includes/dbConnect.php';
                                 <td><?= $row['nomperche_art'] ?></td>
                                 <td><?= $row['rendement'] ?></td>
                                 <td>
-                                    <a href="percheartisanal-edit.php?id=<?= $row['codeactivite'] ?>"><button name="edit_percheartisanal" class="edit-btn btn btn-warning" data-id="<?= $row['codeactivite'] ?>">Editer</button></a>
+                                    <a href="percheartisanal-edit.php?id=<?= $row['codeactivite'] ?>"><button name="edit_percheartisanal" class="edit-btn" style="background-color:rgb(61,131,97,1);" data-id="<?= $row['codeactivite'] ?>">Editer</button></a>
                                 </td>
                                 <td>
-
                                     <!-- Delete form -->
                                     <form style="border:0px; padding:0px;" action="./deletion/percheartisanal-delete.php" method="POST">
                                         <!-- Hidden input field to include codeactivite -->
                                         <input type="hidden" name="codeactivite" value="<?= $row['codeactivite'] ?>">
                                         <!-- Delete button -->
-                                        <button name="delete_percheartisanal" class="delete-btn btn btn-danger" data-id="<?= $row['codeactivite'] ?>" onclick="return confirm('Etes vous d\'effacer cette ligne?');">Effacer</button>
+                                        <button name="delete_percheartisanal" class="delete-btn" style="background-color:rgb(61,131,97,1);" data-id="<?= $row['codeactivite'] ?>" onclick="return confirm('Etes vous d\'effacer cette ligne?');">Effacer</button>
                                     </form>
 
                                 </td>
