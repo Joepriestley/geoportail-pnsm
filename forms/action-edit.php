@@ -8,7 +8,7 @@ include_once 'header.php';
         <div class="row">
             <div class="col-5">
                 <div class="card">
-                    <div class="card-header bg-info text-white">
+                    <div class="card-header  text-white" style="background-color:rgb(61,131,97,1);">
                       <b>Les Actions du projet</b>
                     </div>
                     <div class="card-body bg-dark">
@@ -65,16 +65,16 @@ include_once 'header.php';
                                 <input type="hidden" value="<?=$result->id_action; ?>"  name="id_action">
                             </div>
                             </div>
-                            <button type="submit" name="submit" class="btn btn-primary">UPDATE</button>
+                            <button type="submit" name="submit" class="btn "style="background-color:rgb(61,131,97,1);">UPDATE</button>
                         </form>
                         <br>
-                        <a href="#" class="btn btn-primary">Nouveau</a>
+                        
                     </div>
                 </div>
             </div>
             <div class="col-md-6">
                 <table class="table table-striped">
-                    <thead class="table-primary">
+                    <thead class="table-success">
                         <tr>
                             <th>Id_Action</th>
                             <th>Id_Projet</th>

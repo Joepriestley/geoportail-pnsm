@@ -9,10 +9,10 @@ include_once 'header.php';
     <div class="row">
         <div class="col-5">
             <div class="card">
-                <div class="card-header bg-info text-white">
+                <div class="card-header text-white" style="background-color:rgb(61,131,97,1);">
                     <b>Amenagement</b>
                 </div>
-                <div class="card-body bg-dark">
+                <div class="card-body">
                     <form action="./includes/amenagement.inc.php" id="circuittouristForm" style="background-color: rgb(201, 216, 214);" method="post">
                         <?php if (isset($_GET['message'])) { ?>
                             <p class="message"><?php echo $_GET['message']; ?></p>
@@ -51,7 +51,7 @@ include_once 'header.php';
                         </div>
                         <div class="form-row">
                         </div>
-                        <button type="submit" name="submit" class="btn btn-primary">Inserer</button>
+                        <button type="submit" name="submit" class="btn" style="background-color:rgb(61,131,97,1);">Inserer</button>
                         
                     </form>
                    
@@ -67,7 +67,7 @@ include_once 'header.php';
         </div>
         <div class="col-md-7">
             <table class="table table-striped bg-white">
-                <thead class="table-primary">
+                <thead class="table-success">
                     <tr>
                         <th>Code_Amenagement</th>
                         <th> Element Amenagement</th>
@@ -95,7 +95,7 @@ include_once 'header.php';
                             <td><?= $row['type'] ?></td>
                             <td><?= $row['commentaire'] ?></td>
                             <td>
-                                <a href="amenagement-edit.php?id=<?= $row['codeamenagement'] ?>"><button name="edit_amenagement" class="edit-btn btn btn-warning">Editer</button></a>
+                                <a href="amenagement-edit.php?id=<?= $row['codeamenagement'] ?>"><button name="edit_amenagement" class="edit-btn btn" style="background-color:rgb(61,131,97,1);">Editer</button></a>
 
                             </td>
                             <td>
@@ -105,7 +105,7 @@ include_once 'header.php';
                                     <!-- Hidden input field to include codeamenagement -->
                                     <input type="hidden" name="codeamenagement" value="<?= $row['codeamenagement'] ?>">
                                     <!-- Delete button -->
-                                    <button name="delete_amenagement" class="delete-btn btn btn-danger" onclick="return confirm('Etes vous d\'effacer cette ligne?');">Effacer</button>
+                                    <button name="delete_amenagement" class="delete-btn" style="background-color:rgb(61,131,97,1);" onclick="return confirm('Etes vous d\'effacer cette ligne?');">Effacer</button>
                                 </form>
 
                             </td>
@@ -136,7 +136,7 @@ include_once 'header.php';
 
         const piste = `<div class="col-12">
                 <div class="card">
-                    <div class="card-body bg-dark">
+                    <div class="card-body ">
                         <div style="background-color: rgb(201, 216, 214);">
                             <div class="form-row ml-3">
                                 <span class="form-control text-center bg-dark text-white"><b>Piste</b></span>
@@ -172,7 +172,7 @@ include_once 'header.php';
 
         const point_eau = ` <div class="col-12">
                 <div class="card">
-                    <div class="card-body bg-dark">
+                    <div class="card-body">
                         <div style="background-color: rgb(201, 216, 214);">
                             <div class="form-row">
                                 <span class="form-control text-center bg-dark text-white"><b>Point Eau</b></span>
@@ -218,7 +218,7 @@ include_once 'header.php';
 
         const amenagement_touristique = ` <div class="col-12">
                 <div class="card">
-                    <div class="card-body bg-dark">
+                    <div class="card-body">
                         <div style="background-color: rgb(201, 216, 214);" >
                             <div class="form-row ">
                                 <span class="form-control text-center bg-dark text-white"><b>Amenagement Touristique</b></span>
@@ -253,7 +253,7 @@ include_once 'header.php';
 
             const cloture =`<div class="col-12">
                 <div class="card">
-                    <div class="card-body bg-dark">
+                    <div class="card-body">
                         <div style="background-color: rgb(201, 216, 214);" 
                             <div class="form-row">
                                 <span class="form-control text-center bg-dark text-white"><b>Cloture</b></span>

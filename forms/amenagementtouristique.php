@@ -7,10 +7,10 @@ include_once 'header.php';
         <div class="row">
             <div class="col-5">
                 <div class="card">
-                    <div class="card-header bg-info text-white">
+                    <div class="card-header text-white" style="background-color:rgb(61,131,97,1);">
                       <b> Elements Amenagement</b>
                     </div>
-                    <div class="card-body bg-dark">
+                    <div class="card-body">
                         <form action="./includes/amenagementtouristique.inc.php" id="circuittouristForm" style="background-color: rgb(201, 216, 214);" method="post">
                         <?php if (isset($_GET['message']))  { ?>
                                  <p class="message"><?php echo $_GET['message']; ?></p> <?php }?>
@@ -43,10 +43,9 @@ include_once 'header.php';
                                
                             </div>
                             
-                            <button type="submit" name="submit" class="btn btn-primary">Inserer</button>
+                            <button type="submit" name="submit" class="btn" style="background-color:rgb(61,131,97,1);">Inserer</button>
                         </form>
-                        <br>
-                        <a href="#" class="btn btn-primary">Nouveau</a>
+                        
                     </div>
                 </div>
             </div>
@@ -83,10 +82,10 @@ include_once 'header.php';
                                     <td><?= $row['periode'] ?></td>
                                     <td><?= $row['cout_creation'] ?></td>
                                     <td>
-                                        <a href="amenagementtouristique-edit.php?id=<?= $row['id_amengttour'] ?>"><button name="edit_amenagementtour" class="edit-btn btn btn-warning" data-id="<?= $row['id_amengttour'] ?>">Editer</button></a>
+                                        <a href="amenagementtouristique-edit.php?id=<?= $row['id_amengttour'] ?>"><button name="edit_amenagementtour" class="edit-btn btn" style="background-color:rgb(61,131,97,1);" data-id="<?= $row['id_amengttour'] ?>">Editer</button></a>
                                     </td>
                                     <td>
-                                        <button name="delete_amenagementtour" class="delete-btn btn btn-danger" data-id="<?= $row['id_amengttour'] ?>" onclick="return confirm('Etes vous d\'effacer cette ligne?');">Effacer</button>
+                                        <button name="delete_amenagementtour" class="delete-btn btn" style="background-color:rgb(61,131,97,1);" data-id="<?= $row['id_amengttour'] ?>" onclick="return confirm('Etes vous d\'effacer cette ligne?');">Effacer</button>
                                     </td>
                                 </tr>
                         <?php endforeach; ?>

@@ -7,10 +7,10 @@ include_once 'header.php';
   <div class="row">
     <div class="col-md-5">
       <div class="card">
-        <div class="card-header bg-info text-white">
+        <div class="card-header text-white" style="background-color:rgb(61,131,97,1);">
           <b>Ajouter Un Touriste</b>
         </div>
-        <div class="card-body bg-dark">
+        <div class="card-body">
         <?php
                         if (isset($_GET['id'])) {
                             $touriste_id = $_GET['id'];
@@ -88,9 +88,8 @@ include_once 'header.php';
               <input type="hidden" value="<?=$result->numerocin_passport; ?>"  name="numerocin_passport" >
             </div>
 
-            <button type="submit" name="submit" class="btn btn-primary">UPDATE</button>
-          </form><br>
-          <a href="#" class="btn btn-primary">Nouveau</a>
+            <button type="submit" name="submit" class="btn" style="background-color:rgb(61,131,97,1);">UPDATE</button>
+          </form>
         </div>
       </div>
     </div>

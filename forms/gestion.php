@@ -7,7 +7,7 @@ include_once 'header.php';
         <div class="row">
             <div class="col-6">
                 <div class="card">
-                    <div class="card-header bg-info text-white">
+                    <div class="card-header text-white"  style="background-color:rgb(61,131,97,1);">
                       <b> Gestion du Projet</b>
                     </div>
                     <div class="card-body bg-dark">
@@ -45,10 +45,9 @@ include_once 'header.php';
                                     <textarea name="detailamenagement" class="form-control" id="detailamenagement" aria-label="detailamenagement" placeholder="Entrer un detailamenagement /description de l'especes"></textarea>
                                 </div>
                             </div>
-                            <button type="submit" name="submit" class="btn btn-primary">Inserer</button>
+                            <button type="submit" name="submit" class="btn"  style="background-color:rgb(61,131,97,1);">Inserer</button>
                         </form>
-                        <br>
-                        <a href="#" class="btn btn-primary">Nouveau</a>
+
                     </div>
                 </div>
             </div>

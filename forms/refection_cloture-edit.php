@@ -7,10 +7,10 @@ include_once 'header.php';
         <div class="row">
             <div class="col-5">
                 <div class="card">
-                    <div class="card-header bg-info text-white">
+                    <div class="card-header  text-white" style="background-color:rgb(61,131,97,1);">
                       <b> Elements Amenagement</b>
                     </div>
-                    <div class="card-body bg-dark">
+                    <div class="card-body">
                     <?php
                         if (isset($_GET['id'])) {
                             $ref_cloture = $_GET['id'];
@@ -72,10 +72,8 @@ include_once 'header.php';
                                 <input name="id_cloture" type="text" class="form-control" id="id_cloture" placeholder="id_cloture">
                             </div>
                             
-                            <button type="submit"name="submit" class="btn btn-primary">UPDATE</button>
+                            <button type="submit"name="submit" class="btn" style="background-color:rgb(61,131,97,1);">UPDATE</button>
                         </form>
-                        <br>
-                        <a href="#" class="btn btn-primary">Nouveau</a>
                     </div>
                 </div>
             </div>
@@ -102,7 +100,7 @@ include_once 'header.php';
                                 <td><?= $row['nature'] ?></td>
                                 <td><?= $row['etat'] ?></td>  
                                 <td>
-                                    <a href="cloture-edit.php?id=<?= $row['id_refection'] ?>"><button name="edit_cloture" class="edit-btn btn btn-warning" data-id="<?= $row['id_refection'] ?>">Editer</button></a>
+                                    <a href="cloture-edit.php?id=<?= $row['id_refection'] ?>"><button name="edit_cloture" class="edit-btn btn" style="background-color:rgb(61,131,97,1);" data-id="<?= $row['id_refection'] ?>">Editer</button></a>
                                 </td>
                                 <td>
 
@@ -111,7 +109,7 @@ include_once 'header.php';
                                         <!-- Hidden input field to include id_piste -->
                                         <input type="hidden" name="id_refection" value="<?= $row['id_refection'] ?>">
                                         <!-- Delete button -->
-                                        <button name="delete_cloture" class="delete-btn btn btn-danger" data-id="<?= $row['id_refection'] ?>" onclick="return confirm('Etes vous d\'effacer cette ligne?');">Effacer</button>
+                                        <button name="delete_cloture" class="delete-btn btn" style="background-color:rgb(61,131,97,1);" data-id="<?= $row['id_refection'] ?>" onclick="return confirm('Etes vous d\'effacer cette ligne?');">Effacer</button>
                                     </form>
 
                                 </td>

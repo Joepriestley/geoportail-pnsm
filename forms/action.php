@@ -2,56 +2,48 @@
 $pdo = require_once './includes/dbConnect.php';
 
 include_once 'header.php';
-
 ?>
+
 <div class="container-fluid mt-4 pt-5">
     <div class="row">
-        <div class="col-5">
+        <div class="col-md-5">
             <div class="card">
-                <div class="card-header bg-info text-white">
+                <div class="card-header text-white" style="background-color: rgb(61, 131, 97);">
                     <b>Les Actions du projet</b>
                 </div>
-                <div class="card-body bg-dark">
-                    <form action="./includes/action.inc.php" id="actionForm" style="background-color: rgb(201, 216, 214);" method="post">
+                <div class="card-body" style="background-color: rgb(200, 216, 214);">
+                    <form action="./includes/action.inc.php" id="actionForm" method="post">
                         <?php if (isset($_GET['message'])) { ?>
-                            <p class="message"><?php echo $_GET['message']; ?></p> <?php } ?>
-                        <div class="form-row">
-                            <span class="form-control text-center bg-dark text-white"><b>Les Actions du Projet</b></span>
-                            <div class="form-group col-md-6">
-                                <label for="id_action">Id_Action</label>
-                                <input name="id_action" type="text" class="form-control" id="id_action" placeholder="Id action">
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label for="id_projet">Id_Projet </label>
-                                <input name="id_projet" type="text" class="form-control" id="id_projet" placeholder="Id_Projet">
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label for="duree">Duree</label>
-                                <input name="duree" type="text" class="form-control" id="duree" placeholder="Duree">
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label for="lieu">Lieu </label>
-                                <input name="lieu" type="text" class="form-control" id="lieu" placeholder="Lieu ou l'action se passe">
-                            </div>
+                            <p class="message"><?php echo $_GET['message']; ?></p>
+                        <?php } ?>
+                        <div class="form-group">
+                            <label for="id_action">Id_Action</label>
+                            <input name="id_action" type="text" class="form-control" id="id_action" placeholder="Id action">
                         </div>
-                        <div class="form-row">
-                            <div class="input-group col-md-12">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text">Commentaire</span>
-                                </div>
-                                <textarea name="commentaire" class="form-control" id="commentaire" aria-label="commentaire" placeholder="Entrer un commentaire /description de l'espece"></textarea>
-                            </div>
+                        <div class="form-group">
+                            <label for="id_projet">Id_Projet</label>
+                            <input name="id_projet" type="text" class="form-control" id="id_projet" placeholder="Id_Projet">
                         </div>
-                        <button type="submit" name="submit" class="btn btn-primary">Inserer</button>
+                        <div class="form-group">
+                            <label for="duree">Duree</label>
+                            <input name="duree" type="text" class="form-control" id="duree" placeholder="Duree">
+                        </div>
+                        <div class="form-group">
+                            <label for="lieu">Lieu</label>
+                            <input name="lieu" type="text" class="form-control" id="lieu" placeholder="Lieu où l'action se passe">
+                        </div>
+                        <div class="form-group">
+                            <label for="commentaire">Commentaire</label>
+                            <textarea name="commentaire" class="form-control" id="commentaire" aria-label="commentaire" placeholder="Entrer un commentaire / description de l'espèce"></textarea>
+                        </div>
+                        <button type="submit" name="submit" class="btn" style="background-color: rgb(61, 131, 97);">Inserer</button>
                     </form>
-                    <br>
-                    <a href="#" class="btn btn-primary">Nouveau</a>
                 </div>
             </div>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-7">
             <table class="table table-striped">
-                <thead class="table-primary">
+                <thead class="table-success">
                     <tr>
                         <th>Id_Action</th>
                         <th>Id_Projet</th>
@@ -65,14 +57,12 @@ include_once 'header.php';
                 <tbody id="actionTable">
                     <!-- Table rows will be dynamically added here -->
                     <?php
-                    // Assuming you already have the database connection established ($pdo)
                     $query = "SELECT * FROM actions";
                     $stmt = $pdo->prepare($query);
                     $stmt->execute();
-                    $results = $stmt->fetchall(PDO::FETCH_ASSOC);
+                    $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     ?>
 
-                    <!-- Add this inside the table body -->
                     <?php foreach ($results as $row) : ?>
                         <tr>
                             <td><?= $row['id_action'] ?></td>
@@ -81,18 +71,13 @@ include_once 'header.php';
                             <td><?= $row['lieu'] ?></td>
                             <td><?= $row['commentaire'] ?></td>
                             <td>
-                                <a href="action-edit.php?id=<?= $row['id_action'] ?>"><button name="edit_action" class="edit-btn btn btn-warning" data-id="<?= $row['id_action'] ?>">Editer</button></a>
-
+                                <a href="action-edit.php?id=<?= $row['id_action'] ?>"><button name="edit_action" class="edit-btn btn" style="background-color: rgb(61, 131, 97);" data-id="<?= $row['id_action'] ?>">Editer</button></a>
                             </td>
                             <td>
-                                <!-- Delete form -->
-                                <form style="border:0px; padding:0px;" action="./deletion/action-delete.php" method="POST">
-                                    <!-- Hidden input field to include id_action -->
+                                <form action="./deletion/action-delete.php" method="POST" onsubmit="return confirm('Etes vous d\'accord pour effacer cette ligne?');">
                                     <input type="hidden" name="id_action" value="<?= $row['id_action'] ?>">
-                                    <!-- Delete button -->
-                                    <button name="delete_action" class="delete-btn btn btn-danger" data-id="<?= $row['id_action'] ?>" onclick="return confirm('Etes vous d\'effacer cette ligne?');">Effacer</button>
+                                    <button name="delete_action" class="delete-btn btn" style="background-color: rgb(61, 131, 97);" data-id="<?= $row['id_action'] ?>">Effacer</button>
                                 </form>
-
                             </td>
                         </tr>
                     <?php endforeach; ?>
@@ -101,7 +86,7 @@ include_once 'header.php';
         </div>
     </div>
 </div>
+
 <?php
 include_once 'footer.php';
-
 ?>

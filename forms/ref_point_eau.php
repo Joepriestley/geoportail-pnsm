@@ -15,10 +15,10 @@ json_encode($data);
         <div class="col-5">
             <div class="card">
 
-                <div class="card-header bg-info text-white">
+                <div class="card-header  text-white" style="background-color:rgb(61,131,97,1);">
                     <b> Elements Amenagement</b>
                 </div>
-                <div class="card-body bg-dark">
+                <div class="card-body">
                     <form action="./includes/ref_point_eau.inc.php" id="circuittouristForm" style="background-color: rgb(201, 216, 214);" method="post">
                         <?php if (isset($_GET['message'])) { ?>
                             <p class="message"><?php echo $_GET['message']; ?></p>
@@ -60,12 +60,10 @@ json_encode($data);
 
                         </div>
 
-                        <button type="submit" name="submit" class="btn btn-primary">Inserer</button>
+                        <button type="submit" name="submit" class="btn" style="background-color:rgb(61,131,97,1);">Inserer</button>
 
                     </form>
 
-                    <br>
-                    <a href="#" class="btn btn-primary">Nouveau</a>
                 </div>
             </div>
         </div>
@@ -115,7 +113,7 @@ json_encode($data);
                                     <td><?= $row['localisation'] ?></td>
                                     <td><?= $row['importance'] ?></td>
                                     <td>
-                                        <a href="point_eau-edit.php?id=<?= $row['id_point_eau'] ?>"><button name="edit_point_eau" class="edit-btn btn btn-warning" data-id="<?= $row['id_point_eau'] ?>">Editer</button></a>
+                                        <a href="point_eau-edit.php?id=<?= $row['id_point_eau'] ?>"><button name="edit_point_eau" class="edit-btn btn text-white" style="background-color:rgb(61,131,97,1);" data-id="<?= $row['id_point_eau'] ?>">Editer</button></a>
                                     </td>
                                     <td>
                                         <!-- Delete form -->
@@ -123,7 +121,7 @@ json_encode($data);
                                             <!-- Hidden input field to include id_point_eau  -->
                                             <input type="hidden" name="id_point_eau" value="<?= $row['id_point_eau'] ?>">
                                             <!-- Delete button -->
-                                            <button name="delete_point_eau" class="delete-btn btn btn-danger" data-id="<?= $row['id_point_eau'] ?>" onclick="return confirm('Etes vous d\'effacer cette ligne?');">Effacer</button>
+                                            <button name="delete_point_eau" class="delete-btn btn text-white" style="background-color:rgb(61,131,97,1);" data-id="<?= $row['id_point_eau'] ?>" onclick="return confirm('Etes vous d\'effacer cette ligne?');">Effacer</button>
                                         </form>
                                     </td>
                                 </tr>
@@ -167,7 +165,7 @@ json_encode($data);
                                     <td><?= $row['cout_amengt'] ?></td>
                                     <td><?= $row['nom_point_eau'] ?></td>
                                     <td>
-                                        <a href="refection_point_eau-edit.php?id=<?= $row['id_ref_point_eau'] ?>"><button name="edit_point_eau" class="edit-btn btn btn-warning" data-id="<?= $row['id_ref_point_eau'] ?>">Editer</button></a>
+                                        <a href="refection_point_eau-edit.php?id=<?= $row['id_ref_point_eau'] ?>"><button name="edit_point_eau" class="edit-btn btn" style="background-color:rgb(61,131,97,1);" data-id="<?= $row['id_ref_point_eau'] ?>">Editer</button></a>
                                     </td>
                                     <td>
                                         <!-- Delete form -->
@@ -175,15 +173,13 @@ json_encode($data);
                                             <!-- Hidden input field to include id_ref_point_eau  -->
                                             <input type="hidden" name="id_ref_point_eau" value="<?= $row['id_ref_point_eau'] ?>">
                                             <!-- Delete button -->
-                                            <button name="delete_ref_point_eau" class="delete-btn btn btn-danger" data-id="<?= $row['id_ref_point_eau'] ?>" onclick="return confirm('Etes vous sur d\'effacer cette ligne?');">Effacer</button>
+                                            <button name="delete_ref_point_eau" class="delete-btn btn" style="background-color:rgb(61,131,97,1);" data-id="<?= $row['id_ref_point_eau'] ?>" onclick="return confirm('Etes vous sur d\'effacer cette ligne?');">Effacer</button>
                                         </form>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>
                         </tbody>
                     </table>
-
-
 
                 </div>
             </div>

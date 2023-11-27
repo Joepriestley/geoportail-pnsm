@@ -7,10 +7,10 @@ $pdo = require_once './includes/dbConnect.php';
         <div class="row">
             <div class="col-5">
                 <div class="card">
-                    <div class="card-header bg-info text-white">
+                    <div class="card-header text-white"  style="background-color:rgb(61,131,97,1);">
                       <b> Les Partenaires Du PNSM</b>
                     </div>
-                    <div class="card-body bg-dark ">
+                    <div class="card-body">
 
                     <?php
                         if (isset($_GET['id'])) {
@@ -84,10 +84,8 @@ $pdo = require_once './includes/dbConnect.php';
                                 <input type="hidden" value="<?=$result->nompartenaire; ?>"  name="nompartenaire" >
                                 
                             </div>
-                            <button type="submit" name="submit" class="btn btn-primary">Inserer</button>
+                            <button type="submit" name="submit" class="btn"  style="background-color:rgb(61,131,97,1);">Inserer</button>
                         </form>
-                        <br>
-                        <a href="#" class="btn btn-primary">Nouveau</a>
                     </div>
                 </div>
             </div>

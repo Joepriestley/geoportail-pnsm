@@ -11,7 +11,7 @@ $pdo = require_once './includes/dbConnect.php';
                     <div class="card-header  text-white" style="background-color:rgb(61,131,97,1);">
                       <b>Les Activites</b>
                     </div>
-                    <div class="card-body bg-dark">
+                    <div class="card-body">
                         <form action="./includes/percheartisanal.inc.php" id="circuittouristForm" style="background-color: rgb(201, 216, 214);" method="post">
                         <?php if (isset($_GET['message']))  { ?>
                                  <p class="message"><?php echo $_GET['message']; ?></p> <?php }?>

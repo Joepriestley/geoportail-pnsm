@@ -7,10 +7,10 @@ include_once 'header.php';
   <div class="row">
     <div class="col-md-5">
       <div class="card">
-        <div class="card-header bg-info text-white">
+        <div class="card-header  text-white" style="background-color:rgb(61,131,97,1);">
           <b>Ajouter Un Touriste</b>
         </div>
-        <div class="card-body bg-dark">
+        <div class="card-body">
           <form action="./includes/tourist.inc.php" id="touristeForm" style="background-color: rgb(201, 216, 214);" method="post">
             <?php if (isset($_GET['message'])) { ?>
               <p class="message"><?php echo $_GET['message']; ?></p> <?php } ?>
@@ -67,9 +67,8 @@ include_once 'header.php';
 
             </div>
 
-            <button type="submit" name="submit" class="btn btn-primary">Inserer</button>
-          </form><br>
-          <a href="#" class="btn btn-primary">Nouveau</a>
+            <button type="submit" name="submit" class="btn" style="background-color:rgb(61,131,97,1);">Inserer</button>
+          </form>
         </div>
       </div>
     </div>
@@ -118,7 +117,7 @@ include_once 'header.php';
               <td><?= $row['adresse'] ?></td>
               
               <td>
-                <a href="touriste-edit.php?id=<?= $row['numerocin_passport'] ?>"><button name="edit_tourist" class="edit-btn btn btn-warning">Editer</button></a>
+                <a href="touriste-edit.php?id=<?= $row['numerocin_passport'] ?>"><button name="edit_tourist" class="edit-btn" style="background-color:rgb(61,131,97,1);">Editer</button></a>
               </td>
               <td>
                 <!-- Delete form -->
@@ -126,7 +125,7 @@ include_once 'header.php';
                   <!-- Hidden input field to include id_suivi -->
                   <input type="hidden" name="numerocin_passport" value="<?= $row['numerocin_passport'] ?>">
                   <!-- Delete button -->
-                  <button name="delete_tourist" class="delete-btn btn btn-danger" data-id="<?= $row['numerocin_passport'] ?>" onclick="return confirm('Etes vous d\'effacer cette ligne?');">Effacer</button>
+                  <button name="delete_tourist" class="delete-btn btn" style="background-color:rgb(61,131,97,1);" data-id="<?= $row['numerocin_passport'] ?>" onclick="return confirm('Etes vous d\'effacer cette ligne?');">Effacer</button>
                 </form>
 
               </td>

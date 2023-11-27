@@ -35,7 +35,7 @@ include_once 'header.php';
           <b>Ajouter une espece animale</b>
         </div>
         <div class="card-body">
-          <form action="./includes/esp_animal.inc.php" enctype="multipart/form-data" id="animalForm" style="background-color: rgb(201, 216, 214);"method="post">
+          <form action="./includes/esp_animal.inc.php" enctype="multipart/form-data" id="animalForm" style="background-color: rgb(200, 216, 214);"method="post">
             <div class="form-row">
               <span class="form-control text-center bg-dark text-white"><b>Identification d'Espece</b></span>
               <div class="form-group col-md-6">

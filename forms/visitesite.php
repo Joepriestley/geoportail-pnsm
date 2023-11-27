@@ -7,10 +7,10 @@ $pdo = require_once './includes/dbConnect.php';
         <div class="row">
             <div class="col-5">
                 <div class="card">
-                    <div class="card-header bg-info text-white">
+                    <div class="card-header text-white" style="background-color:rgb(61,131,97,1);">
                       <b>Visite d'un Site</b>
                     </div>
-                    <div class="card-body bg-dark">
+                    <div class="card-body">
                         <form  action="./includes/visitesite.inc.php" id="circuittouristForm" style="background-color: rgb(201, 216, 214);" method="post">
                         <?php if (isset($_GET['message']))  { ?>
                                  <p class="message"><?php echo $_GET['message']; ?></p> <?php }?>
@@ -43,10 +43,8 @@ $pdo = require_once './includes/dbConnect.php';
                             <div class="form-row">
                                  
                             </div>
-                            <button type="submit" name="submit" class="btn btn-primary">Inserer</button>
+                            <button type="submit" name="submit" class="btn" style="background-color:rgb(61,131,97,1);">Inserer</button>
                         </form>
-                        <br>
-                        <a href="#" class="btn btn-primary">Nouveau</a>
                     </div>
                 </div>
             </div>
@@ -86,10 +84,8 @@ $pdo = require_once './includes/dbConnect.php';
                                     $id_touriste = $row['id_touriste'];
                                     $editLink = "visitesite-edit.php?id_sitetouristique=$id_sitetouristique&id_touriste=$id_touriste";
                                     ?>
-                                    <a href="<?= $editLink ?>"><button name="edit_visitesite" class="edit-btn btn btn-warning">Editer</button></a>
+                                    <a href="<?= $editLink ?>"><button name="edit_visitesite" class="edit-btn btn" style="background-color:rgb(61,131,97,1);">Editer</button></a>
                                 </td>
-
-
                                 <td>
 
                                     <form style="border:0px; padding:0px;" action="./deletion/utilise-delete.php" method="POST">
@@ -97,7 +93,7 @@ $pdo = require_once './includes/dbConnect.php';
                                         <input type="hidden" name="id_sitetouristique" value="<?= $row['id_sitetouristique'] ?>">
                                         <input type="hidden" name="id_touriste" value="<?= $row['id_touriste'] ?>">
                                         <!-- Delete button -->
-                                        <button name="delete_visitesite" class="delete-btn btn btn-danger" data-id="<?= $row['id_sitetouristique'] . '_' . $row['id_touriste'] ?>" onclick="return confirm('Etes vous d\'effacer cette ligne?');">Effacer</button>
+                                        <button name="delete_visitesite" class="delete-btn btn" style="background-color:rgb(61,131,97,1);" data-id="<?= $row['id_sitetouristique'] . '_' . $row['id_touriste'] ?>" onclick="return confirm('Etes vous d\'effacer cette ligne?');">Effacer</button>
                                     </form>
 
 

@@ -11,10 +11,10 @@ json_encode($data);
     <div class="row">
         <div class="col-5">
             <div class="card">
-                <div class="card-header bg-info text-white">
+                <div class="card-header  text-white" style="background-color:rgb(61,131,97,1);">
                     <b> Elements Amenagement</b>
                 </div>
-                <div class="card-body bg-dark">
+                <div class="card-body">
                     <form action="./includes/ref_amenagementtour.inc.php" id="circuittouristForm" style="background-color: rgb(201, 216, 214);" method="post">
                         <?php if (isset($_GET['message'])) { ?>
                             <p class="message"><?php echo $_GET['message']; ?></p> <?php } ?>
@@ -54,10 +54,9 @@ json_encode($data);
 
                         </div>
 
-                        <button type="submit" name="submit" class="btn btn-primary">Inserer</button>
+                        <button type="submit" name="submit" class="btn" style="background-color:rgb(61,131,97,1);">Inserer</button>
                     </form>
-                    <br>
-                    <a href="#" class="btn btn-primary">Nouveau</a>
+                    
                 </div>
             </div>
         </div>
@@ -67,10 +66,10 @@ json_encode($data);
             <div class="col-md-7">
                 <nav>
                     <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                        <button class="nav-item nav-link active btn btn-success" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true" title="Table Amenagement Touristique"> Amen.Tour.</button>
-                        <button class="nav-item nav-link  btn btn-success" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="true" title="Table de Refection Amenagement Touristique">Refection Amen.Tour.</button>
+                        <button class="nav-item nav-link active btn" style="background-color:rgb(61,131,97,1);" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true" title="Table Amenagement Touristique"> Amen.Tour.</button>
+                        <button class="nav-item nav-link  btn" style="background-color:rgb(61,131,97,1);" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="true" title="Table de Refection Amenagement Touristique">Refection Amen.Tour.</button>
 
-                        <a href="amenagement.php"><button class="nav-item nav-link  btn btn-secondary" id="nav-profile-tab" href="#nav-profile" title="Aller au formuliare de saisir de donnees amenagement touristique">Saisir Donnees de Amen.Touristique</button></a>
+                        <a href="amenagement.php"><button class="nav-item nav-link  btn" style="background-color:rgb(61,131,97,1);" id="nav-profile-tab" href="#nav-profile" title="Aller au formuliare de saisir de donnees amenagement touristique">Saisir Donnees de Amen.Touristique</button></a>
                     </div>
                 </nav>
                 <div class="tab-content" id="nav-tabContent">
@@ -109,10 +108,10 @@ json_encode($data);
                                         <td><?= $row['date_cree'] ?></td>
                                         <td><?= $row['cout_creaction'] ?></td>
                                         <td>
-                                            <a href="amenagementtouristique-edit.php?id=<?= $row['id_amengttour'] ?>"><button name="edit_amenagementtour" class="edit-btn btn btn-warning" data-id="<?= $row['id_amengttour'] ?>">Editer</button></a>
+                                            <a href="amenagementtouristique-edit.php?id=<?= $row['id_amengttour'] ?>"><button name="edit_amenagementtour" class="edit-btn btn" style="background-color:rgb(61,131,97,1);" data-id="<?= $row['id_amengttour'] ?>">Editer</button></a>
                                         </td>
                                         <td>
-                                            <button name="delete_amenagementtour" class="delete-btn btn btn-danger" data-id="<?= $row['id_amengttour'] ?>" onclick="return confirm('Etes vous d\'effacer cette ligne?');">Effacer</button>
+                                            <button name="delete_amenagementtour" class="delete-btn btn" style="background-color:rgb(61,131,97,1);" data-id="<?= $row['id_amengttour'] ?>" onclick="return confirm('Etes vous d\'effacer cette ligne?');">Effacer</button>
                                         </td>
                                     </tr>
                                 <?php endforeach; ?>
@@ -155,7 +154,7 @@ json_encode($data);
                                         <td><?= $row['cout_amengt'] ?></td>
                                         <td><?= $row['nom_amenagementtour'] ?></td>
                                         <td>
-                                            <a href="ref_amenagementtouristique-edit.php?id=<?= $row['id_ref_amengt_tour'] ?>"><button name="edit_amenagementtour" class="edit-btn btn btn-warning" data-id="<?= $row['id_ref_amengt_tour'] ?>">Editer</button></a>
+                                            <a href="ref_amenagementtouristique-edit.php?id=<?= $row['id_ref_amengt_tour'] ?>"><button name="edit_amenagementtour" class="edit-btn btn" style="background-color:rgb(61,131,97,1);" data-id="<?= $row['id_ref_amengt_tour'] ?>">Editer</button></a>
                                         </td>
                                         <td>
                                             <!-- Delete form -->
@@ -163,7 +162,7 @@ json_encode($data);
                                                 <!-- Hidden input field to include id_piste -->
                                                 <input type="hidden" name="id_ref_amengt_tour" value="<?= $row['id_ref_amengt_tour'] ?>">
                                                 <!-- Delete button -->
-                                                <button name="delete_amenagementtour" class="delete-btn btn btn-danger" data-id="<?= $row['id_ref_amengt_tour'] ?>" onclick="return confirm('Etes vous d\'effacer cette ligne?');">Effacer</button>
+                                                <button name="delete_amenagementtour" class="delete-btn btn" style="background-color:rgb(61,131,97,1);" data-id="<?= $row['id_ref_amengt_tour'] ?>" onclick="return confirm('Etes vous d\'effacer cette ligne?');">Effacer</button>
                                             </form>
                                         </td>
                                     </tr>

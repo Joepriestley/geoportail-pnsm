@@ -23,10 +23,10 @@ if (isset($_GET['id'])) {
         <div class="row">
             <div class="col-5">
                 <div class="card">
-                    <div class="card-header bg-info text-white">
+                    <div class="card-header text-white" style="background-color:rgb(61,131,97,1);">
                         <b>Les Activites</b>
                     </div>
-                    <div class="card-body bg-dark">
+                    <div class="card-body">
                         <form action="./includes/percheartisanal-edit.inc.php" id="percheartisanalForm" style="background-color: rgb(201, 216, 214);" method="post">
                             <?php if (isset($_GET['message'])) { ?>
                                 <p class="message"><?php echo $_GET['message']; ?></p>
@@ -78,10 +78,8 @@ if (isset($_GET['id'])) {
                                     <textarea name="commentaire" class="form-control" id="commentaire" aria-label="commentaire" placeholder="Entrer un commentaire /description de l'especes"><?= $result->commentaire; ?></textarea>
                                 </div>
                             </div>
-                            <button type="submit" name="update_perche" class="btn btn-primary">Mettre à jour</button>
+                            <button type="submit" name="update_perche" class="btn" style="background-color:rgb(61,131,97,1);">UPDATE</button>
                         </form>
-                        <br>
-                        <a href="#" class="btn btn-primary">Nouveau</a>
                     </div>
                 </div>
             </div>

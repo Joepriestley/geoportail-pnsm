@@ -7,10 +7,10 @@ $pdo = require_once './includes/dbConnect.php';
     <div class="row">
         <div class="col-5">
             <div class="card">
-                <div class="card-header bg-info text-white">
+                <div class="card-header  text-white" style="background-color:rgb(61,131,97,1);">
                     <b> Les Partenaires Du PNSM</b>
                 </div>
-                <div class="card-body bg-dark ">
+                <div class="card-body">
                     <form action="./includes/partenaire.inc.php" id="circuittouristForm" style="background-color: rgb(201, 216, 214);" method="post">
                         <?php if (isset($_GET['message'])) { ?>
                             <p class="message"><?php echo $_GET['message']; ?></p> <?php } ?>
@@ -63,16 +63,14 @@ $pdo = require_once './includes/dbConnect.php';
                             </div>
 
                         </div>
-                        <button type="submit" name="submit" class="btn btn-primary">Inserer</button>
+                        <button type="submit" name="submit" class="btn" style="background-color:rgb(61,131,97,1);">Inserer</button>
                     </form>
-                    <br>
-                    <a href="#" class="btn btn-primary">Nouveau</a>
                 </div>
             </div>
         </div>
         <div class="col-md-7">
             <table class="table table-striped">
-                <thead class="table table-primary">
+                <thead class="table table-success">
                     <tr>
                         <th>Nom Partenaire</th>
                         <th>Nationalite Partenaire</th>
@@ -108,7 +106,7 @@ $pdo = require_once './includes/dbConnect.php';
                             <td><?= $row['datesignpart'] ?></td>
                             <td><?= $row['fax'] ?></td>
                             <td>
-                                <a href="partenaire-edit.php?id=<?= $row['nompartenaire'] ?>"><button name="edit_partenaire" class="edit-btn btn btn-warning" data-id="<?= $row['nompartenaire'] ?>">Editer</button></a>
+                                <a href="partenaire-edit.php?id=<?= $row['nompartenaire'] ?>"><button name="edit_partenaire" class="edit-btn btn text-white" style="background-color:rgb(61,131,97,1);" data-id="<?= $row['nompartenaire'] ?>">Editer</button></a>
                             </td>
                             <td>
 
@@ -117,7 +115,7 @@ $pdo = require_once './includes/dbConnect.php';
                                     <!-- Hidden input field to include nompartenaire -->
                                     <input type="hidden" name="nompartenaire" value="<?= $row['nompartenaire'] ?>">
                                     <!-- Delete button -->
-                                    <button name="delete_partenaire" class="delete-btn btn btn-danger" data-id="<?= $row['nompartenaire'] ?>" onclick="return confirm('Etes vous d\'effacer cette ligne?');">Effacer</button>
+                                    <button name="delete_partenaire" class="delete-btn btn text-white" style="background-color:rgb(61,131,97,1);" data-id="<?= $row['nompartenaire'] ?>" onclick="return confirm('Etes vous d\'effacer cette ligne?');">Effacer</button>
                                 </form>
 
                             </td>

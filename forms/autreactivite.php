@@ -8,7 +8,7 @@ include_once 'header.php';
     <div class="container-fluid mt-4 pt-5">
         <div class="row">
             <div class="col-5">
-                <div class="card bg-dark">
+                <div class="card ">
                     <div class="card-header text-white" style="background-color:rgb(61,131,97,1);">
                         <b>Les Activites</b>
                     </div>

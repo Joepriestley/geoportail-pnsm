@@ -8,10 +8,10 @@ include_once 'header.php';
         <div class="row">
             <div class="col-5">
                 <div class="card">
-                    <div class="card-header bg-info text-white">
+                    <div class="card-header  text-white" style="background-color:rgb(61,131,97,1);">
                       <b>Executeur du Projet</b>
                     </div>
-                    <div class="card-body bg-dark">
+                    <div class="card-body ">
                         <form action="./includes/executeur.inc.php" id="circuittouristForm" style="background-color: rgb(201, 216, 214);" method="post">
                         <?php if (isset($_GET['message']))  { ?>
                                  <p class="message"><?php echo $_GET['message']; ?></p> <?php }?>
@@ -51,10 +51,10 @@ include_once 'header.php';
                                
                                 
                             </div>
-                            <button type="submit" name="submit" class="btn btn-primary">Inserer</button>
+                            <button type="submit" name="submit" class="btn " style="background-color:rgb(61,131,97,1);">Inserer</button>
                         </form>
                         <br>
-                        <a href="#" class="btn btn-primary">Nouveau</a>
+                        
                     </div>
                 </div>
             </div>
@@ -93,10 +93,10 @@ include_once 'header.php';
                                     <td><?= $row['adresse'] ?></td>
                                     <td><?= $row['telephone'] ?></td>
                                     <td>
-                                        <a href="executeur-edit.php?id=<?= $row['numerocin'] ?>"><button name="edit_executeur" class="edit-btn btn btn-warning" data-id="<?= $row['numerocin'] ?>">Editer</button></a>
+                                        <a href="executeur-edit.php?id=<?= $row['numerocin'] ?>"><button name="edit_executeur" class="edit-btn " style="background-color:rgb(61,131,97,1);" data-id="<?= $row['numerocin'] ?>">Editer</button></a>
                                     </td>
                                     <td>
-                                        <button name="delete_executeur" class="delete-btn btn btn-danger" data-id="<?= $row['numerocin'] ?>" onclick="return confirm('Etes vous d\'effacer cette ligne?');">Effacer</button>
+                                        <button name="delete_executeur" class="delete-btn" style="background-color:rgb(61,131,97,1);" data-id="<?= $row['numerocin'] ?>" onclick="return confirm('Etes vous d\'effacer cette ligne?');">Effacer</button>
                                     </td>
                                 </tr>
                         <?php endforeach; ?>

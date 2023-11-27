@@ -10,10 +10,10 @@ $pdo = require_once './includes/dbConnect.php';
         <div class="row">
             <div class="col-5">
                 <div class="card">
-                    <div class="card-header bg-info text-white">
+                    <div class="card-header text-white" style="background-color:rgb(61,131,97,1);">
                         <b>Recensement Sur Les especes Animales</b>
                     </div>
-                    <div class="card-body bg-dark">
+                    <div class="card-body">
                         <form action="./includes/recensement.inc.php" id="actionForm" style="background-color: rgb(201, 216, 214);" method="post">
                             <?php if (isset($_GET["message"])) { ?>
                                 <p class="message"><?php echo $_GET["message"]; ?></p>
@@ -67,10 +67,8 @@ $pdo = require_once './includes/dbConnect.php';
                                 <input name=" id_recensement" type="number" class="form-control" id="id_recensement"" placeholder=" identifiant">
                                 </div>
                             </div>
-                            <button type="submit" name="submit" class="btn btn-primary">Inserer</button>
+                            <button type="submit" name="submit" class="btn" style="background-color:rgb(61,131,97,1);">Inserer</button>
                         </form>
-                        <br>
-                        <a href="#" class="btn btn-primary">Nouveau</a>
                     </div>
                 </div>
             </div>
@@ -117,7 +115,7 @@ $pdo = require_once './includes/dbConnect.php';
                                     $id_faune_suivi = $row['id_faune_suivi'];
                                     $editLink = "recensement-edit.php?espece_animale=$espece_animale&id_faune_suivi=$id_faune_suivi";
                                     ?>
-                                    <a href="<?= $editLink ?>"><button name="edit_recensement" class="edit-btn btn btn-warning">Editer</button></a>
+                                    <a href="<?= $editLink ?>"><button name="edit_recensement" class="edit-btn btn" style="background-color:rgb(61,131,97,1);">Editer</button></a>
                                 </td>
 
 
@@ -128,7 +126,7 @@ $pdo = require_once './includes/dbConnect.php';
                                         <input type="hidden" name="espece_animale" value="<?= $row['espece_animale'] ?>">
                                         <input type="hidden" name="id_faune_suivi" value="<?= $row['id_faune_suivi'] ?>">
                                         <!-- Delete button -->
-                                        <button name="delete_recensement" class="delete-btn btn btn-danger" data-id="<?= $row['espece_animale'] . '_' . $row['id_faune_suivi'] ?>" onclick="return confirm('Etes vous d\'effacer cette ligne?');">Effacer</button>
+                                        <button name="delete_recensement" class="delete-btn btn" style="background-color:rgb(61,131,97,1);" data-id="<?= $row['espece_animale'] . '_' . $row['id_faune_suivi'] ?>" onclick="return confirm('Etes vous d\'effacer cette ligne?');">Effacer</button>
                                     </form>
 
 

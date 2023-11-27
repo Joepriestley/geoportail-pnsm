@@ -9,10 +9,10 @@ include_once 'header.php';
         <div class="row">
             <div class="col-5">
                 <div class="card">
-                    <div class="card-header bg-info text-white">
+                    <div class="card-header  text-white"style="background-color:rgb(61,131,97,1);">
                       <b>Execution du Projet</b>
                     </div>
-                    <div class="card-body bg-dark">
+                    <div class="card-body">
                         <form action="./includes/execution.inc.php" id="circuittouristForm" style="background-color: rgb(201, 216, 214);" method="post">
                         <?php if (isset($_GET['message']))  { ?>
                                  <p class="message"><?php echo $_GET['message']; ?></p> <?php }?>
@@ -36,16 +36,16 @@ include_once 'header.php';
                                
                                 
                             </div>
-                            <button type="submit" name="submit" class="btn btn-primary">Inserer</button>
+                            <button type="submit" name="submit" class="btn" style="background-color:rgb(61,131,97,1);">Inserer</button>
                         </form>
                         <br>
-                        <a href="#" class="btn btn-primary">Nouveau</a>
+                        
                     </div>
                 </div>
             </div>
             <div class="col-md-7">
                 <table class="table table-striped">
-                    <thead class="table-primary">
+                    <thead class="table-success">
                         <tr>
                             <th>Date Utilisee</th>
                             <th>activite </th>
@@ -71,10 +71,10 @@ include_once 'header.php';
                                     <td><?= $row['id_executeur'] ?></td>
                                     <td><?= $row['id_action'] ?></td>
                                     <td>
-                                        <a href="execut-edit.php?id=<?= $row['activite'] ?>"><button name="edit_execut" class="edit-btn btn btn-warning" data-id="<?= $row['activite'] ?>">Editer</button></a>
+                                        <a href="execut-edit.php?id=<?= $row['activite'] ?>"><button name="edit_execut" class="edit-btn" style="background-color:rgb(61,131,97,1);" data-id="<?= $row['activite'] ?>">Editer</button></a>
                                     </td>
                                     <td>
-                                        <button name="delete_execut" class="delete-btn btn btn-danger" data-id="<?= $row['activite'] ?>" onclick="return confirm('Etes vous d\'effacer cette ligne?');">Effacer</button>
+                                        <button name="delete_execut" class="delete-btn"  style="background-color:rgb(61,131,97,1);"data-id="<?= $row['activite'] ?>" onclick="return confirm('Etes vous d\'effacer cette ligne?');">Effacer</button>
                                     </td>
                                 </tr>
                         <?php endforeach; ?>

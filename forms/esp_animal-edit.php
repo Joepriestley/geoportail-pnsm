@@ -15,10 +15,10 @@ include_once 'header.php';
   <div class="row">
     <div class="col-5 ">
       <div class="card">
-        <div class="card-header bg-info text-white">
+        <div class="card-header  text-white" style="background-color:rgb(61,131,97,1);">
           <b>Ajouter une espece animale</b>
         </div>
-        <div class="card-body bg-dark">
+        <div class="card-body ">
           <?php
           if (isset($_GET['id'])) {
             $nomscientifique = $_GET['id'];
@@ -107,7 +107,7 @@ include_once 'header.php';
               <input type="hidden" value="<?= $result->nomscientifique; ?>" name="nomscientifique">
 
             </div>
-            <br><button type="submit" class="btn btn-primary">UPDATE</button> <br><br>
+            <br><button type="submit" class="btn " style="background-color:rgb(61,131,97,1);">UPDATE</button> <br><br>
           </form>
 
         </div>
@@ -143,12 +143,10 @@ include_once 'header.php';
     } catch (PDOException $e) {
       echo "Error: " . $e->getMessage();
     }
-    ?>
+    ?> 
 
     <div class="col-7 bg-gray px-2">
-    <textarea rows="50" cols="500" name="commentaire"  class="form-control" id="commentaire" aria-label="commentaire" placeholder="Ecrivez vos donnees de mises a jour ici pour ne pas faire aller retour
-
-
+    <textarea rows="50" cols="500" name="commentaire"  class="form-control" id="commentaire" aria-label="commentaire" placeholder="Ecrivez vos donnees de mises a jour ici pour ne pas faire aller retour" ></textarea>
 
 
     </div>

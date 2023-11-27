@@ -8,10 +8,10 @@ include_once 'header.php';
         <div class="row">
             <div class="col-5">
                 <div class="card">
-                    <div class="card-header bg-info text-white">
+                    <div class="card-header text-white" style="background-color:rgb(61,131,97,1);">
                       <b>   Le Sol du PNSM</b>
                     </div>
-                    <div class="card-body bg-dark  text-center">
+                    <div class="card-body text-center">
                     <?php
                         if (isset($_GET['id'])) {
                             $sol_id = $_GET['id'];
@@ -70,14 +70,13 @@ include_once 'header.php';
                             <div class="form-row">
                                    
                             </div>
-                            <button type="submit" name="submit" class="btn btn-primary">UPDATE</button>
+                            <button type="submit" name="submit" class="btn" style="background-color:rgb(61,131,97,1);">UPDATE</button>
                         </form>
                         <br>
                         
                         <div>
 
                         </div>
-                        <a href="#" class="btn" btn-primary">Nouveau</a>
                     </div>
 
                 </div>

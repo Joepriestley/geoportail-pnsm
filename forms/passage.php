@@ -8,10 +8,10 @@ include_once 'header.php';
         <div class="row">
             <div class="col-5">
                 <div class="card">
-                    <div class="card-header bg-info text-white">
+                    <div class="card-header text-white" style="background-color:rgb(61,131,97,1);">
                         <b> Le Passage d'circuit</b>
                     </div>
-                    <div class="card-body bg-dark">
+                    <div class="card-body">
                         <form action="./includes/passage.inc.php" id="circuittouristForm"
                             style="background-color: rgb(201, 216, 214);" method="post">
                             <?php if (isset($_GET['message'])) { ?>
@@ -50,14 +50,12 @@ include_once 'header.php';
                             </div>
                             <button type="submit" name="submit" class="btn btn-primary">Inserer</button>
                         </form>
-                        <br>
-                        <a href="#" class="btn btn-primary">Nouveau</a>
                     </div>
                 </div>
             </div>
             <div class="col-md-7">
                 <table class="table table-striped">
-                    <thead class="table-danger">
+                    <thead class="table-success">
                         <tr>
                             <th>Date Passee</th>
                             <th>Duree_Passage</th>
@@ -86,7 +84,7 @@ include_once 'header.php';
                                 <td><?= $row['id_touriste'] ?></td>
                                 <td><?= $row['id_circuittour'] ?></td>
                                 <td>
-                                    <a href="passage-edit.php?id=<?= $row['datepassage'] ?>"><button name="edit_passage" class="edit-btn btn btn-warning" data-id="<?= $row['datepassage'] ?>">Editer</button></a>
+                                    <a href="passage-edit.php?id=<?= $row['datepassage'] ?>"><button name="edit_passage" class="edit-btn btn text-white" style="background-color:rgb(61,131,97,1);" data-id="<?= $row['datepassage'] ?>">Editer</button></a>
                                 </td>
                                 <td>
                                     <!-- Delete form -->
@@ -94,7 +92,7 @@ include_once 'header.php';
                                         <!-- Hidden input field to include datepassage -->
                                         <input type="hidden" name="datepassage" value="<?= $row['datepassage'] ?>">
                                         <!-- Delete button -->
-                                        <button name="delete_passage" class="delete-btn btn btn-danger" data-id="<?= $row['datepassage'] ?>" onclick="return confirm('Etes vous d\'effacer cette ligne?');">Effacer</button>
+                                        <button name="delete_passage" class="delete-btn btn text-white" style="background-color:rgb(61,131,97,1);" data-id="<?= $row['datepassage'] ?>" onclick="return confirm('Etes vous d\'effacer cette ligne?');">Effacer</button>
                                     </form>
                                 </td>
                             </tr>

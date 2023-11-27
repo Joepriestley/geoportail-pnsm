@@ -8,10 +8,10 @@ include_once 'header.php';
         <div class="row">
             <div class="col-5">
                 <div class="card">
-                    <div class="card-header bg-info text-white">
+                    <div class="card-header  text-white" style="background-color:rgb(61,131,97,1);">
                       <b>Circuit Touristique</b>
                     </div>
-                    <div class="card-body bg-dark">
+                    <div class="card-body ">
                         <form action="./includes/circuittourist.inc.php" id="circuittouristForm" style="background-color: rgb(201, 216, 214);" method="post">
                         <?php if (isset($_GET['message'])) 
                         { ?>
@@ -79,10 +79,10 @@ include_once 'header.php';
                                     <textarea name="commentaire" class="form-control" id="commentaire" aria-label="commentaire" placeholder="Entrer un commentaire /description de l'especes"></textarea>
                                 </div>
                             </div>
-                            <button type="submit" name="submit" class="btn btn-primary">Inserer</button>
+                            <button type="submit" name="submit" class="btn" style="background-color:rgb(61,131,97,1);">Inserer</button>
                         </form>
                         <br>
-                        <a href="#" class="btn btn-primary">Nouveau</a>
+                        
                     </div>
                 </div>
             </div>
@@ -124,10 +124,10 @@ include_once 'header.php';
                                     <td><?= $row['id_douar'] ?></td>
                                     <td><?= $row['nomsite'] ?></td>
                                     <td>
-                                        <a href="circuittourist-edit.php?id=<?= $row['nomcircuit'] ?>"><button name="edit_circuit" class="edit-btn btn btn-warning" data-id="<?= $row['nomcircuit'] ?>">Editer</button></a>
+                                        <a href="circuittourist-edit.php?id=<?= $row['nomcircuit'] ?>"><button name="edit_circuit" class="edit-btn btn" style="background-color:rgb(61,131,97,1);" data-id="<?= $row['nomcircuit'] ?>">Editer</button></a>
                                     </td>
                                     <td>
-                                        <button name="delete_circuit" class="delete-btn btn btn-danger" data-id="<?= $row['nomcircuit'] ?>" onclick="return confirm('Etes vous d\'effacer cette ligne?');">Effacer</button>
+                                        <button name="delete_circuit" class="delete-btn btn" style="background-color:rgb(61,131,97,1);" data-id="<?= $row['nomcircuit'] ?>" onclick="return confirm('Etes vous d\'effacer cette ligne?');">Effacer</button>
                                     </td>
                                 </tr>
                         <?php endforeach; ?>

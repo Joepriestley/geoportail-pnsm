@@ -9,10 +9,10 @@ $pdo = require_once './includes/dbConnect.php';
         <div class="row">
             <div class="col-5">
                 <div class="card">
-                    <div class="card-header bg-info text-white">
+                    <div class="card-header text-white" style="background-color:rgb(61,131,97,1);">
                       <b> Les Projets Du PNSM</b>
                     </div>
-                    <div class="card-body bg-dark">
+                    <div class="card-body">
                         <form action="./includes/projet.inc.php" id="circuittouristForm" style="background-color: rgb(201, 216, 214);" method="post">
                         <?php if (isset($_GET['message']))  { ?>
                                  <p class="message"><?php echo $_GET['message']; ?></p> <?php }?>
@@ -60,10 +60,8 @@ $pdo = require_once './includes/dbConnect.php';
                             </div>
                                
                             </div>
-                            <button type="submit" name="submit" class="btn btn-primary">Inserer</button>
-                        </form> 
-                        <br>
-                        <a href="#" class="btn btn-primary">Nouveau</a>
+                            <button type="submit" name="submit" class="btn" style="background-color:rgb(61,131,97,1);">Inserer</button>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -110,7 +108,7 @@ $pdo = require_once './includes/dbConnect.php';
                                 <td><?= $row['commentaire'] ?></td>
                                 <td><?= $row['id_association'] ?></td>
                                 <td>
-                                    <a href="projet-edit.php?id=<?= $row['codeprojet'] ?>"><button name="edit_projet" class="edit-btn btn btn-warning" data-id="<?= $row['codeprojet'] ?>">Editer</button></a>
+                                    <a href="projet-edit.php?id=<?= $row['codeprojet'] ?>"><button name="edit_projet" class="edit-btn btn" style="background-color:rgb(61,131,97,1);" data-id="<?= $row['codeprojet'] ?>">Editer</button></a>
                                 </td>
                                 <td>
 
@@ -119,7 +117,7 @@ $pdo = require_once './includes/dbConnect.php';
                                         <!-- Hidden input field to include codeprojet -->
                                         <input type="hidden" name="codeprojet" value="<?= $row['codeprojet'] ?>">
                                         <!-- Delete button -->
-                                        <button name="delete_projet" class="delete-btn btn btn-danger" data-id="<?= $row['codeprojet'] ?>" onclick="return confirm('Etes vous d\'effacer cette ligne?');">Effacer</button>
+                                        <button name="delete_projet" class="delete-btn btn" style="background-color:rgb(61,131,97,1);" data-id="<?= $row['codeprojet'] ?>" onclick="return confirm('Etes vous d\'effacer cette ligne?');">Effacer</button>
                                     </form>
 
                                 </td>

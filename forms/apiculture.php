@@ -105,7 +105,7 @@ include_once 'header.php';
                             <td><?= $row['douar'] ?></td>
                             <td><?= $row['commentaire'] ?></td>
                             <td>
-                                <a href="apiculture-edit.php?id=<?= $row['codeactivite'] ?>"><button name="edit_apiculture" class="edit-btn btn "  style="background-color:rgb(61,131,97,1);" data-id="<?= $row['codeactivite'] ?>">Editer</button></a>
+                                <a href="apiculture-edit.php?id=<?= $row['codeactivite'] ?>"><button name="edit_apiculture" class="edit-btn btn"  style="background-color:rgb(61,131,97,1);" data-id="<?= $row['codeactivite'] ?>">Editer</button></a>
                             </td>
                             <td>
                                 <!-- Delete form -->

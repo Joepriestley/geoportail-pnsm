@@ -7,10 +7,10 @@ include_once 'header.php';
   <div class="row">
     <div class="col-5 ">
       <div class="card">
-        <div class="card-header bg-info text-white">
+        <div class="card-header  text-white" style="background-color:rgb(61,131,97,1);">
           <b>Ajouter une espece Vegetale</b>
         </div>
-        <div class="card-body bg-dark">
+        <div class="card-body ">
         <?php
           if (isset($_GET['id'])) {
             $nomscientifique = $_GET['id'];
@@ -117,9 +117,9 @@ include_once 'header.php';
               </div>
               <input type="hidden" value="<?= $result->nomscientifique; ?>" name="nomscientifique">
             </div><br>
-            <button type="submit" class="btn btn-primary">UPDATE</button>
+            <button type="submit" class="btn " style="background-color:rgb(61,131,97,1);">UPDATE</button>
           </form><br>
-          <a href="#" class="btn btn-primary">Nouveau</a>
+          
         </div>
       </div>
     </div>

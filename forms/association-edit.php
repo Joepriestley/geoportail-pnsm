@@ -7,10 +7,10 @@ include_once 'header.php';
     <div class="row">
         <div class="col-5">
             <div class="card">
-                <div class="card-header bg-info text-white">
+                <div class="card-header text-white" style="background-color:rgb(61,131,97,1);">
                     <b>Les Associaions</b>
                 </div>
-                <div class="card-body bg-dark">
+                <div class="card-body">
 
                 <?php
                         if (isset($_GET['id'])) {
@@ -76,10 +76,9 @@ include_once 'header.php';
                                 <input type="hidden" value="<?=$result->nomassociation; ?>"  name="nomassociation" >
                             </div>
                         </div>
-                        <button type="submit" name="submit" class="btn btn-primary">UPDATE</button>
+                        <button type="submit" name="submit" class="btn" style="background-color:rgb(61,131,97,1);">UPDATE</button>
                     </form>
-                    <br>
-                    <a href="#" class="btn btn-primary">Nouveau</a>
+                    
                 </div>
             </div>
         </div>
