@@ -64,12 +64,12 @@ json_encode($data);
 
 
 
-            <div class="col-md-7">
+            <div class="col-md-12">
                 <nav>
                     <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                        <button class="nav-item nav-link active btn btn-success" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Voir Table Piste</button>
-                        <button class="nav-item nav-link btn btn-success" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="true">Voir Refection Table Piste</button>
-                        <a href="amenagement.php"><button class="btn btn-secondary">Saisir des Donnees de Piste</button></a>
+                        <button class="nav-item nav-link active btn text-white" style="background-color:rgb(61,131,97,0.7);" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Voir Table Piste</button>
+                        <button class="nav-item nav-link btn text-white" style="background-color:rgb(61,131,97,0.7);" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="true">Voir Refection Table Piste</button>
+                        <a href="amenagement.php"><button class="btn text-white" style="background-color:rgb(61,131,97,0.7);">Saisir des Donnees de Piste</button></a>
                     </div>
                 </nav>
                 <div class="tab-content" id="nav-tabContent">

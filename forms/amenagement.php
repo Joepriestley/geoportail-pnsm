@@ -51,7 +51,7 @@ include_once 'header.php';
                         </div>
                         <div class="form-row">
                         </div>
-                        <button type="submit" name="submit" class="btn" style="background-color:rgb(61,131,97,1);">Inserer</button>
+                        <button type="submit" name="submit" class="btn text-white" style="background-color:rgb(61,131,97,1);">Inserer</button>
                         
                     </form>
                    

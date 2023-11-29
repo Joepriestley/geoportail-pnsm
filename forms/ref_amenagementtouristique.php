@@ -7,7 +7,7 @@ $stmt = $pdo->query($query);
 $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
 json_encode($data);
 ?>
-<div class="container-fluid mt-4 pt-5">
+<div class="container-fluid pt-5" style="margin-top: 50px;">
     <div class="row">
         <div class="col-5">
             <div class="card">
@@ -54,7 +54,7 @@ json_encode($data);
 
                         </div>
 
-                        <button type="submit" name="submit" class="btn" style="background-color:rgb(61,131,97,1);">Inserer</button>
+                        <button type="submit" name="submit" class="btn text-white" style="background-color:rgb(61,131,97,1);">Inserer</button>
                     </form>
                     
                 </div>
@@ -63,13 +63,14 @@ json_encode($data);
         <div class="col-md-7">
 
 
-            <div class="col-md-7">
+            <div class="col-md-12" style="margin-top: 30px;">
+           
                 <nav>
                     <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                        <button class="nav-item nav-link active btn" style="background-color:rgb(61,131,97,1);" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true" title="Table Amenagement Touristique"> Amen.Tour.</button>
-                        <button class="nav-item nav-link  btn" style="background-color:rgb(61,131,97,1);" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="true" title="Table de Refection Amenagement Touristique">Refection Amen.Tour.</button>
+                        <button class="nav-item nav-link active btn text-white" style="background-color:rgb(61,131,97,0.7);" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true" title="Table Amenagement Touristique"> Amen.Tour.</button>
+                        <button class="nav-item nav-link  btn text-white" style="background-color:rgb(61,131,97,0.7);" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="true" title="Table de Refection Amenagement Touristique">Refection Amen.Tour.</button>
 
-                        <a href="amenagement.php"><button class="nav-item nav-link  btn" style="background-color:rgb(61,131,97,1);" id="nav-profile-tab" href="#nav-profile" title="Aller au formuliare de saisir de donnees amenagement touristique">Saisir Donnees de Amen.Touristique</button></a>
+                        <a href="amenagement.php"><button class="nav-item nav-link  btn  text-white" style="background-color:rgb(61,131,97,0.7);" id="nav-profile-tab" href="#nav-profile" title="Aller au formuliare de saisir de donnees amenagement touristique">Saisir Donnees de Amen.Touristique</button></a>
                     </div>
                 </nav>
                 <div class="tab-content" id="nav-tabContent">
@@ -173,7 +174,6 @@ json_encode($data);
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
 </div>

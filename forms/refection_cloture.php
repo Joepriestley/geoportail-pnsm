@@ -63,7 +63,7 @@
                             </div>
 
 
-                            <button type="submit" name="submit" class="btn" style="background-color:rgb(61,131,97,1);">Inserer</button>
+                            <button type="submit" name="submit" class="btn text-white" style="background-color:rgb(61,131,97,1);">Inserer</button>
                         </form>
                         <br>
                         
@@ -75,9 +75,9 @@
             <div class="col-md-7">
                 <nav>
                     <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                        <button class="nav-item nav-link active " id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Voir Table Refection Cloture</button>
-                        <button class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="true">Voir Table Cloture</button>
-                        <a href="amenagement.php"><button class="btn btn-secondary">Saisir des Donnees de Cloture</button></a>
+                        <button class="nav-item nav-link active " id="nav-home-tab" style="background-color:rgb(61,131,97,0.7);" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Voir Table Refection Cloture</button>
+                        <button class="nav-item nav-link" id="nav-profile-tab" style="background-color:rgb(61,131,97,0.7);" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="true">Voir Table Cloture</button>
+                        <a href="amenagement.php"><button class="btn btn-secondary" style="background-color:rgb(61,131,97,0.7);">Saisir des Donnees de Cloture</button></a>
                     </div>
                 </nav>
                 <div class="tab-content" id="nav-tabContent">
