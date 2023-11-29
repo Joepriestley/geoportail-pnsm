@@ -372,10 +372,10 @@ include_once 'header.php';
 
         </div>
         <h4>Les villages situés dans le PNSM</h4>
-        <p>Le territoire du PNSM est habité par une population de plus de 4 000 habitants,
+        <!-- <p>Le territoire du PNSM est habité par une population de plus de 4 000 habitants,
             répartis sur 8 douars : Tifnit, Douira, Sidi Rbat, Sidi Binzarne, Sidi Wassay,
             Sidi Boulfdail, Ouled et Timzlit, se répartissant le long de la côte du parc sous forme de groupe d'habitations .
-        </p> Ces communautés locales se sont enrichies, au cours de l'histoire, des influences de civilisations et de cultures diverses.
+        </p> Ces communautés locales se sont enrichies, au cours de l'histoire, des influences de civilisations et de cultures diverses. -->
         <p>
             Cette pluralité a donné lieu à une diversification patrimoniale significative qui reflète une profondeur historique conjuguée à un contraste géographique et a modelé au cours des temps immémoriaux des formes divergentes d'adaptation des populations humaines.
             En plus des savoir-faire, des traditions, des connaissances et des modes de vie qui se regroupent généralement dans la catégorie du patrimoine culturel
