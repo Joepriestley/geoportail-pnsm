@@ -8,7 +8,7 @@ $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
 json_encode($data);
 
 ?>
-<div class="container-fluid mt-4 pt-5">
+<div class="container-fluid  pt-5" style="margin-top: 70px;">
     <div class="row">
         <div class="col-5">
             <div class="card">
@@ -55,7 +55,7 @@ json_encode($data);
                             <input name="executeur" type="text" class="form-control" id="executeur" placeholder="executeur">
                         </div>
 
-                        <button type="submit" name="submit" class="btn" style="background-color:rgb(61,131,97,1);" href="#nav-profile">Inserer</button>
+                       <br><br> <button type="submit" name="submit" class="btn" style="background-color:rgb(61,131,97,1);" href="#nav-profile">Inserer</button>
                     </form>
                 </div>
             </div>

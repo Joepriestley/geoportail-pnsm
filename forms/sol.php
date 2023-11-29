@@ -7,7 +7,7 @@ include_once 'header.php';
 ?>
 
 <body>
-    <div class="container-fluid mt-4 pt-5">
+    <div class="container-fluid  pt-5" style="margin-top: 50px;">
         <div class="row">
             <div class="col-5">
                 <div class="card">
@@ -55,7 +55,7 @@ include_once 'header.php';
             </div>
             <div class="col-md-7">
                 <table class="table table-striped">
-                    <thead class="table-danger">
+                    <thead class="table-success">
                         <tr>
                             <th>codemunsell</th>
                             <th>nomsol </th>

@@ -4,7 +4,7 @@ $pdo = require_once './includes/dbConnect.php';
 
 ?>
 
-    <div class="container-fluid mt-4 pt-5">
+    <div class="container-fluid pt-5" style="margin-top: 85px;">
         <div class="row">
             <div class="col-5">
                 <div class="card">

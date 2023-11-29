@@ -3,7 +3,7 @@ include_once 'header.php';
 $pdo = require_once './includes/dbConnect.php';
 ?>
 <body>
-    <div class="container-fluid mt-4 pt-5">
+    <div class="container-fluid  pt-5" style="margin-top: 100px;">
         <div class="row">
             <div class="col-5">
                 <div class="card">
@@ -34,7 +34,7 @@ $pdo = require_once './includes/dbConnect.php';
                                     <input type="number" class="form-control" name="id_sitetouristique" id="id_sitetouristique" placeholder="id_sitetouristique">
                                 </div>
                                 
-                                <div class="form-group col-md-6">
+                                <div class="form-group col-md-12">
                                     <label for="id_touriste">Id_Touriste</label>
                                     <input type="text" class="form-control" id="id_touriste"  name="id_touriste" placeholder="visiteengroupe_Partenaire">
                                 </div>
@@ -42,15 +42,16 @@ $pdo = require_once './includes/dbConnect.php';
                             </div>
                             <div class="form-row">
                                  
-                            </div>
+                            <br><br></div>
                             <button type="submit" name="submit" class="btn" style="background-color:rgb(61,131,97,1);">Inserer</button>
                         </form>
                     </div>
+                    
                 </div>
             </div>
             <div class="col-md-7">
                 <table class="table table-striped">
-                    <thead class="table-primary">
+                    <thead class="table-success">
                         <tr>
                             <th>Date_Viste</th>
                             <th>Duree</th>
