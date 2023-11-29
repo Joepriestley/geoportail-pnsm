@@ -12,30 +12,30 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     $codeamenagement = validate($_POST['codeamenagement']);
-    $coutamenagement = validate($_POST['coutamenagement']);
+    // $coutamenagement = validate($_POST['coutamenagement']);
     $element_amenage = validate($_POST['element_amenage']);
     $commentaire = validate($_POST['commentaire']);
 
     // Perform server-side validation
-    if (empty($codeamenagement) || empty($coutamenagement) || empty($commentaire)) {
+    if (empty($commentaire)) {
         echo "Please fill in all fields.";
     } else {
         try {
             $query = "UPDATE amenagement  
-            SET coutamenagement = :coutamenagement,
+            SET codeamenagement = :codeamenagement,
                 element_amenage = :element_amenage,
-                commentaire = :commentaire,
+                commentaire = :commentaire
                
-            WHERE codeamenagement = :idToUpdate"; // Change 'id' to the actual primary key field name of your table
+            WHERE codeamenagement = :codeamenagement"; // Change 'id' to the actual primary key field name of your table
             
             $stmt = $pdo->prepare($query);
             
             if ($stmt) {
                 // Bind parameters including the ID of the record to update
                 $params = [
-                    ':coutamenagement' => $coutamenagement,
+                    'element_amenage' => $element_amenage,
                     ':commentaire' => $commentaire,
-                    ':idToUpdate' => $codeamenagement // Replace with the actual ID you want to update
+                    ':codeamenagement' => $codeamenagement // Replace with the actual ID you want to update
                 ];
                 
                 $result = $stmt->execute($params);
