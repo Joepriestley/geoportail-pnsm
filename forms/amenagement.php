@@ -71,7 +71,6 @@ include_once 'header.php';
                     <tr>
                         <th>Code_Amenagement</th>
                         <th> Element Amenagement</th>
-                        <th>Type</th>
                         <th>Commentaire</th>
                         <th>Editer</th>
                         <th>Effacer</th>
@@ -92,7 +91,6 @@ include_once 'header.php';
                         <tr>
                             <td><?= $row['codeamenagement'] ?></td>
                             <td><?= $row['element_amenage'] ?></td>
-                            <td><?= $row['type'] ?></td>
                             <td><?= $row['commentaire'] ?></td>
                             <td>
                                 <a href="amenagement-edit.php?id=<?= $row['codeamenagement'] ?>"><button name="edit_amenagement" class="edit-btn btn" style="background-color:rgb(61,131,97,1);">Editer</button></a>

@@ -10,7 +10,7 @@ json_encode($data);
 
 
 
-<div class="container-fluid pt-5" style="margin-top: 90px;">
+<div class="container-fluid pt-5" style="margin-top:90px;">
     <div class="row">
         <div class="col-5">
             <div class="card">
@@ -70,10 +70,10 @@ json_encode($data);
         <div class="col-md-7">
             <nav>
                 <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                    <button class="nav-item nav-link active btn btn-success" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Table Point Eau</button>
-                    <button class="nav-item nav-link  btn btn-success" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="true">Table Refection Point Eau</button>
+                    <button class="nav-item nav-link active btn btn-success text-white" style="background-color:rgb(61,131,97,0.7);" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Table Point Eau</button>
+                    <button class="nav-item nav-link  btn btn-success text-white" style="background-color:rgb(61,131,97,0.7);" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="true">Table Refection Point Eau</button>
 
-                    <a href="amenagement.php"><button class="nav-item nav-link  btn btn-secondary" id="nav-profile-tab" href="#nav-profile">Saisir Donnees de Point Eau</button></a>
+                    <a href="amenagement.php"><button class="nav-item nav-link  btn btn-secondary text-white" style="background-color:rgb(61,131,97,0.7);" id="nav-profile-tab" href="#nav-profile">Saisir Donnees de Point Eau</button></a>
                 </div>
             </nav>
             <div class="tab-content" id="nav-tabContent">
