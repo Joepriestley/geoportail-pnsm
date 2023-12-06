@@ -31,11 +31,11 @@ $pdo = require_once './includes/dbConnect.php';
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="telephone">Tel_Partenaire </label>
-                                <input type="tel" class="form-control" name="telephone" id="telephone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="123-456-7890">
+                                <input type="tel" class="form-control" name="telephone" id="telephone"  placeholder="123-456-7890">
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="fax">Fax_Partenaire </label>
-                                <input type="tel" class="form-control" id="fax" name="fax" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="123-456-7890">
+                                <input type="tel" class="form-control" id="fax" name="fax" placeholder="123-456-7890">
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="datesignpart">Date_Signature_Partenariat</label>

@@ -133,7 +133,7 @@ var province  = L.tileLayer.wms("http://localhost:8080/geoserver/PNSM_geoportal/
     attribution: "@geoserver"
 })
 var secteurFor = L.tileLayer.wms("http://localhost:8080/geoserver/PNSM_geoportal/wms", {
-    layers: 'PNSM_geoportal:secteur_For',
+    layers: 'PNSM_geoportal:Secteur_forest',
     format: 'image/png',
     transparent:true,
     attribution: "@geoserver"
@@ -141,7 +141,7 @@ var secteurFor = L.tileLayer.wms("http://localhost:8080/geoserver/PNSM_geoportal
 
 
 var LimtePNSM = L.tileLayer.wms("http://localhost:8080/geoserver/PNSM_geoportal/wms", {
-    layers: 'PNSM_geoportal:pnsmlimites',
+    layers: 'PNSM_geoportal:parcLimites',
     format: 'image/png',
     transparent:true,
     attribution: "@geoserver"

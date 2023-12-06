@@ -4,7 +4,7 @@ include_once 'header.php';
 ?>
 
 <body>
-    <div class="container-fluid mt-4 pt-5">
+    <div class="container-fluid pt-5" style="margin-top: 100px;">
         <div class="row">
             <div class="col-5">
                 <div class="card">
@@ -12,13 +12,13 @@ include_once 'header.php';
                         <b> Le Passage d'circuit</b>
                     </div>
                     <div class="card-body">
-                        <form action="./includes/passage.inc.php" id="circuittouristForm"
+                       <br> <form action="./includes/passage.inc.php" id="circuittouristForm"
                             style="background-color: rgb(201, 216, 214);" method="post">
                             <?php if (isset($_GET['message'])) { ?>
                             <p class="message"><?php echo $_GET['message']; ?></p> <?php } ?>
                             <div class="form-row">
-                                <span class="form-control text-center bg-dark text-white"><b> Le Passage de Circuit</b></span>
-                                <div class="form-group col-md-6">
+                               <br><br> <span class="form-control text-center bg-dark text-white"><b> Le Passage de Circuit</b></span>
+                               <br><br> <div class="form-group col-md-6">
                                     <label for="datepassage">Date Passee</label>
                                     <input type="date" name="datepassage" class="form-control" id="datepassage"
                                         placeholder="datepassage">
@@ -37,7 +37,7 @@ include_once 'header.php';
                                     <input type="text" class="form-control" name="id_touriste" id="id_touriste"
                                         placeholder="id_touriste">
                                 </div>
-                                <div class="form-group col-md-6">
+                                <div class="form-group col-md-12">
                                     <label for="en_groupe">En_groupe</label>
                                     <select name="en_groupe" id="en_groupe" class="form-control">
                                         <option value="">En groupe ?</option>
@@ -48,7 +48,7 @@ include_once 'header.php';
                             </div>
                             <div class="form-row">
                             </div>
-                            <button type="submit" name="submit" class="btn btn-primary">Inserer</button>
+                           <br><br> <button type="submit" name="submit" class="btn text-white" style="background-color:rgb(61,131,97,1);">Inserer</button>
                         </form>
                     </div>
                 </div>

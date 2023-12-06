@@ -16,11 +16,11 @@ include_once 'header.php';
                             <p class="message"><?php echo $_GET['message']; ?></p> <?php } ?>
                         <div class="form-row">
                             <span class="form-control text-center bg-dark text-white"><b>Agriculture</b></span>
-                            <div class="form-group col-md-6">
+                            <!-- <div class="form-group col-md-6">
                                 <label for="codeactivite">code Activite</label>
                                 <input name="codeactivite" type="text" class="form-control" id="codeactivite" placeholder="code Activite">
-                            </div>
-                            <div class="form-group col-md-6">
+                            </div> -->
+                            <div class="form-group col-md-12">
                                 <label for="annee">Annee Activite </label>
                                 <input type="month" class="form-control" id="annee" name="annee" min="2018-07" value="2018-07" placeholder="annee d'activite">
                             </div>

@@ -53,10 +53,9 @@ include_once 'header.php';
                                     <textarea name="commentaire" class="form-control" id="commentaire" aria-label="commentaire" placeholder="Entrer un commentaire /description de l'especes"></textarea>
                                 </div>
                             </div>
-                            <button type="submit" name="submit" class="btn btn-primary">Inserer</button>
+                            <br><br><button type="submit" name="submit" class="btn text-white" style="background-color:rgb(61,131,97,1);">Inserer</button>
                         </form>
-                        <br>
-                        <a href="#" class="btn btn-primary">Nouveau</a>
+                        
                     </div>
                 </div>
             </div>

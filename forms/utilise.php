@@ -4,7 +4,7 @@ $pdo = require_once './includes/dbConnect.php';
 
 ?>
 <body>
-    <div class="container-fluid mt-4 pt-5">
+    <div class="container-fluid pt-5" style="margin-top: 90px;">
         <div class="row">
             <div class="col-5">
                 <div class="card">
@@ -17,8 +17,8 @@ $pdo = require_once './includes/dbConnect.php';
                         { ?>
                                  <p class="message"><?php echo $_GET['message']; ?></p> <?php }?>
                             <div class="form-row">
-                                <span class="form-control text-center bg-dark text-white"><b>Utilisation</b></span>
-                                <div class="form-group col-md-6">
+                               <br><br> <span class="form-control text-center bg-dark text-white"><b>Utilisation</b></span>
+                               <br><br> <div class="form-group col-md-6">
                                     <label for="dateutilisation">Date Utilisee</label>
                                     <input type="date" name="dateutilisation" class="form-control" id="dateutilisation" placeholder="dateutilisation">
                                 </div>
@@ -44,10 +44,9 @@ $pdo = require_once './includes/dbConnect.php';
                                
                                 
                             </div>
-                            <button type="submit" name="submit" class="btn btn-primary">Inserer</button>
+                            <br><br><button type="submit" name="submit" class="btn text white" style="background-color:rgb(61,131,97,1);">Inserer</button>
                         </form>
-                        <br>
-                        <a href="#" class="btn btn-primary">Nouveau</a>
+
                     </div>
                 </div>
             </div>

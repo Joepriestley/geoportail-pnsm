@@ -48,7 +48,7 @@ include_once 'header.php';
                             <div class="form-row">
 
                             </div>
-                            <button type="submit" name="submit" class="btn" style="background-color:rgb(61,131,97,1);">Inserer</button>
+                            <button type="submit" name="submit" class="btn text-white" style="background-color:rgb(61,131,97,1);">Inserer</button>
                         </form>
                     </div>
                 </div>
@@ -87,7 +87,7 @@ include_once 'header.php';
                                 <td><?= $row['classe'] ?></td>
                                 <td><?= $row['sousclasse'] ?></td>
                                 <td>
-                                    <a href="sol-edit.php?id=<?= $row['codemunsell'] ?>"><button name="edit_sol" class="edit-btn btn btn-warning" data-id="<?= $row['codemunsell'] ?>">Editer</button></a>
+                                    <a href="sol-edit.php?id=<?= $row['codemunsell'] ?>"><button name="edit_sol" class="edit-btn btn text-white" style="background-color:rgb(61,131,97,1);" data-id="<?= $row['codemunsell'] ?>">Editer</button></a>
                                 </td>
                                 <td>
 
@@ -96,7 +96,7 @@ include_once 'header.php';
                                         <!-- Hidden input field to include codemunsell -->
                                         <input type="hidden" name="codemunsell" value="<?= $row['codemunsell'] ?>">
                                         <!-- Delete button -->
-                                        <button name="delete_sol" class="delete-btn btn btn-danger" data-id="<?= $row['codemunsell'] ?>" onclick="return confirm('Etes vous d\'effacer cette ligne?');">Effacer</button>
+                                        <button name="delete_sol" class="delete-btn text-white" style="background-color:rgb(61,131,97,1);" data-id="<?= $row['codemunsell'] ?>" onclick="return confirm('Etes vous d\'effacer cette ligne?');">Effacer</button>
                                     </form>
 
                                 </td>

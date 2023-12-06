@@ -3,14 +3,14 @@ $pdo = require_once './includes/dbConnect.php';
 include_once 'header.php';
 
 ?>
-<div class="container-fluid mt-4 pt-5">
+<div class="container-fluid pt-5" style="margin-top: 50px;">
     <div class="row">
         <div class="col-5">
             <div class="card">
                 <div class="card-header text-white" style="background-color:rgb(61,131,97,1);">
                     <b>Les Activites</b>
                 </div>
-                <div class="card-body bg-dark">
+                <div class="card-body ">
                     <form action="./includes/apiculture.inc.php" id="circuittouristForm" style="background-color: rgb(201, 216, 214);" method="post">
                         <?php if (isset($_GET['message'])) { ?>
                             <p class="message"><?php echo $_GET['message']; ?></p> <?php } ?>
@@ -62,7 +62,7 @@ include_once 'header.php';
                                 <textarea name="commentaire" class="form-control" id="commentaire" aria-label="commentaire" placeholder="Entrer un commentaire /description de l'especes"></textarea>
                             </div>
                         </div>
-                        <button type="submit" name="submit" style="background-color:rgb(61,131,97,1);">Inserer</button>
+                        <button type="submit" name="submit" class="btn text-white" style="background-color:rgb(61,131,97,1);">Inserer</button>
                     </form>
                     <br>
                     
@@ -113,7 +113,7 @@ include_once 'header.php';
                                     <!-- Hidden input field to include codeactivite -->
                                     <input type="hidden" name="codeactivite" value="<?= $row['codeactivite'] ?>">
                                     <!-- Delete button -->
-                                    <button name="delete_apiculture" class="delete-btn " style="background-color:rgb(61,131,97,1);" onclick="return confirm('Etes vous d\'effacer cette ligne?');">Effacer</button>
+                                    <button name="delete_apiculture" class="delete-btn text-white" style="background-color:rgb(61,131,97,1);" onclick="return confirm('Etes vous d\'effacer cette ligne?');">Effacer</button>
                                 </form>
 
                             </td>

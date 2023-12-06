@@ -67,7 +67,7 @@ $pdo = require_once './includes/dbConnect.php';
             </div>
             <div class="col-md-7">
                 <table class="table table-striped">
-                    <thead class="table-primary">
+                    <thead class="table-success">
                         <tr>
                             <th>Code Projet</th>
                             <th>Projet</th>
